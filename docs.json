@@ -17,7 +17,8 @@
             "group": "Getting Started",
             "pages": [
               "htflow/introduction",
-              "htflow/installation",
+              "htflow/vscode-extension",
+              "htflow/cursor-extension",
               "htflow/quick-start",
               "htflow/requirements"
             ]

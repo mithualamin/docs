@@ -1,0 +1,490 @@
+---
+title: "VS Code Extension"
+description: "Install and use HTFlow extension in Visual Studio Code"
+icon: "code"
+---
+
+## Overview
+
+The HTFlow VS Code extension provides a visual interface for all HTFlow CLI commands, making it easy to manage HTFlow projects without touching the terminal.
+
+<Info>
+Works with both **Visual Studio Code** and compatible forks
+</Info>
+
+## Prerequisites
+
+Before installing the HTFlow extension:
+
+<CardGroup cols={2}>
+  <Card title="VS Code 1.99.0+" icon="window">
+    Download from [code.visualstudio.com](https://code.visualstudio.com/)
+  </Card>
+  <Card title="Node.js 16+" icon="node-js">
+    Required for HTFlow CLI
+    
+    Download from [nodejs.org](https://nodejs.org/)
+  </Card>
+</CardGroup>
+
+## Installation
+
+<Steps>
+  <Step title="Open VS Code">
+    Launch Visual Studio Code on your computer
+  </Step>
+  
+  <Step title="Open Extensions Panel">
+    Press `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (Mac)
+    
+    <Tip>You can also click the Extensions icon in the Activity Bar</Tip>
+  </Step>
+  
+  <Step title="Search for HTFlow">
+    In the search bar, type **"Htflow Html to Webflow"**
+    
+    <Frame>
+      <img src="/images/checks-passed.png" alt="HTFlow Extension" />
+    </Frame>
+  </Step>
+  
+  <Step title="Install Extension">
+    Click the **Install** button next to the HTFlow extension
+  </Step>
+  
+  <Step title="Reload VS Code">
+    Reload VS Code to activate the extension
+    
+    <Check>HTFlow icon should appear in the Activity Bar</Check>
+  </Step>
+</Steps>
+
+## Install HTFlow CLI
+
+After installing the extension, install the HTFlow CLI:
+
+<Tabs>
+  <Tab title="Via Extension (Recommended)">
+    <Steps>
+      <Step title="Open HTFlow Panel">
+        Click the HTFlow icon in Activity Bar or press `Ctrl+Shift+H` / `Cmd+Shift+H`
+      </Step>
+      
+      <Step title="Click Install CLI">
+        In the HTFlow panel, click **"Install HTFlow CLI"** button
+      </Step>
+      
+      <Step title="Wait for Installation">
+        Monitor progress in the Output panel (typically 1-2 minutes)
+        
+        <Check>Success message appears when complete</Check>
+      </Step>
+    </Steps>
+  </Tab>
+  
+  <Tab title="Via Terminal">
+    ```bash
+    npm install -g htflow-cli
+    ```
+    
+    Verify installation:
+    ```bash
+    htflow version
+    ```
+  </Tab>
+</Tabs>
+
+## Extension Features
+
+<CardGroup cols={2}>
+  <Card title="Visual Command Interface" icon="window">
+    Run all HTFlow commands through buttons - no terminal needed
+  </Card>
+  <Card title="Project Dashboard" icon="chart-line">
+    Monitor project health and status at a glance
+  </Card>
+  <Card title="Running Servers" icon="server">
+    Track all active development servers
+  </Card>
+  <Card title="Smart Port Management" icon="network-wired">
+    Automatic port detection and assignment
+  </Card>
+  <Card title="Real-time Validation" icon="shield-check">
+    Instant code compliance checking
+  </Card>
+  <Card title="Build Status" icon="hammer">
+    Monitor build progress and results
+  </Card>
+</CardGroup>
+
+## Using the Extension
+
+### Open HTFlow Panel
+
+<Tabs>
+  <Tab title="Keyboard Shortcut">
+    Press `Ctrl+Shift+H` (Windows/Linux) or `Cmd+Shift+H` (Mac)
+  </Tab>
+  
+  <Tab title="Activity Bar">
+    Click the HTFlow icon in the Activity Bar (left sidebar)
+  </Tab>
+  
+  <Tab title="Command Palette">
+    1. Press `Ctrl+Shift+P` / `Cmd+Shift+P`
+    2. Type "HTFlow"
+    3. Select "HTFlow: Open Panel"
+  </Tab>
+</Tabs>
+
+### HTFlow Panel Overview
+
+The HTFlow panel is organized into sections:
+
+<AccordionGroup>
+  <Accordion title="Package Management" icon="box">
+    **Available Commands:**
+    - Install HTFlow CLI
+    - Update HTFlow CLI
+    - Uninstall HTFlow CLI
+    - Show Version
+    
+    ```text Quick Access
+    One-click CLI management without terminal
+    ```
+  </Accordion>
+  
+  <Accordion title="Project Management" icon="folder">
+    **Available Commands:**
+    - Initialize Project
+    - Open Project Settings
+    
+    ```text Project Setup
+    Create new HTFlow projects with templates
+    ```
+  </Accordion>
+  
+  <Accordion title="Development" icon="code">
+    **Available Commands:**
+    - Start Development Server
+    - Stop Server
+    - Restart Server
+    
+    ```text Live Development
+    Hot reloading and automatic port management
+    ```
+    
+    **Running Servers Display:**
+    - Server URL
+    - Port number
+    - Uptime
+    - Stop button
+  </Accordion>
+  
+  <Accordion title="Validation & Audit" icon="magnifying-glass">
+    **Available Commands:**
+    - Validate Project
+    - Audit Project
+    - Audit HTML
+    
+    ```text Quality Assurance
+    Ensure Webflow compatibility
+    ```
+  </Accordion>
+  
+  <Accordion title="Build" icon="hammer">
+    **Available Commands:**
+    - Build Project
+    - Build (Development Mode)
+    - Clean Build
+    
+    ```text Production Ready
+    Optimized builds for Webflow deployment
+    ```
+  </Accordion>
+  
+  <Accordion title="MCP Integration" icon="plug">
+    **Available Commands:**
+    - Install MCP
+    - Uninstall MCP
+    - Configure MCP
+    
+    ```text AI Integration
+    Connect AI assistants to HTFlow
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Extension Settings
+
+Customize the extension behavior:
+
+<Tabs>
+  <Tab title="Access Settings">
+    1. Open VS Code Settings (`Ctrl+,` / `Cmd+,`)
+    2. Search for "HTFlow"
+    3. Configure options
+  </Tab>
+  
+  <Tab title="Available Settings">
+    ```json settings.json
+    {
+      // Extension Settings
+      "htflow.autoInstallCLI": true,
+      "htflow.showWelcome": true,
+      "htflow.checkUpdates": true,
+      
+      // Panel Settings
+      "htflow.panel.position": "right",
+      "htflow.panel.showStatusBar": true,
+      
+      // Development Server
+      "htflow.dev.autoStart": false,
+      "htflow.dev.defaultPort": 3000,
+      "htflow.dev.openBrowser": true,
+      
+      // Validation
+      "htflow.validation.validateOnSave": true,
+      "htflow.validation.showInlineErrors": true,
+      
+      // Build
+      "htflow.build.showNotifications": true,
+      "htflow.build.autoClean": false,
+      
+      // Terminal
+      "htflow.terminal.showOutput": true,
+      "htflow.terminal.clearBeforeCommand": false
+    }
+    ```
+  </Tab>
+</Tabs>
+
+## Keyboard Shortcuts
+
+| Action | Windows/Linux | Mac |
+|--------|--------------|-----|
+| Open HTFlow Panel | `Ctrl+Shift+H` | `Cmd+Shift+H` |
+| Start Dev Server | `Ctrl+Shift+Alt+D` | `Cmd+Shift+Alt+D` |
+| Validate Project | `Ctrl+Shift+Alt+V` | `Cmd+Shift+Alt+V` |
+| Build Project | `Ctrl+Shift+Alt+B` | `Cmd+Shift+Alt+B` |
+
+<Tip>
+Customize shortcuts in VS Code: **File → Preferences → Keyboard Shortcuts**
+</Tip>
+
+## Output Panel
+
+Monitor HTFlow operations in the Output panel:
+
+<Steps>
+  <Step title="Open Output Panel">
+    View → Output or `Ctrl+Shift+U` / `Cmd+Shift+U`
+  </Step>
+  
+  <Step title="Select HTFlow Channel">
+    In the dropdown, select **"HTFlow"**
+  </Step>
+  
+  <Step title="View Logs">
+    See real-time logs of all HTFlow operations:
+    - Command execution
+    - Server status
+    - Build progress
+    - Validation results
+  </Step>
+</Steps>
+
+## Status Bar
+
+HTFlow adds status information to VS Code status bar:
+
+```text Status Bar Items
+HTFlow: Ready          - Extension is active
+Dev Server: Running    - Development server status
+Port: 3000            - Current server port
+✓ Validated           - Last validation status
+```
+
+## Extension Commands
+
+Access all commands via Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`):
+
+<Tabs>
+  <Tab title="Package Commands">
+    ```text
+    HTFlow: Install CLI
+    HTFlow: Update CLI
+    HTFlow: Uninstall CLI
+    HTFlow: Show Version
+    ```
+  </Tab>
+  
+  <Tab title="Project Commands">
+    ```text
+    HTFlow: Initialize Project
+    HTFlow: Open Configuration
+    HTFlow: Validate Project
+    HTFlow: Audit Project
+    ```
+  </Tab>
+  
+  <Tab title="Development Commands">
+    ```text
+    HTFlow: Start Dev Server
+    HTFlow: Stop Dev Server
+    HTFlow: Restart Dev Server
+    HTFlow: Build Project
+    ```
+  </Tab>
+  
+  <Tab title="Utility Commands">
+    ```text
+    HTFlow: Open Panel
+    HTFlow: Show Output
+    HTFlow: Open Documentation
+    HTFlow: Report Issue
+    ```
+  </Tab>
+</Tabs>
+
+## Workspace Integration
+
+HTFlow integrates seamlessly with VS Code workspace:
+
+<CardGroup cols={2}>
+  <Card title="File Explorer" icon="folder">
+    Right-click context menu for HTFlow actions
+  </Card>
+  <Card title="Editor Actions" icon="pen">
+    Inline validation and quick fixes
+  </Card>
+  <Card title="Terminal Integration" icon="terminal">
+    Run commands in integrated terminal
+  </Card>
+  <Card title="Git Integration" icon="git">
+    Works alongside VS Code Git features
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Extension Not Appearing" icon="triangle-exclamation">
+    **Solutions:**
+    1. Reload VS Code window (`Ctrl+R` / `Cmd+R`)
+    2. Check Extensions panel - ensure it's enabled
+    3. Verify VS Code version (needs 1.99.0+)
+    4. Reinstall extension
+  </Accordion>
+  
+  <Accordion title="Commands Not Working" icon="circle-xmark">
+    **Check:**
+    1. HTFlow CLI is installed: `htflow version`
+    2. Node.js is installed: `node --version`
+    3. Check Output panel for errors
+    4. Restart VS Code
+  </Accordion>
+  
+  <Accordion title="Panel Won't Open" icon="window">
+    **Try:**
+    1. Use Command Palette: `HTFlow: Open Panel`
+    2. Check keyboard shortcut conflicts
+    3. Reset panel position in settings
+    4. Reload window
+  </Accordion>
+  
+  <Accordion title="Server Issues" icon="server">
+    **Solutions:**
+    1. Check port availability
+    2. Stop other servers on same port
+    3. Change default port in settings
+    4. Check firewall settings
+  </Accordion>
+</AccordionGroup>
+
+## VS Code Remote Development
+
+HTFlow works with VS Code remote development:
+
+<Tabs>
+  <Tab title="Remote - SSH">
+    ✓ Install HTFlow CLI on remote machine
+    
+    ✓ Extension syncs automatically
+    
+    ✓ All features work remotely
+  </Tab>
+  
+  <Tab title="WSL">
+    ✓ Install in WSL environment
+    
+    ✓ Full feature support
+    
+    ✓ Better performance on Windows
+  </Tab>
+  
+  <Tab title="Dev Containers">
+    ✓ Add to devcontainer.json:
+    ```json
+    {
+      "extensions": ["htflow.htflow-extension"]
+    }
+    ```
+  </Tab>
+</Tabs>
+
+## Multi-root Workspaces
+
+Use HTFlow with multiple projects:
+
+<Steps>
+  <Step title="Add Folders">
+    File → Add Folder to Workspace
+  </Step>
+  
+  <Step title="Switch Projects">
+    HTFlow panel shows dropdown to select active project
+  </Step>
+  
+  <Step title="Manage Separately">
+    Each project has independent settings and servers
+  </Step>
+</Steps>
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Use Keyboard Shortcuts" icon="keyboard">
+    Learn shortcuts for faster workflow
+  </Card>
+  <Card title="Monitor Output" icon="eye">
+    Keep Output panel visible during operations
+  </Card>
+  <Card title="Update Regularly" icon="arrows-rotate">
+    Keep extension and CLI updated
+  </Card>
+  <Card title="Customize Settings" icon="sliders">
+    Configure to match your workflow
+  </Card>
+</CardGroup>
+
+## Next Steps
+
+<Card
+  title="Cursor Extension"
+  icon="sparkles"
+  href="/htflow/cursor-extension"
+  horizontal
+>
+  Learn about HTFlow with Cursor AI
+</Card>
+
+<Card
+  title="Quick Start"
+  icon="bolt"
+  href="/htflow/quick-start"
+  horizontal
+>
+  Create your first HTFlow project
+</Card>
+

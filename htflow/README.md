@@ -4,10 +4,11 @@ Complete Mintlify documentation for HTFlow - the fastest way to convert AI-gener
 
 ## Documentation Structure
 
-### Getting Started (4 pages)
+### Getting Started (5 pages)
 
 - **Introduction** - Overview of HTFlow and its key features
-- **Installation** - Step-by-step installation guide for VS Code extension
+- **VS Code Extension** - Install and use HTFlow in Visual Studio Code
+- **Cursor Extension** - Install and use HTFlow in Cursor AI Editor
 - **Quick Start** - Get your first HTFlow project up and running
 - **Requirements** - System requirements and prerequisites
 
@@ -123,10 +124,11 @@ mintlify dev
 
 ## File Count
 
-- 12 total MDX files
+- 14 total MDX files
 - 1 configuration file (docs.json)
 - Organized in 3 groups
-- ~15,000+ words of documentation content
+- 6,000+ lines of comprehensive documentation
+- ~18,000+ words of content
 
 ---
 
