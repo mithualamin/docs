@@ -1,0 +1,605 @@
+---
+title: "Webflow Conversion"
+description: "Convert your HTFlow project to Webflow and deploy"
+icon: "repeat"
+---
+
+## Overview
+
+HTFlow makes it easy to convert your AI-generated HTML, CSS, and JavaScript into a fully functional Webflow site. This guide covers all conversion methods and best practices.
+
+<Info>
+Ensure your code passes HTFlow validation before attempting conversion
+</Info>
+
+## Conversion Methods
+
+HTFlow offers two primary methods for converting to Webflow:
+
+<CardGroup cols={2}>
+  <Card title="Webflow App" icon="window">
+    **Direct Integration**
+    - One-click conversion
+    - Automatic import
+    - Best for complete sites
+    - Preserves structure
+  </Card>
+  <Card title="Chrome Extension" icon="chrome">
+    **Browser-Based**
+    - Convert live previews
+    - Page-by-page conversion
+    - Visual verification
+    - Quick iterations
+  </Card>
+</CardGroup>
+
+## Before Converting
+
+Prepare your project for optimal conversion:
+
+<Steps>
+  <Step title="Run Full Validation">
+    ```bash
+    htflow validate
+    ```
+    
+    Ensure all checks pass:
+    - ✓ HTML compliance
+    - ✓ CSS compatibility
+    - ✓ JavaScript standards
+    - ✓ Webflow compatibility
+    
+    <Warning>Fix all errors before proceeding</Warning>
+  </Step>
+  
+  <Step title="Run Project Audit">
+    ```bash
+    htflow audit
+    ```
+    
+    Check audit scores meet minimum thresholds:
+    - Performance: 80+
+    - Accessibility: 90+
+    - SEO: 80+
+    - Webflow Compatibility: 100
+  </Step>
+  
+  <Step title="Build for Production">
+    ```bash
+    htflow build
+    ```
+    
+    Creates optimized output in `./dist` folder
+    
+    <Check>Build must complete without errors</Check>
+  </Step>
+  
+  <Step title="Test Build Locally">
+    Open `dist/index.html` in a browser and verify:
+    - All pages load correctly
+    - Styles are applied
+    - JavaScript works
+    - Responsive on all screen sizes
+  </Step>
+</Steps>
+
+## Method 1: Webflow App
+
+### Prerequisites
+
+<AccordionGroup>
+  <Accordion title="Webflow Account" icon="user">
+    - Active Webflow account
+    - **Site Plan or higher** (required for custom code)
+    - Cannot use free plan for HTFlow conversion
+  </Accordion>
+  
+  <Accordion title="HTFlow App Access" icon="app">
+    - Install HTFlow app in Webflow
+    - Available in Webflow App Marketplace
+    - One-time setup required
+  </Accordion>
+</AccordionGroup>
+
+### Conversion Process
+
+<Steps>
+  <Step title="Log into Webflow">
+    Go to [webflow.com](https://webflow.com/) and sign in
+  </Step>
+  
+  <Step title="Create or Select Site">
+    - Create a new site, or
+    - Select an existing site to update
+    
+    <Info>HTFlow works best with blank sites for new projects</Info>
+  </Step>
+  
+  <Step title="Open HTFlow App">
+    - Go to Apps section in Webflow
+    - Open HTFlow app
+    - Grant necessary permissions
+  </Step>
+  
+  <Step title="Upload Your Build">
+    **Option A: Direct Upload**
+    ```text
+    1. Click "Upload Build"
+    2. Select your dist folder
+    3. Wait for upload to complete
+    ```
+    
+    **Option B: Git Integration**
+    ```text
+    1. Connect GitHub/GitLab repository
+    2. Select branch with build
+    3. HTFlow pulls latest build automatically
+    ```
+  </Step>
+  
+  <Step title="Configure Conversion">
+    Set conversion options:
+    
+    ```json Conversion Settings
+    {
+      "mode": "full",           // "full" or "pages"
+      "preserveClasses": true,  // Keep class names
+      "createSymbols": true,    // Auto-create symbols
+      "importAssets": true,     // Import images/fonts
+      "setupCMS": false         // Set up CMS collections
+    }
+    ```
+  </Step>
+  
+  <Step title="Start Conversion">
+    - Click "Convert to Webflow"
+    - Monitor progress in real-time
+    - Conversion typically takes 2-5 minutes
+    
+    <Check>Status updates appear during conversion</Check>
+  </Step>
+  
+  <Step title="Review Converted Site">
+    HTFlow shows conversion summary:
+    ```text
+    ✓ 5 pages imported
+    ✓ 24 components converted
+    ✓ 12 images imported
+    ✓ 3 fonts imported
+    ✓ 142 styles mapped
+    ✓ 8 interactions preserved
+    
+    Conversion complete!
+    ```
+  </Step>
+  
+  <Step title="Fine-Tune in Webflow">
+    - Open Webflow Designer
+    - Review converted elements
+    - Make adjustments as needed
+    - Add CMS connections
+  </Step>
+  
+  <Step title="Publish Your Site">
+    Click "Publish" to make your site live!
+    
+    <Check>Your HTFlow site is now live on Webflow</Check>
+  </Step>
+</Steps>
+
+## Method 2: Chrome Extension
+
+### Installation
+
+<Steps>
+  <Step title="Install Extension">
+    - Open Chrome Web Store
+    - Search "HTFlow Webflow Converter"
+    - Click "Add to Chrome"
+    - Pin extension to toolbar
+  </Step>
+  
+  <Step title="Connect Webflow Account">
+    - Click HTFlow extension icon
+    - Click "Connect Webflow"
+    - Authorize access
+    - Select target site
+  </Step>
+</Steps>
+
+### Using the Extension
+
+<Steps>
+  <Step title="Serve Your Build">
+    Start a local server with your build:
+    
+    ```bash
+    # Using Python
+    cd dist
+    python3 -m http.server 8000
+    
+    # Using Node.js
+    npx serve dist
+    
+    # Using PHP
+    php -S localhost:8000 -t dist
+    ```
+  </Step>
+  
+  <Step title="Open in Chrome">
+    Navigate to your local server:
+    ```text
+    http://localhost:8000
+    ```
+  </Step>
+  
+  <Step title="Activate Extension">
+    - Click HTFlow extension icon
+    - Extension analyzes the page
+    - Shows conversion preview
+  </Step>
+  
+  <Step title="Configure Page Conversion">
+    ```json Extension Settings
+    {
+      "pageName": "Home",
+      "pageSlug": "home",
+      "createSymbols": true,
+      "breakpoints": {
+        "desktop": 1280,
+        "tablet": 768,
+        "mobile": 480
+      }
+    }
+    ```
+  </Step>
+  
+  <Step title="Convert Current Page">
+    - Click "Convert This Page"
+    - Extension processes HTML/CSS/JS
+    - Generates Webflow-compatible code
+    
+    <Info>Takes 10-30 seconds per page</Info>
+  </Step>
+  
+  <Step title="Preview Conversion">
+    - Extension shows side-by-side comparison
+    - Original vs. converted design
+    - Verify accuracy
+  </Step>
+  
+  <Step title="Export to Webflow">
+    Choose export method:
+    
+    **Direct Export:**
+    ```text
+    - Click "Export to Webflow"
+    - Page is added to your Webflow site
+    - Opens automatically in Designer
+    ```
+    
+    **Download Package:**
+    ```text
+    - Click "Download Package"
+    - Saves conversion files locally
+    - Import manually in Webflow
+    ```
+  </Step>
+  
+  <Step title="Repeat for Other Pages">
+    Navigate to other pages and repeat conversion process
+  </Step>
+</Steps>
+
+## Conversion Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Clean Code" icon="broom">
+    Remove unused CSS, comments, and debug code before conversion
+  </Card>
+  <Card title="Semantic HTML" icon="code">
+    Use proper HTML5 semantic elements for better conversion
+  </Card>
+  <Card title="BEM Classes" icon="tag">
+    Use BEM or consistent naming conventions for easier mapping
+  </Card>
+  <Card title="Mobile First" icon="mobile">
+    Build mobile-first for smoother responsive conversion
+  </Card>
+</CardGroup>
+
+## What Gets Converted
+
+### HTML Elements
+
+<Tabs>
+  <Tab title="Structure">
+    **Converted:**
+    - `<header>`, `<nav>`, `<main>`, `<footer>` → Webflow sections
+    - `<section>`, `<div>` → Webflow divs/containers
+    - `<h1>`-`<h6>` → Webflow headings
+    - `<p>` → Webflow paragraphs
+    - `<a>` → Webflow links
+    - `<img>` → Webflow images
+    - `<ul>`, `<ol>`, `<li>` → Webflow lists
+    
+    **Special Handling:**
+    - Forms → Webflow form blocks
+    - Buttons → Webflow buttons with interactions
+  </Tab>
+  
+  <Tab title="CSS Styles">
+    **Converted:**
+    - Flexbox → Webflow flex layouts
+    - Grid → Webflow grid layouts
+    - Colors, fonts, spacing → Webflow styles
+    - Media queries → Webflow breakpoints
+    - Transitions → Webflow interactions
+    - Animations → Webflow interactions
+    
+    **Auto-Generated:**
+    - Class names mapped to Webflow classes
+    - Combo classes for state changes
+    - Global styles set in style manager
+  </Tab>
+  
+  <Tab title="JavaScript">
+    **Converted:**
+    - Click handlers → Webflow click interactions
+    - Scroll effects → Webflow scroll interactions
+    - Form validation → Webflow form settings
+    - Simple animations → Webflow interactions
+    
+    **Custom Code:**
+    - Complex JavaScript → Added as custom code
+    - External libraries → Linked in project settings
+    - API calls → Embedded in custom code sections
+  </Tab>
+</Tabs>
+
+## Asset Management
+
+### Images
+
+<AccordionGroup>
+  <Accordion title="Image Conversion" icon="image">
+    **Automatic Processing:**
+    - Images uploaded to Webflow assets
+    - Optimized for web delivery
+    - Responsive sizing configured
+    - Alt text preserved
+    
+    **Supported Formats:**
+    - JPG, PNG, WebP
+    - SVG (as code or asset)
+    - GIF (static and animated)
+  </Accordion>
+  
+  <Accordion title="Fonts" icon="font">
+    **Font Handling:**
+    - Google Fonts automatically linked
+    - Custom fonts uploaded to project
+    - Font weights and styles preserved
+    - Fallback fonts configured
+    
+    **Best Practice:**
+    ```css Use Google Fonts or Webflow-hosted fonts
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+    ```
+  </Accordion>
+  
+  <Accordion title="Icons" icon="icons">
+    **Icon Conversion:**
+    - SVG icons → Inline SVG or Webflow assets
+    - Icon fonts → Converted or kept as custom code
+    - Image icons → Uploaded as assets
+    
+    **Recommendation:** Use SVG icons for best results
+  </Accordion>
+</AccordionGroup>
+
+## Troubleshooting Conversion
+
+<AccordionGroup>
+  <Accordion title="Conversion Fails" icon="circle-xmark">
+    **Common Issues:**
+    
+    1. **Validation Errors**
+       ```bash
+       # Re-validate your code
+       htflow validate
+       # Fix all errors
+       ```
+    
+    2. **Missing Dependencies**
+       ```bash
+       # Ensure build is complete
+       htflow build
+       # Check dist folder
+       ```
+    
+    3. **Account Issues**
+       - Verify Webflow account has Site Plan
+       - Check HTFlow app permissions
+       - Reconnect Webflow account
+  </Accordion>
+  
+  <Accordion title="Styles Not Applied" icon="palette">
+    **Solutions:**
+    
+    1. **Check CSS Specificity**
+       - Avoid overly specific selectors
+       - Use classes instead of IDs
+       - Simplify nested selectors
+    
+    2. **Verify Class Names**
+       ```html
+       <!-- Use valid Webflow class names -->
+       <div class="hero-section">  ✓
+       <div class="hero_section">  ✗ (underscores)
+       ```
+    
+    3. **Review Media Queries**
+       ```css
+       /* Use Webflow breakpoints */
+       @media (max-width: 991px) { /* Tablet */ }
+       @media (max-width: 767px) { /* Mobile */ }
+       ```
+  </Accordion>
+  
+  <Accordion title="JavaScript Not Working" icon="js">
+    **Fixes:**
+    
+    1. **Check Console Errors**
+       - Open browser DevTools
+       - Look for JavaScript errors
+       - Fix before reconverting
+    
+    2. **Simple Interactions**
+       - Convert complex JS to Webflow interactions
+       - Use custom code for unavoidable complexity
+    
+    3. **Embed Custom Code**
+       ```html
+       <!-- Add as custom code in Webflow -->
+       <script>
+         // Your custom JavaScript
+       </script>
+       ```
+  </Accordion>
+  
+  <Accordion title="Layout Issues" icon="table-cells">
+    **Solutions:**
+    
+    1. **Flexbox/Grid**
+       - Ensure proper container setup
+       - Check flex/grid properties
+       - Verify alignment settings
+    
+    2. **Responsive Breakpoints**
+       - Test all breakpoints before conversion
+       - Fix mobile/tablet layouts
+       - Use mobile-first approach
+    
+    3. **Spacing**
+       - Use consistent spacing units
+       - Avoid absolute positioning where possible
+       - Use Webflow-friendly layout methods
+  </Accordion>
+</AccordionGroup>
+
+## Post-Conversion Steps
+
+<Steps>
+  <Step title="Review in Designer">
+    - Open Webflow Designer
+    - Check each page and section
+    - Verify responsive behavior
+    - Test interactions
+  </Step>
+  
+  <Step title="Optimize in Webflow">
+    - Clean up unused classes
+    - Create symbols for repeated elements
+    - Set up CMS collections if needed
+    - Configure SEO settings
+  </Step>
+  
+  <Step title="Add Webflow Features">
+    Enhance with Webflow-native features:
+    - CMS for dynamic content
+    - E-commerce capabilities
+    - Form notifications
+    - Hosting and SSL
+  </Step>
+  
+  <Step title="Test Thoroughly">
+    - Test all links and buttons
+    - Verify forms work
+    - Check mobile responsiveness
+    - Test in different browsers
+  </Step>
+  
+  <Step title="Publish">
+    - Click "Publish" in Webflow
+    - Choose domain settings
+    - Your site is live!
+  </Step>
+</Steps>
+
+## Conversion Comparison
+
+| Feature | Webflow App | Chrome Extension |
+|---------|-------------|------------------|
+| **Speed** | Fast (bulk) | Moderate (per page) |
+| **Ease of Use** | Very Easy | Easy |
+| **Accuracy** | High | Very High |
+| **Preview** | After conversion | Before & after |
+| **Best For** | Complete sites | Individual pages |
+| **Git Integration** | ✓ Yes | ✗ No |
+| **Batch Conversion** | ✓ Yes | ✗ No |
+| **Visual Verification** | Limited | ✓ Excellent |
+
+## Advanced Conversion
+
+<Tabs>
+  <Tab title="Custom Interactions">
+    Convert complex animations:
+    
+    ```javascript
+    // HTFlow annotations for conversion
+    /* WEBFLOW_INTERACTION: {
+      trigger: "scroll",
+      type: "fade",
+      duration: 500
+    } */
+    element.addEventListener('scroll', function() {
+      // Animation code
+    });
+    ```
+  </Tab>
+  
+  <Tab title="CMS Integration">
+    Prepare for CMS during conversion:
+    
+    ```html
+    <!-- HTFlow CMS markers -->
+    <div class="blog-post" data-htflow-cms="blog">
+      <h2 data-cms-field="title">Title</h2>
+      <p data-cms-field="excerpt">Excerpt</p>
+    </div>
+    ```
+  </Tab>
+  
+  <Tab title="Symbol Creation">
+    Auto-create Webflow symbols:
+    
+    ```html
+    <!-- Mark reusable components -->
+    <div class="component" data-htflow-symbol="navbar">
+      <!-- Navbar content -->
+    </div>
+    ```
+  </Tab>
+</Tabs>
+
+## Next Steps
+
+<Card
+  title="HTFlow Workflow"
+  icon="diagram-project"
+  href="/htflow/workflow"
+  horizontal
+>
+  Learn the complete development workflow
+</Card>
+
+<Card
+  title="Command Reference"
+  icon="terminal"
+  href="/htflow/commands/package-management"
+  horizontal
+>
+  Explore all HTFlow commands
+</Card>
+

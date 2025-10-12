@@ -1,0 +1,701 @@
+---
+title: "HTFlow Workflow"
+description: "Complete development workflow from AI-generated code to Webflow deployment"
+icon: "diagram-project"
+---
+
+## Overview
+
+HTFlow streamlines the process of converting AI-generated HTML/CSS/JavaScript into production-ready Webflow sites. This guide walks you through the complete workflow.
+
+<Frame>
+  <img src="/images/hero-light.png" alt="HTFlow Workflow" />
+</Frame>
+
+## The HTFlow Process
+
+HTFlow follows a simple three-step workflow:
+
+<Steps>
+  <Step title="Set Up">
+    Configure your development environment with HTFlow tools
+  </Step>
+  
+  <Step title="Build">
+    Create your website using AI tools with HTFlow standards
+  </Step>
+  
+  <Step title="Deploy">
+    Convert and deploy your code to Webflow
+  </Step>
+</Steps>
+
+## Step 1: Set Up
+
+<Tabs>
+  <Tab title="IDE Setup">
+    ### Choose Your Primary IDE
+    
+    <CardGroup cols={2}>
+      <Card title="VS Code" icon="window">
+        **Most Popular**
+        - Lightweight and fast
+        - Extensive extension ecosystem
+        - Great for web development
+        
+        [Download VS Code](https://code.visualstudio.com/)
+      </Card>
+      <Card title="Cursor AI" icon="sparkles">
+        **AI-Powered**
+        - Built-in AI assistant
+        - VS Code compatible
+        - Enhanced code generation
+        
+        [Download Cursor](https://cursor.sh/)
+      </Card>
+    </CardGroup>
+    
+    ### Install Node.js
+    
+    HTFlow requires Node.js as the runtime environment:
+    
+    ```bash
+    # Check if Node.js is installed
+    node --version
+    
+    # Should be v16.x or higher
+    # Download from nodejs.org if needed
+    ```
+  </Tab>
+  
+  <Tab title="HTFlow Extension">
+    ### Install HTFlow Extension
+    
+    The HTFlow extension provides a visual interface for all HTFlow CLI commands:
+    
+    <Steps>
+      <Step title="Open Extensions">
+        Press `Ctrl+Shift+X` / `Cmd+Shift+X`
+      </Step>
+      
+      <Step title="Search HTFlow">
+        Search for **"Htflow Html to Webflow"**
+      </Step>
+      
+      <Step title="Install">
+        Click Install and reload VS Code
+      </Step>
+      
+      <Step title="Verify">
+        Look for the HTFlow icon in the Activity Bar
+      </Step>
+    </Steps>
+    
+    ### Install HTFlow CLI
+    
+    ```bash
+    # Via extension (recommended)
+    Open HTFlow Panel → Click "Install HTFlow CLI"
+    
+    # Or via command line
+    npm install -g htflow-cli
+    ```
+  </Tab>
+  
+  <Tab title="AI Tools">
+    ### Choose Your AI Assistant
+    
+    HTFlow works with any AI coding tool:
+    
+    <AccordionGroup>
+      <Accordion title="Cursor AI" icon="sparkles">
+        **Built into Cursor IDE**
+        - AI-powered code generation
+        - Context-aware suggestions
+        - Natural language commands
+        
+        ```text Usage
+        Simply describe what you want:
+        "Create a hero section with gradient background"
+        ```
+      </Accordion>
+      
+      <Accordion title="Claude (Desktop/CLI)" icon="message">
+        **Powerful AI assistant**
+        - Install Claude Desktop or CLI
+        - Enable HTFlow MCP integration
+        - Natural language project management
+        
+        ```bash Setup
+        htflow mcp-install
+        # Then restart Claude
+        ```
+      </Accordion>
+      
+      <Accordion title="GitHub Copilot" icon="github">
+        **Code completion**
+        - Install in VS Code
+        - Works alongside HTFlow
+        - Suggests HTFlow-compatible code
+      </Accordion>
+      
+      <Accordion title="GPT-4 / ChatGPT" icon="message">
+        **Via web or CLI**
+        - Use GPT to generate code
+        - Copy/paste into project
+        - Validate with HTFlow
+      </Accordion>
+      
+      <Accordion title="Gemini CLI" icon="google">
+        **Google's AI**
+        - Command-line interface
+        - Code generation
+        - Works with MCP
+      </Accordion>
+      
+      <Accordion title="Other AI Tools" icon="wand-magic-sparkles">
+        **Any AI works!**
+        - Kilo Code
+        - Codeium
+        - Tabnine
+        - Custom AI solutions
+      </Accordion>
+    </AccordionGroup>
+  </Tab>
+</Tabs>
+
+## Step 2: Build with AI
+
+<Tabs>
+  <Tab title="Setup HTML Project">
+    ### Initialize HTFlow Project
+    
+    <Steps>
+      <Step title="Create Project Folder">
+        ```bash
+        mkdir my-webflow-project
+        cd my-webflow-project
+        code .  # Open in VS Code
+        ```
+      </Step>
+      
+      <Step title="Initialize HTFlow">
+        Open HTFlow Panel (`Ctrl+Shift+H`) and click **"Initialize Project"**
+        
+        Or via command line:
+        ```bash
+        htflow init
+        ```
+      </Step>
+      
+      <Step title="Choose Template">
+        Select a template to start with:
+        - **Basic**: Minimal setup
+        - **Landing Page**: Single page template
+        - **Portfolio**: Multi-page template
+        - **E-commerce**: Product site structure
+      </Step>
+    </Steps>
+    
+    ### Project Structure
+    
+    ```text
+    my-webflow-project/
+    ├── index.html
+    ├── styles/
+    │   └── main.css
+    ├── scripts/
+    │   └── main.js
+    ├── assets/
+    │   ├── images/
+    │   └── fonts/
+    └── htflow.config.js
+    ```
+  </Tab>
+  
+  <Tab title="Create with AI">
+    ### Use AI to Build Your Site
+    
+    <AccordionGroup>
+      <Accordion title="With Cursor AI" icon="sparkles">
+        **Natural language development:**
+        
+        ```text Example Prompts
+        "Create a hero section with:
+        - Full-width background gradient
+        - Centered heading and subheading
+        - Call-to-action button
+        - Mobile responsive"
+        
+        "Add a features section with:
+        - 3 columns on desktop
+        - Icon, title, and description for each
+        - Stacks on mobile"
+        
+        "Create a contact form with:
+        - Name, email, message fields
+        - Validation
+        - Submit button"
+        ```
+        
+        Cursor AI will generate HTFlow-compatible code automatically.
+      </Accordion>
+      
+      <Accordion title="With Claude" icon="message">
+        **Conversational development:**
+        
+        ```text Example Conversation
+        You: "I need a modern landing page for a SaaS product"
+        
+        Claude: "I'll create a landing page with:
+        - Hero section with CTA
+        - Features section
+        - Testimonials
+        - Pricing table
+        - Footer
+        
+        Let me generate the HTML and CSS..."
+        
+        [Claude generates code following HTFlow standards]
+        
+        You: "Make it more modern with glass morphism"
+        
+        Claude: "I'll add glassmorphism effects..."
+        [Updates code]
+        ```
+      </Accordion>
+      
+      <Accordion title="With ChatGPT/GPT-4" icon="message">
+        **Prompt-based generation:**
+        
+        ```text Effective Prompt
+        "Generate HTML and CSS for a landing page following these rules:
+        - Use semantic HTML5
+        - Webflow-compatible class names
+        - Mobile-first responsive design
+        - No external dependencies
+        - Vanilla JavaScript only
+        
+        Include:
+        1. Hero section with gradient
+        2. 3-column features section
+        3. CTA section
+        4. Footer with social links"
+        ```
+        
+        Copy the generated code into your HTFlow project.
+      </Accordion>
+      
+      <Accordion title="With GitHub Copilot" icon="github">
+        **Code completion:**
+        
+        ```html Start typing...
+        <!-- Copilot suggests as you type -->
+        <section class="hero">
+          <!-- Copilot completes with Webflow-compatible structure -->
+        </section>
+        ```
+        
+        Use comments to guide Copilot:
+        ```html
+        <!-- Create a responsive navigation bar with logo and menu -->
+        <!-- Copilot generates the code -->
+        ```
+      </Accordion>
+    </AccordionGroup>
+  </Tab>
+  
+  <Tab title="Refine & Test">
+    ### Development Server
+    
+    <Steps>
+      <Step title="Start Dev Server">
+        ```bash
+        # Via extension
+        HTFlow Panel → "Start Development Server"
+        
+        # Or command line
+        htflow dev
+        ```
+      </Step>
+      
+      <Step title="Preview in Browser">
+        Server runs at `http://localhost:3000`
+        
+        <Check>Hot reloading enabled - changes appear instantly</Check>
+      </Step>
+      
+      <Step title="Test Responsiveness">
+        Use browser DevTools to test different screen sizes:
+        - Desktop (1920px+)
+        - Tablet (768px - 1024px)
+        - Mobile (320px - 767px)
+      </Step>
+    </Steps>
+    
+    ### Refine with AI
+    
+    Continue iterating with your AI assistant:
+    
+    ```text Example Iterations
+    "Make the hero section taller"
+    "Change the color scheme to blue and white"
+    "Add hover effects to the buttons"
+    "Improve mobile spacing"
+    "Add smooth scroll animations"
+    ```
+    
+    ### Validate Continuously
+    
+    ```bash
+    # Run validation
+    htflow validate
+    
+    # Fix any issues reported
+    # Re-validate until clean
+    ```
+  </Tab>
+</Tabs>
+
+## Step 3: Deploy to Webflow
+
+<Tabs>
+  <Tab title="Prepare for Conversion">
+    ### Run Final Checks
+    
+    <Steps>
+      <Step title="Validate Code">
+        ```bash
+        htflow validate
+        ```
+        
+        Ensure all checks pass:
+        - ✓ HTML validation
+        - ✓ CSS validation
+        - ✓ JavaScript validation
+        - ✓ Webflow compatibility
+      </Step>
+      
+      <Step title="Run Project Audit">
+        ```bash
+        htflow audit
+        ```
+        
+        Review scores:
+        - Performance: 85+
+        - Accessibility: 90+
+        - Best Practices: 90+
+        - SEO: 85+
+        - Webflow Compatibility: 100
+      </Step>
+      
+      <Step title="Build Production Code">
+        ```bash
+        # Via extension
+        HTFlow Panel → "Build Project"
+        
+        # Or command line
+        htflow build
+        ```
+        
+        Output created in `./dist` folder
+      </Step>
+    </Steps>
+  </Tab>
+  
+  <Tab title="Convert with Webflow App">
+    ### Using HTFlow Webflow App
+    
+    <Steps>
+      <Step title="Open Webflow">
+        Log into your Webflow account at [webflow.com](https://webflow.com/)
+      </Step>
+      
+      <Step title="Create New Site">
+        - Click "Create New Site"
+        - Choose blank template
+        - Name your site
+      </Step>
+      
+      <Step title="Install HTFlow App">
+        - Go to Webflow Apps
+        - Search for "HTFlow"
+        - Install HTFlow app
+      </Step>
+      
+      <Step title="Import Your Code">
+        - Open HTFlow app in Webflow
+        - Upload your `dist` folder
+        - Or connect to your repository
+        
+        <Info>HTFlow will automatically convert your HTML/CSS/JS</Info>
+      </Step>
+      
+      <Step title="Review & Customize">
+        - Review converted design
+        - Make adjustments in Webflow
+        - Add CMS if needed
+      </Step>
+      
+      <Step title="Publish">
+        Click "Publish" to make your site live!
+        
+        <Check>Your AI-generated site is now live on Webflow</Check>
+      </Step>
+    </Steps>
+  </Tab>
+  
+  <Tab title="Convert with Chrome Extension">
+    ### Using HTFlow Chrome Extension
+    
+    <Steps>
+      <Step title="Install Extension">
+        - Open Chrome Web Store
+        - Search "HTFlow"
+        - Install HTFlow Chrome Extension
+      </Step>
+      
+      <Step title="Open Your Build">
+        Open your production build in Chrome:
+        ```bash
+        # Serve the dist folder
+        cd dist
+        python3 -m http.server 8000
+        # Or use any static server
+        ```
+        
+        Navigate to `http://localhost:8000`
+      </Step>
+      
+      <Step title="Activate Extension">
+        - Click HTFlow extension icon
+        - Click "Convert to Webflow"
+      </Step>
+      
+      <Step title="Review Conversion">
+        Extension analyzes your page and prepares conversion:
+        - Scans HTML structure
+        - Extracts CSS classes
+        - Identifies interactions
+      </Step>
+      
+      <Step title="Export to Webflow">
+        - Click "Export"
+        - Choose export method:
+          - Direct to Webflow account
+          - Download conversion package
+        
+        <Check>Code is ready for Webflow import</Check>
+      </Step>
+      
+      <Step title="Import in Webflow">
+        - Open your Webflow site
+        - Import the conversion package
+        - Review and publish
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Start Simple" icon="seedling">
+    Begin with basic layouts, add complexity gradually
+  </Card>
+  <Card title="Validate Early" icon="shield-check">
+    Run validation frequently during development
+  </Card>
+  <Card title="Use Semantic HTML" icon="code">
+    Proper HTML structure ensures better Webflow conversion
+  </Card>
+  <Card title="Test Responsiveness" icon="mobile">
+    Always test on multiple device sizes
+  </Card>
+  <Card title="Keep It Clean" icon="broom">
+    Remove unused CSS and JS before building
+  </Card>
+  <Card title="Document Custom Code" icon="book">
+    Add comments for complex interactions
+  </Card>
+</CardGroup>
+
+## Common Workflows
+
+<AccordionGroup>
+  <Accordion title="Landing Page" icon="window">
+    ```text Workflow
+    1. Initialize HTFlow project
+    2. Use AI to generate hero section
+    3. Add features, testimonials, CTA sections
+    4. Validate and test responsiveness
+    5. Build for production
+    6. Convert to Webflow
+    7. Add CMS for testimonials (optional)
+    8. Publish
+    
+    Time: 1-2 hours
+    ```
+  </Accordion>
+  
+  <Accordion title="Multi-Page Site" icon="file-lines">
+    ```text Workflow
+    1. Initialize with portfolio template
+    2. Generate homepage with AI
+    3. Create additional pages (About, Services, Contact)
+    4. Ensure consistent navigation
+    5. Validate each page
+    6. Build all pages
+    7. Convert to Webflow
+    8. Set up page routing
+    9. Publish
+    
+    Time: 3-6 hours
+    ```
+  </Accordion>
+  
+  <Accordion title="Component Library" icon="puzzle-piece">
+    ```text Workflow
+    1. Create HTFlow project
+    2. Build reusable components with AI
+    3. Test each component independently
+    4. Validate Webflow compatibility
+    5. Build component library
+    6. Convert to Webflow symbols
+    7. Use across projects
+    
+    Time: 2-4 hours initially, saves time long-term
+    ```
+  </Accordion>
+  
+  <Accordion title="Existing Design to Webflow" icon="clone">
+    ```text Workflow
+    1. Have AI recreate design in HTML/CSS
+    2. Match colors, fonts, spacing exactly
+    3. Add responsive breakpoints
+    4. Implement interactions
+    5. Validate design accuracy
+    6. Build production version
+    7. Convert to Webflow
+    8. Fine-tune in Webflow designer
+    9. Publish
+    
+    Time: 4-8 hours depending on complexity
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Tips for Success
+
+<Tabs>
+  <Tab title="AI Prompting">
+    ### Effective AI Prompts
+    
+    **Be Specific:**
+    ```text ❌ Bad
+    "Create a website"
+    
+    ✅ Good
+    "Create a landing page with:
+    - Hero section with gradient background
+    - 3-column feature section with icons
+    - CTA section with form
+    - Mobile responsive
+    - Webflow-compatible classes"
+    ```
+    
+    **Iterate Gradually:**
+    ```text
+    1. "Create basic structure"
+    2. "Add styling to hero section"
+    3. "Make navigation sticky"
+    4. "Add hover animations"
+    ```
+    
+    **Request Webflow Compatibility:**
+    ```text
+    "Follow Webflow best practices:
+    - Use semantic HTML
+    - BEM-style class naming
+    - Mobile-first CSS
+    - No external dependencies"
+    ```
+  </Tab>
+  
+  <Tab title="Code Quality">
+    ### Maintain Clean Code
+    
+    **Organize Files:**
+    ```text
+    styles/
+    ├── base.css          # Reset, variables
+    ├── layout.css        # Grid, containers
+    ├── components.css    # Buttons, cards
+    └── utilities.css     # Helper classes
+    ```
+    
+    **Use CSS Variables:**
+    ```css
+    :root {
+      --color-primary: #16A34A;
+      --color-secondary: #07C983;
+      --spacing-unit: 1rem;
+      --font-heading: 'Inter', sans-serif;
+    }
+    ```
+    
+    **Comment Complex Sections:**
+    ```html
+    <!-- Hero Section: Full-height gradient background -->
+    <section class="hero">
+      <!-- Content -->
+    </section>
+    ```
+  </Tab>
+  
+  <Tab title="Performance">
+    ### Optimize for Speed
+    
+    **Image Optimization:**
+    ```text
+    - Use WebP format
+    - Compress images (80-85% quality)
+    - Lazy load below-fold images
+    - Use appropriate dimensions
+    ```
+    
+    **CSS Optimization:**
+    ```text
+    - Remove unused styles
+    - Combine media queries
+    - Minimize CSS specificity
+    - Use shorthand properties
+    ```
+    
+    **JavaScript Optimization:**
+    ```text
+    - Minimize DOM manipulation
+    - Use event delegation
+    - Defer non-critical scripts
+    - Keep bundles small
+    ```
+  </Tab>
+</Tabs>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Command Reference" icon="terminal" href="/htflow/commands/package-management">
+    Explore all HTFlow commands
+  </Card>
+  <Card title="Webflow Conversion" icon="repeat" href="/htflow/webflow-conversion">
+    Detailed conversion guide
+  </Card>
+  <Card title="Requirements" icon="list-check" href="/htflow/requirements">
+    System requirements and setup
+  </Card>
+  <Card title="Get Started" icon="bolt" href="/htflow/quick-start">
+    Quick start tutorial
+  </Card>
+</CardGroup>
+

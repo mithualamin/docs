@@ -1,0 +1,493 @@
+---
+title: "MCP Integration"
+description: "Install and configure Model Context Protocol for AI assistants"
+icon: "plug"
+---
+
+## Overview
+
+HTFlow supports MCP (Model Context Protocol) integration, allowing AI assistants like Claude to understand and work with your HTFlow projects directly.
+
+<Info>
+MCP integration enables AI assistants to help with HTFlow commands, validation, and project management
+</Info>
+
+## What is MCP?
+
+Model Context Protocol (MCP) is a standardized way for AI assistants to interact with tools and systems. With HTFlow MCP integration, AI assistants can:
+
+<CardGroup cols={2}>
+  <Card title="Understand Projects" icon="brain">
+    Analyze HTFlow project structure and configuration
+  </Card>
+  <Card title="Run Commands" icon="terminal">
+    Execute HTFlow CLI commands on your behalf
+  </Card>
+  <Card title="Validate Code" icon="shield-check">
+    Check code compliance and suggest fixes
+  </Card>
+  <Card title="Provide Guidance" icon="lightbulb">
+    Offer context-aware HTFlow best practices
+  </Card>
+</CardGroup>
+
+## Install MCP Integration
+
+Set up MCP support for HTFlow:
+
+<Tabs>
+  <Tab title="Extension UI">
+    <Steps>
+      <Step title="Open HTFlow Panel">
+        Press `Ctrl+Shift+H` / `Cmd+Shift+H` or click the HTFlow icon
+      </Step>
+      
+      <Step title="Click MCP Install">
+        Click the **"Install MCP Integration"** button in the MCP section
+      </Step>
+      
+      <Step title="Configure AI Assistant">
+        Follow prompts to configure your AI assistant:
+        - Select AI tool (Claude, GPT, etc.)
+        - Configure permissions
+        - Set up context sharing
+        
+        <Check>MCP will be installed and configured</Check>
+      </Step>
+      
+      <Step title="Restart AI Assistant">
+        Restart your AI assistant to load HTFlow MCP support
+      </Step>
+    </Steps>
+  </Tab>
+  
+  <Tab title="Command Line">
+    ```bash
+    htflow mcp-install
+    ```
+    
+    Installation output:
+    ```text
+    🔌 Installing HTFlow MCP Integration...
+    
+    ✓ Downloaded MCP package
+    ✓ Configured Claude Desktop
+    ✓ Set up permissions
+    ✓ Added HTFlow context
+    
+    MCP Integration installed!
+    
+    Supported AI assistants:
+    • Claude Desktop
+    • Claude CLI
+    • Compatible MCP clients
+    
+    Please restart your AI assistant.
+    ```
+  </Tab>
+</Tabs>
+
+## Configuration
+
+MCP configuration is stored in your AI assistant's config:
+
+<CodeGroup>
+
+```json Claude Desktop (claude_desktop_config.json)
+{
+  "mcpServers": {
+    "htflow": {
+      "command": "htflow",
+      "args": ["mcp"],
+      "env": {
+        "HTFLOW_PROJECT_PATH": "/path/to/project"
+      }
+    }
+  }
+}
+```
+
+```json VS Code Settings (settings.json)
+{
+  "htflow.mcp.enabled": true,
+  "htflow.mcp.aiAssistant": "claude",
+  "htflow.mcp.permissions": {
+    "readProject": true,
+    "runCommands": true,
+    "validateCode": true
+  }
+}
+```
+
+</CodeGroup>
+
+## Using MCP with AI Assistants
+
+Once installed, your AI assistant can help with HTFlow:
+
+<Tabs>
+  <Tab title="Claude Desktop">
+    Ask Claude to help with HTFlow tasks:
+    
+    ```text Example Prompts
+    "Initialize a new HTFlow project"
+    "Validate my HTFlow code"
+    "What's wrong with my HTFlow build?"
+    "Build my project for Webflow"
+    "Audit my HTFlow project"
+    ```
+    
+    Claude will:
+    1. Understand the context
+    2. Run appropriate HTFlow commands
+    3. Interpret results
+    4. Suggest fixes or improvements
+  </Tab>
+  
+  <Tab title="Cursor AI">
+    Cursor AI with MCP can:
+    
+    - Run HTFlow commands inline
+    - Validate code as you type
+    - Suggest Webflow-compatible patterns
+    - Fix validation errors automatically
+    
+    ```text Example
+    You: "Make sure this is Webflow compatible"
+    
+    Cursor: *runs htflow validate*
+    "Found 2 issues. Let me fix them..."
+    *makes corrections*
+    "Code is now Webflow compatible!"
+    ```
+  </Tab>
+  
+  <Tab title="Other AI Tools">
+    Any MCP-compatible AI assistant can use HTFlow:
+    
+    **Supported:**
+    - Claude (Desktop & CLI)
+    - Cursor AI
+    - GPT with MCP plugins
+    - Gemini with MCP
+    - Custom MCP clients
+    
+    **Features:**
+    - Command execution
+    - Project analysis
+    - Code validation
+    - Build automation
+  </Tab>
+</Tabs>
+
+## MCP Capabilities
+
+What AI assistants can do with HTFlow MCP:
+
+<AccordionGroup>
+  <Accordion title="Project Management" icon="folder">
+    ```text Capabilities
+    • Initialize new projects
+    • Read project configuration
+    • Analyze project structure
+    • Suggest improvements
+    ```
+  </Accordion>
+  
+  <Accordion title="Code Validation" icon="shield-check">
+    ```text Capabilities
+    • Validate HTML/CSS/JS
+    • Check Webflow compatibility
+    • Identify errors and warnings
+    • Suggest fixes automatically
+    ```
+  </Accordion>
+  
+  <Accordion title="Build & Deploy" icon="hammer">
+    ```text Capabilities
+    • Build production code
+    • Optimize assets
+    • Generate Webflow manifest
+    • Prepare for deployment
+    ```
+  </Accordion>
+  
+  <Accordion title="Development Support" icon="code">
+    ```text Capabilities
+    • Start/stop dev servers
+    • Monitor running servers
+    • Debug issues
+    • Provide best practices
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## MCP Permissions
+
+Control what AI assistants can access:
+
+```javascript htflow.config.js
+module.exports = {
+  mcp: {
+    enabled: true,
+    
+    permissions: {
+      // Project access
+      readProject: true,
+      writeProject: false,  // Requires approval
+      
+      // Command execution
+      runCommands: true,
+      dangerousCommands: false,  // No destructive ops
+      
+      // Code access
+      readCode: true,
+      modifyCode: false,  // Requires approval
+      
+      // Build access
+      build: true,
+      deploy: false  // Requires approval
+    },
+    
+    // Allowed commands
+    allowedCommands: [
+      "validate",
+      "audit",
+      "build",
+      "dev"
+    ],
+    
+    // Blocked commands
+    blockedCommands: [
+      "uninstall"
+    ]
+  }
+};
+```
+
+## Uninstall MCP Integration
+
+Remove MCP support:
+
+<Tabs>
+  <Tab title="Extension UI">
+    <Steps>
+      <Step title="Open HTFlow Panel">
+        Press `Ctrl+Shift+H` / `Cmd+Shift+H`
+      </Step>
+      
+      <Step title="Click MCP Uninstall">
+        Click the **"Uninstall MCP Integration"** button
+      </Step>
+      
+      <Step title="Confirm Removal">
+        Confirm the uninstallation
+        
+        <Warning>This will remove HTFlow MCP from your AI assistant</Warning>
+      </Step>
+    </Steps>
+  </Tab>
+  
+  <Tab title="Command Line">
+    ```bash
+    htflow mcp-uninstall
+    ```
+    
+    Output:
+    ```text
+    🔌 Uninstalling HTFlow MCP Integration...
+    
+    ✓ Removed from AI assistant config
+    ✓ Cleaned up permissions
+    ✓ Removed context data
+    
+    MCP Integration uninstalled.
+    Restart your AI assistant to complete removal.
+    ```
+  </Tab>
+</Tabs>
+
+## AI Assistant Setup Guides
+
+<Tabs>
+  <Tab title="Claude Desktop">
+    <Steps>
+      <Step title="Install HTFlow MCP">
+        Run `htflow mcp-install`
+      </Step>
+      
+      <Step title="Locate Config">
+        Find your Claude config file:
+        - **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+        - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+      </Step>
+      
+      <Step title="Verify Configuration">
+        Ensure HTFlow is listed in `mcpServers`
+      </Step>
+      
+      <Step title="Restart Claude">
+        Restart Claude Desktop app
+      </Step>
+      
+      <Step title="Test Integration">
+        Ask Claude: "What HTFlow commands are available?"
+      </Step>
+    </Steps>
+  </Tab>
+  
+  <Tab title="Cursor AI">
+    <Steps>
+      <Step title="Install HTFlow Extension">
+        Ensure HTFlow extension is installed in Cursor
+      </Step>
+      
+      <Step title="Enable MCP">
+        Run `htflow mcp-install` in Cursor terminal
+      </Step>
+      
+      <Step title="Configure Settings">
+        Add to Cursor settings:
+        ```json
+        {
+          "htflow.mcp.enabled": true
+        }
+        ```
+      </Step>
+      
+      <Step title="Test Integration">
+        Ask Cursor AI to validate your HTFlow project
+      </Step>
+    </Steps>
+  </Tab>
+  
+  <Tab title="Custom Setup">
+    For other MCP-compatible AI assistants:
+    
+    ```json MCP Server Config
+    {
+      "mcpServers": {
+        "htflow": {
+          "command": "htflow",
+          "args": ["mcp"],
+          "env": {
+            "HTFLOW_PROJECT_PATH": "${workspaceFolder}"
+          },
+          "permissions": {
+            "filesystem": "read",
+            "commands": "execute"
+          }
+        }
+      }
+    }
+    ```
+  </Tab>
+</Tabs>
+
+## Example Workflows
+
+<AccordionGroup>
+  <Accordion title="AI-Assisted Development" icon="robot">
+    ```text Workflow
+    1. You: "Create a landing page with HTFlow"
+    2. AI: Creates HTML/CSS following HTFlow standards
+    3. AI: Runs validation automatically
+    4. AI: Fixes any compatibility issues
+    5. AI: Builds for production
+    6. You: Deploy to Webflow
+    ```
+  </Accordion>
+  
+  <Accordion title="Code Review" icon="magnifying-glass">
+    ```text Workflow
+    1. You: "Review my HTFlow project"
+    2. AI: Analyzes code structure
+    3. AI: Runs validation and audit
+    4. AI: Identifies issues and suggests fixes
+    5. AI: Applies fixes with your approval
+    6. AI: Re-validates to confirm
+    ```
+  </Accordion>
+  
+  <Accordion title="Debugging" icon="bug">
+    ```text Workflow
+    1. You: "My HTFlow build is failing"
+    2. AI: Checks build logs
+    3. AI: Identifies the issue
+    4. AI: Suggests solution
+    5. AI: Applies fix with permission
+    6. AI: Rebuilds successfully
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="MCP Not Working" icon="circle-xmark">
+    **Solutions:**
+    
+    1. Verify installation: `htflow version`
+    2. Check AI assistant config
+    3. Restart AI assistant
+    4. Reinstall MCP: `htflow mcp-uninstall && htflow mcp-install`
+  </Accordion>
+  
+  <Accordion title="Permission Denied" icon="lock">
+    **Fix permissions:**
+    
+    ```javascript
+    mcp: {
+      permissions: {
+        runCommands: true,  // Enable
+        readProject: true
+      }
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="Commands Not Found" icon="magnifying-glass">
+    **Verify:**
+    - HTFlow CLI is installed globally
+    - PATH includes npm global bin
+    - AI assistant has command permissions
+  </Accordion>
+</AccordionGroup>
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Security" icon="shield">
+    Only grant necessary permissions to AI assistants
+  </Card>
+  <Card title="Clear Prompts" icon="message">
+    Be specific when asking AI to run HTFlow commands
+  </Card>
+  <Card title="Review Changes" icon="eye">
+    Always review code changes before approving
+  </Card>
+  <Card title="Stay Updated" icon="arrows-rotate">
+    Keep MCP integration updated with HTFlow CLI
+  </Card>
+</CardGroup>
+
+## Next Steps
+
+<Card
+  title="HTFlow Workflow"
+  icon="diagram-project"
+  href="/htflow/workflow"
+  horizontal
+>
+  Learn the complete HTFlow development workflow
+</Card>
+
+<Card
+  title="Convert to Webflow"
+  icon="repeat"
+  href="/htflow/webflow-conversion"
+  horizontal
+>
+  Deploy your HTFlow project to Webflow
+</Card>
+

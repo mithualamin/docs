@@ -1,0 +1,258 @@
+---
+title: "Package Management"
+description: "Install, update, and manage HTFlow CLI"
+icon: "box"
+---
+
+## Overview
+
+HTFlow package management commands allow you to install, update, and manage the HTFlow CLI globally on your system. All commands can be run through the visual interface - no terminal required!
+
+<Info>
+These commands modify your global Node.js packages. Make sure you have proper permissions to install global packages.
+</Info>
+
+## Install HTFlow CLI
+
+Install the HTFlow CLI globally on your system.
+
+<Tabs>
+  <Tab title="Extension UI">
+    <Steps>
+      <Step title="Open HTFlow Panel">
+        Press `Ctrl+Shift+H` / `Cmd+Shift+H` or click the HTFlow icon
+      </Step>
+      <Step title="Click Install Button">
+        Click the **"Install HTFlow CLI"** button in the Package Management section
+      </Step>
+      <Step title="Wait for Completion">
+        Monitor the progress in the Output panel. Installation typically takes 1-2 minutes.
+        
+        <Check>Success message will appear when installation is complete</Check>
+      </Step>
+    </Steps>
+  </Tab>
+  
+  <Tab title="Command Line">
+    ```bash
+    htflow install
+    ```
+    
+    This command installs HTFlow CLI globally using npm:
+    
+    ```bash
+    npm install -g htflow-cli
+    ```
+  </Tab>
+</Tabs>
+
+### What Gets Installed
+
+When you install HTFlow CLI, you get:
+
+<CardGroup cols={2}>
+  <Card title="CLI Tools" icon="terminal">
+    All HTFlow command-line utilities
+  </Card>
+  <Card title="Templates" icon="file-code">
+    Project templates and boilerplates
+  </Card>
+  <Card title="Dependencies" icon="puzzle-piece">
+    Required Node.js packages
+  </Card>
+  <Card title="Validation Tools" icon="shield-check">
+    Code compliance checkers
+  </Card>
+</CardGroup>
+
+## Update HTFlow CLI
+
+Keep your HTFlow CLI up to date with the latest features and bug fixes.
+
+<Tabs>
+  <Tab title="Extension UI">
+    <Steps>
+      <Step title="Open HTFlow Panel">
+        Press `Ctrl+Shift+H` / `Cmd+Shift+H`
+      </Step>
+      <Step title="Click Update Button">
+        Click the **"Update HTFlow CLI"** button
+      </Step>
+      <Step title="Confirm Update">
+        The extension will check for updates and install the latest version
+        
+        <Info>Your current version will be displayed before updating</Info>
+      </Step>
+    </Steps>
+  </Tab>
+  
+  <Tab title="Command Line">
+    ```bash
+    htflow update
+    ```
+    
+    This updates HTFlow CLI to the latest version:
+    
+    ```bash
+    npm update -g htflow-cli
+    ```
+  </Tab>
+</Tabs>
+
+<Tip>
+It's recommended to update HTFlow CLI regularly to get the latest features, performance improvements, and bug fixes.
+</Tip>
+
+## Uninstall HTFlow CLI
+
+Remove HTFlow CLI from your system.
+
+<Tabs>
+  <Tab title="Extension UI">
+    <Steps>
+      <Step title="Open HTFlow Panel">
+        Press `Ctrl+Shift+H` / `Cmd+Shift+H`
+      </Step>
+      <Step title="Click Uninstall Button">
+        Click the **"Uninstall HTFlow CLI"** button
+      </Step>
+      <Step title="Confirm Removal">
+        Confirm the uninstallation when prompted
+        
+        <Warning>This will remove HTFlow CLI completely from your system</Warning>
+      </Step>
+    </Steps>
+  </Tab>
+  
+  <Tab title="Command Line">
+    ```bash
+    htflow uninstall
+    ```
+    
+    This removes HTFlow CLI from your system:
+    
+    ```bash
+    npm uninstall -g htflow-cli
+    ```
+  </Tab>
+</Tabs>
+
+## Check Version
+
+Display the currently installed HTFlow CLI version.
+
+<Tabs>
+  <Tab title="Extension UI">
+    <Steps>
+      <Step title="Open HTFlow Panel">
+        Press `Ctrl+Shift+H` / `Cmd+Shift+H`
+      </Step>
+      <Step title="Click Version Button">
+        Click the **"Show Version"** button
+      </Step>
+      <Step title="View Version Info">
+        Version information will be displayed in the Output panel
+      </Step>
+    </Steps>
+  </Tab>
+  
+  <Tab title="Command Line">
+    ```bash
+    htflow version
+    ```
+    
+    Output example:
+    ```text
+    HTFlow CLI version 2.1.0
+    Node.js version: v18.17.0
+    ```
+  </Tab>
+</Tabs>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Installation Fails" icon="circle-xmark">
+    **Common causes:**
+    - Insufficient permissions
+    - Node.js not installed
+    - Network connectivity issues
+    
+    **Solutions:**
+    ```bash
+    # On macOS/Linux, try with sudo
+    sudo npm install -g htflow-cli
+    
+    # On Windows, run as Administrator
+    # Right-click VS Code → Run as Administrator
+    ```
+  </Accordion>
+  
+  <Accordion title="Version Mismatch" icon="code-compare">
+    If you see version compatibility warnings:
+    
+    1. Update to the latest version
+    2. Clear npm cache: `npm cache clean --force`
+    3. Reinstall: uninstall then install again
+  </Accordion>
+  
+  <Accordion title="Command Not Found" icon="magnifying-glass">
+    If `htflow` command is not recognized:
+    
+    1. Verify installation: `npm list -g htflow-cli`
+    2. Check npm global path: `npm config get prefix`
+    3. Add npm global bin to your PATH
+  </Accordion>
+  
+  <Accordion title="Update Doesn't Work" icon="rotate">
+    If updating fails:
+    
+    1. Uninstall current version
+    2. Clear npm cache
+    3. Install fresh copy
+    
+    ```bash
+    npm uninstall -g htflow-cli
+    npm cache clean --force
+    npm install -g htflow-cli
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Regular Updates" icon="calendar">
+    Update HTFlow CLI monthly or when new features are announced
+  </Card>
+  <Card title="Version Check" icon="clipboard-check">
+    Check version before starting new projects to ensure compatibility
+  </Card>
+  <Card title="Clean Installation" icon="broom">
+    If issues persist, do a clean uninstall and reinstall
+  </Card>
+  <Card title="Documentation" icon="book">
+    Keep track of which version you're using in project documentation
+  </Card>
+</CardGroup>
+
+## Next Steps
+
+<Card
+  title="Project Management"
+  icon="folder"
+  href="/htflow/commands/project-management"
+  horizontal
+>
+  Learn how to initialize and manage HTFlow projects
+</Card>
+
+<Card
+  title="Development Commands"
+  icon="code"
+  href="/htflow/commands/development"
+  horizontal
+>
+  Start building with HTFlow development servers
+</Card>
+

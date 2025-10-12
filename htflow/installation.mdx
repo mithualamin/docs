@@ -1,0 +1,143 @@
+---
+title: "Installation"
+description: "Get the HTFlow extension installed in VS Code"
+icon: "download"
+---
+
+## Prerequisites
+
+Before installing the HTFlow extension, ensure you have:
+
+<AccordionGroup>
+  <Accordion title="VS Code 1.99.0 or higher" icon="window">
+    Download the latest version of Visual Studio Code from [code.visualstudio.com](https://code.visualstudio.com/)
+  </Accordion>
+  <Accordion title="Node.js" icon="node-js">
+    Required for HTFlow CLI commands. Download from [nodejs.org](https://nodejs.org/)
+  </Accordion>
+</AccordionGroup>
+
+## Installation Steps
+
+<Steps>
+  <Step title="Open VS Code">
+    Launch Visual Studio Code on your computer
+  </Step>
+  
+  <Step title="Open Extensions Panel">
+    Press `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (Mac) to open the Extensions view
+    
+    <Tip>You can also click the Extensions icon in the Activity Bar on the left side</Tip>
+  </Step>
+  
+  <Step title="Search for HTFlow">
+    In the search bar, type **"Htflow Html to Webflow"**
+  </Step>
+  
+  <Step title="Install the Extension">
+    Click the **Install** button next to the HTFlow extension
+    
+    <Frame>
+      <img src="/images/checks-passed.png" alt="Extension installed successfully" />
+    </Frame>
+  </Step>
+  
+  <Step title="Reload VS Code">
+    After installation, reload VS Code to activate the extension
+    
+    <Info>VS Code may prompt you to reload automatically</Info>
+  </Step>
+</Steps>
+
+## Verify Installation
+
+After installing the extension, verify it's working correctly:
+
+<Steps>
+  <Step title="Check Activity Bar">
+    Look for the HTFlow icon in the Activity Bar (left sidebar)
+  </Step>
+  
+  <Step title="Open HTFlow Panel">
+    Click the HTFlow icon or press `Ctrl+Shift+H` / `Cmd+Shift+H`
+  </Step>
+  
+  <Step title="Verify Commands">
+    You should see the HTFlow command interface with all available options
+  </Step>
+</Steps>
+
+## Install HTFlow CLI
+
+Once the extension is installed, you need to install the HTFlow CLI:
+
+<CodeGroup>
+
+```bash Terminal
+# The extension provides a button to run this
+htflow install
+```
+
+```text Extension UI
+1. Open the HTFlow panel
+2. Click "Install HTFlow CLI"
+3. Wait for installation to complete
+```
+
+</CodeGroup>
+
+<Check>
+The extension will handle the installation process and show you the progress
+</Check>
+
+## Update HTFlow CLI
+
+Keep your HTFlow CLI up to date:
+
+<CodeGroup>
+
+```bash Terminal
+htflow update
+```
+
+```text Extension UI
+1. Open the HTFlow panel
+2. Click "Update HTFlow CLI"
+3. Wait for update to complete
+```
+
+</CodeGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Extension not appearing" icon="triangle-exclamation">
+    - Ensure you've reloaded VS Code after installation
+    - Check if the extension is enabled in the Extensions panel
+    - Try uninstalling and reinstalling the extension
+  </Accordion>
+  
+  <Accordion title="HTFlow CLI installation fails" icon="circle-xmark">
+    - Verify Node.js is installed: `node --version`
+    - Check your internet connection
+    - Try running the installation with administrator/sudo privileges
+  </Accordion>
+  
+  <Accordion title="Commands not working" icon="gear">
+    - Make sure HTFlow CLI is installed globally
+    - Check the Output panel in VS Code for error messages
+    - Verify Node.js PATH is configured correctly
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Quick Start Guide" icon="bolt" href="/htflow/quick-start">
+    Create your first HTFlow project
+  </Card>
+  <Card title="Command Reference" icon="terminal" href="/htflow/commands/package-management">
+    Learn about all available commands
+  </Card>
+</CardGroup>
+

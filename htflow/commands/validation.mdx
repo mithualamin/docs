@@ -1,0 +1,507 @@
+---
+title: "Validation & Audit"
+description: "Validate code compliance and run comprehensive project audits"
+icon: "magnifying-glass"
+---
+
+## Overview
+
+HTFlow provides powerful validation and audit tools to ensure your code meets Webflow compatibility standards and follows best practices.
+
+<Info>
+Regular validation helps catch issues early before deployment to Webflow
+</Info>
+
+## Validate Project
+
+Check your project for HTML, CSS, and JavaScript compliance.
+
+<Tabs>
+  <Tab title="Extension UI">
+    <Steps>
+      <Step title="Open HTFlow Panel">
+        Press `Ctrl+Shift+H` / `Cmd+Shift+H` or click the HTFlow icon
+      </Step>
+      
+      <Step title="Click Validate">
+        Click the **"Validate Project"** button
+      </Step>
+      
+      <Step title="Review Results">
+        Validation results appear in the Output panel:
+        
+        ```text
+        ✓ HTML validation passed (15 files)
+        ✓ CSS validation passed (8 files)
+        ⚠ JavaScript warnings (2 issues)
+        
+        Overall: Passed with warnings
+        ```
+      </Step>
+      
+      <Step title="Fix Issues">
+        Address any warnings or errors reported
+        
+        <Check>Re-run validation after fixes</Check>
+      </Step>
+    </Steps>
+  </Tab>
+  
+  <Tab title="Command Line">
+    ```bash
+    htflow validate
+    ```
+    
+    Output includes detailed information:
+    ```text
+    🔍 Validating HTFlow Project...
+    
+    HTML Validation:
+    ✓ index.html - No issues
+    ✓ about.html - No issues
+    
+    CSS Validation:
+    ✓ main.css - No issues
+    ⚠ components.css - 1 warning
+      → Line 45: Vendor prefix recommended for 'backdrop-filter'
+    
+    JavaScript Validation:
+    ✓ main.js - No issues
+    ⚠ utils.js - 1 warning
+      → Line 23: Consider using 'const' instead of 'var'
+    
+    Summary: 2 warnings, 0 errors
+    ```
+  </Tab>
+</Tabs>
+
+## Validation Rules
+
+HTFlow validates against Webflow compatibility standards:
+
+<AccordionGroup>
+  <Accordion title="HTML Validation" icon="code">
+    **Checks for:**
+    - Valid HTML5 syntax
+    - Properly nested elements
+    - Required meta tags
+    - Semantic markup
+    - Accessibility attributes
+    - Webflow-compatible structure
+    
+    ```html ✓ Valid HTML
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Page Title</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Heading</h1>
+            <p>Content</p>
+        </div>
+    </body>
+    </html>
+    ```
+  </Accordion>
+  
+  <Accordion title="CSS Validation" icon="palette">
+    **Checks for:**
+    - Valid CSS syntax
+    - Browser compatibility
+    - Vendor prefixes
+    - Webflow class naming
+    - Performance issues
+    - Unsupported properties
+    
+    ```css ✓ Valid CSS
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    .hero {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="JavaScript Validation" icon="js">
+    **Checks for:**
+    - ES5/ES6 compatibility
+    - Webflow API usage
+    - Browser support
+    - Best practices
+    - Security issues
+    - Performance patterns
+    
+    ```javascript ✓ Valid JavaScript
+    document.addEventListener('DOMContentLoaded', () => {
+        const button = document.querySelector('.btn');
+        button.addEventListener('click', handleClick);
+    });
+    
+    function handleClick(e) {
+        e.preventDefault();
+        // Your code here
+    }
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Project Audit
+
+Run a comprehensive analysis of your entire project.
+
+<Tabs>
+  <Tab title="Extension UI">
+    <Steps>
+      <Step title="Open HTFlow Panel">
+        Press `Ctrl+Shift+H` / `Cmd+Shift+H`
+      </Step>
+      
+      <Step title="Click Audit Project">
+        Click the **"Audit Project"** button
+      </Step>
+      
+      <Step title="Wait for Analysis">
+        Audit process analyzes:
+        - Code quality
+        - Performance metrics
+        - Accessibility
+        - SEO best practices
+        - Webflow compatibility
+        
+        <Info>Comprehensive audits take 30-60 seconds</Info>
+      </Step>
+      
+      <Step title="Review Report">
+        Detailed report appears with scores and recommendations
+      </Step>
+    </Steps>
+  </Tab>
+  
+  <Tab title="Command Line">
+    ```bash
+    htflow audit
+    ```
+    
+    Detailed output:
+    ```text
+    🔎 Auditing HTFlow Project...
+    
+    📊 Performance Score: 87/100
+    ♿ Accessibility Score: 92/100
+    🎨 Best Practices: 95/100
+    🔍 SEO Score: 88/100
+    ⚡ Webflow Compatibility: 100/100
+    
+    Recommendations:
+    • Optimize images for faster loading
+    • Add alt text to 3 images
+    • Consider lazy loading for below-fold content
+    
+    Report saved to: ./audit-report.html
+    ```
+  </Tab>
+</Tabs>
+
+## Audit Report
+
+The audit generates a comprehensive HTML report:
+
+<Frame>
+  <img src="/images/checks-passed.png" alt="Audit report example" />
+</Frame>
+
+### Report Sections
+
+<CardGroup cols={2}>
+  <Card title="Performance" icon="gauge">
+    - Load time analysis
+    - Resource optimization
+    - Rendering metrics
+    - Bundle size analysis
+  </Card>
+  <Card title="Accessibility" icon="universal-access">
+    - ARIA labels
+    - Keyboard navigation
+    - Screen reader support
+    - Color contrast
+  </Card>
+  <Card title="Best Practices" icon="thumbs-up">
+    - Code organization
+    - Naming conventions
+    - Documentation
+    - Error handling
+  </Card>
+  <Card title="SEO" icon="magnifying-glass-chart">
+    - Meta tags
+    - Semantic HTML
+    - Content structure
+    - Mobile-friendly
+  </Card>
+</CardGroup>
+
+## HTML-Specific Audit
+
+Run an audit focused only on HTML:
+
+<Tabs>
+  <Tab title="Extension UI">
+    <Steps>
+      <Step title="Open HTFlow Panel">
+        Press `Ctrl+Shift+H` / `Cmd+Shift+H`
+      </Step>
+      
+      <Step title="Click HTML Audit">
+        Click the **"Audit HTML"** button
+      </Step>
+      
+      <Step title="Review HTML Report">
+        Focused report on HTML structure and semantics
+      </Step>
+    </Steps>
+  </Tab>
+  
+  <Tab title="Command Line">
+    ```bash
+    htflow audit html
+    ```
+    
+    HTML-specific output:
+    ```text
+    🔎 HTML Audit Report
+    
+    Structure:
+    ✓ Valid DOCTYPE
+    ✓ Proper head section
+    ✓ Semantic elements used
+    
+    Accessibility:
+    ⚠ Missing alt text (3 images)
+    ✓ ARIA labels present
+    ✓ Heading hierarchy correct
+    
+    SEO:
+    ✓ Title tag present
+    ✓ Meta description found
+    ⚠ Consider adding Open Graph tags
+    
+    Webflow Compatibility:
+    ✓ All elements supported
+    ✓ Class naming compatible
+    ```
+  </Tab>
+</Tabs>
+
+## Validation Configuration
+
+Customize validation rules in your config:
+
+```javascript htflow.config.js
+module.exports = {
+  validation: {
+    // Enable/disable validators
+    html: true,
+    css: true,
+    javascript: true,
+    
+    // Strictness level
+    strict: false,  // Set to true for production
+    
+    // Custom rules
+    rules: {
+      // HTML rules
+      html: {
+        requireAltText: true,
+        semanticElements: true,
+        accessibility: "warn"  // "error", "warn", or "off"
+      },
+      
+      // CSS rules
+      css: {
+        vendorPrefixes: "auto",
+        browserSupport: ["last 2 versions"],
+        webflowClasses: true
+      },
+      
+      // JavaScript rules
+      javascript: {
+        es6: true,
+        strict: false,
+        browserCompat: "modern"
+      }
+    },
+    
+    // Ignore patterns
+    ignore: [
+      "**/node_modules/**",
+      "**/vendor/**",
+      "**/*.min.*"
+    ]
+  }
+};
+```
+
+## Audit Configuration
+
+Configure audit behavior:
+
+```javascript htflow.config.js
+module.exports = {
+  audit: {
+    // Output settings
+    outputFormat: "html",  // "html", "json", or "markdown"
+    outputPath: "./audit-report.html",
+    
+    // Thresholds
+    thresholds: {
+      performance: 80,
+      accessibility: 90,
+      bestPractices: 85,
+      seo: 80,
+      webflow: 100
+    },
+    
+    // What to audit
+    checks: {
+      performance: true,
+      accessibility: true,
+      bestPractices: true,
+      seo: true,
+      webflow: true
+    },
+    
+    // Fail on threshold
+    failOnThreshold: false
+  }
+};
+```
+
+## Fix Common Issues
+
+<AccordionGroup>
+  <Accordion title="Missing Alt Text" icon="image">
+    **Problem:** Images without alt attributes
+    
+    **Fix:**
+    ```html
+    <!-- ❌ Before -->
+    <img src="image.jpg">
+    
+    <!-- ✅ After -->
+    <img src="image.jpg" alt="Descriptive text">
+    ```
+  </Accordion>
+  
+  <Accordion title="CSS Vendor Prefixes" icon="code">
+    **Problem:** Missing vendor prefixes
+    
+    **Fix:**
+    ```css
+    /* ❌ Before */
+    .element {
+        backdrop-filter: blur(10px);
+    }
+    
+    /* ✅ After */
+    .element {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="JavaScript Compatibility" icon="js">
+    **Problem:** Modern JavaScript not supported
+    
+    **Fix:**
+    ```javascript
+    // ❌ Before (ES6)
+    const data = array.map(item => item.value);
+    
+    // ✅ After (ES5)
+    var data = array.map(function(item) {
+        return item.value;
+    });
+    ```
+  </Accordion>
+  
+  <Accordion title="Improper Heading Hierarchy" icon="heading">
+    **Problem:** Skipping heading levels
+    
+    **Fix:**
+    ```html
+    <!-- ❌ Before -->
+    <h1>Title</h1>
+    <h3>Subtitle</h3>
+    
+    <!-- ✅ After -->
+    <h1>Title</h1>
+    <h2>Subtitle</h2>
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Validate Often" icon="rotate">
+    Run validation after major changes
+  </Card>
+  <Card title="Audit Before Deploy" icon="rocket">
+    Always audit before building for production
+  </Card>
+  <Card title="Fix Warnings" icon="screwdriver-wrench">
+    Address warnings, not just errors
+  </Card>
+  <Card title="Track Scores" icon="chart-line">
+    Monitor audit scores over time
+  </Card>
+</CardGroup>
+
+## Continuous Integration
+
+Integrate validation in your CI/CD:
+
+```yaml .github/workflows/validate.yml
+name: HTFlow Validation
+on: [push, pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+      - run: npm install -g htflow-cli
+      - run: htflow validate
+      - run: htflow audit
+```
+
+## Next Steps
+
+<Card
+  title="Build Production Code"
+  icon="hammer"
+  href="/htflow/commands/build"
+  horizontal
+>
+  Create optimized builds for deployment
+</Card>
+
+<Card
+  title="MCP Integration"
+  icon="plug"
+  href="/htflow/commands/mcp"
+  horizontal
+>
+  Set up Model Context Protocol integration
+</Card>
+

@@ -1,0 +1,554 @@
+---
+title: "Build"
+description: "Build production-ready code for Webflow deployment"
+icon: "hammer"
+---
+
+## Overview
+
+The HTFlow build command creates optimized, production-ready HTML, CSS, and JavaScript files that are ready to be converted and deployed to Webflow.
+
+<Info>
+Always run validation and audit before building for production
+</Info>
+
+## Build Production Code
+
+Create a production build of your HTFlow project:
+
+<Tabs>
+  <Tab title="Extension UI">
+    <Steps>
+      <Step title="Validate Your Project">
+        Before building, ensure your code passes validation:
+        - Click **"Validate Project"**
+        - Fix any errors or warnings
+        
+        <Check>Clean validation results ensure smooth Webflow conversion</Check>
+      </Step>
+      
+      <Step title="Open HTFlow Panel">
+        Press `Ctrl+Shift+H` / `Cmd+Shift+H` or click the HTFlow icon
+      </Step>
+      
+      <Step title="Click Build Project">
+        Click the **"Build Project"** button
+        
+        <Info>Build process typically takes 10-30 seconds</Info>
+      </Step>
+      
+      <Step title="Review Build Output">
+        Check the Output panel for build results:
+        
+        ```text
+        🔨 Building HTFlow Project...
+        
+        ✓ Optimizing HTML (5 files)
+        ✓ Minifying CSS (3 files)
+        ✓ Bundling JavaScript (4 files)
+        ✓ Optimizing images (12 files)
+        ✓ Generating source maps
+        
+        Build complete!
+        Output: ./dist
+        Size: 1.2 MB
+        Time: 18.3s
+        ```
+      </Step>
+    </Steps>
+  </Tab>
+  
+  <Tab title="Command Line">
+    ```bash
+    htflow build
+    ```
+    
+    Build output:
+    ```text
+    🔨 Building HTFlow Project...
+    
+    HTML:
+    ✓ index.html → dist/index.html (8.2 KB)
+    ✓ about.html → dist/about.html (6.5 KB)
+    
+    CSS:
+    ✓ main.css → dist/styles/main.css (45 KB)
+    ✓ Minified: 32 KB (28% reduction)
+    
+    JavaScript:
+    ✓ main.js → dist/scripts/main.js (18 KB)
+    ✓ Bundled & minified: 12 KB (33% reduction)
+    
+    Assets:
+    ✓ Copied 12 images
+    ✓ Copied 3 fonts
+    
+    Build Summary:
+    Total size: 1.2 MB
+    Build time: 18.3s
+    Ready for Webflow conversion!
+    ```
+  </Tab>
+</Tabs>
+
+## Build Output Structure
+
+The build creates a `dist` folder with production-ready files:
+
+```text Build Output
+dist/
+├── index.html              # Optimized HTML
+├── about.html
+├── styles/
+│   ├── main.css           # Minified CSS
+│   └── main.css.map       # Source map
+├── scripts/
+│   ├── main.js            # Bundled & minified JS
+│   └── main.js.map        # Source map
+├── assets/
+│   ├── images/
+│   │   ├── hero.jpg       # Optimized images
+│   │   └── logo.svg
+│   └── fonts/
+│       └── custom-font.woff2
+└── webflow-manifest.json  # Webflow conversion manifest
+```
+
+## Build Optimizations
+
+HTFlow automatically applies several optimizations:
+
+<CardGroup cols={2}>
+  <Card title="HTML Optimization" icon="code">
+    - Minify HTML
+    - Remove comments
+    - Inline critical CSS
+    - Optimize meta tags
+  </Card>
+  <Card title="CSS Processing" icon="palette">
+    - Minify CSS
+    - Remove unused rules
+    - Combine media queries
+    - Auto-prefix for browsers
+  </Card>
+  <Card title="JavaScript Bundling" icon="js">
+    - Bundle modules
+    - Minify & compress
+    - Tree shaking
+    - Code splitting
+  </Card>
+  <Card title="Asset Optimization" icon="image">
+    - Compress images
+    - Convert to WebP
+    - Optimize SVGs
+    - Cache busting
+  </Card>
+</CardGroup>
+
+## Build Configuration
+
+Customize build behavior in your config:
+
+```javascript htflow.config.js
+module.exports = {
+  build: {
+    // Output directory
+    outDir: "./dist",
+    
+    // Minification
+    minify: {
+      html: true,
+      css: true,
+      javascript: true
+    },
+    
+    // Source maps
+    sourcemap: true,  // Set false for production
+    
+    // Code splitting
+    splitting: true,
+    
+    // Asset handling
+    assets: {
+      images: {
+        optimize: true,
+        formats: ["webp", "jpg", "png"],
+        quality: 85
+      },
+      fonts: {
+        subset: true,
+        formats: ["woff2", "woff"]
+      }
+    },
+    
+    // Cache busting
+    hash: true,  // Add hash to filenames
+    
+    // Webflow-specific
+    webflow: {
+      manifest: true,
+      compatibility: "strict",
+      embedReady: true
+    },
+    
+    // Browser targets
+    targets: {
+      browsers: [
+        "last 2 versions",
+        "> 1%",
+        "not dead"
+      ]
+    }
+  }
+};
+```
+
+## Webflow Manifest
+
+HTFlow generates a `webflow-manifest.json` file that helps with the Webflow conversion:
+
+```json webflow-manifest.json
+{
+  "version": "1.0.0",
+  "htflowVersion": "2.1.0",
+  "buildDate": "2025-10-12T10:30:00Z",
+  "pages": [
+    {
+      "file": "index.html",
+      "title": "Home",
+      "slug": "home",
+      "path": "/"
+    },
+    {
+      "file": "about.html",
+      "title": "About",
+      "slug": "about",
+      "path": "/about"
+    }
+  ],
+  "styles": [
+    {
+      "file": "styles/main.css",
+      "type": "global"
+    }
+  ],
+  "scripts": [
+    {
+      "file": "scripts/main.js",
+      "type": "footer"
+    }
+  ],
+  "assets": {
+    "images": ["assets/images/hero.jpg", "assets/images/logo.svg"],
+    "fonts": ["assets/fonts/custom-font.woff2"]
+  },
+  "compatibility": {
+    "webflow": true,
+    "responsive": true,
+    "interactions": false
+  }
+}
+```
+
+## Build Modes
+
+HTFlow supports different build modes:
+
+<Tabs>
+  <Tab title="Production (Default)">
+    Fully optimized build for deployment:
+    
+    ```bash
+    htflow build
+    # or
+    htflow build --mode=production
+    ```
+    
+    Features:
+    - Full minification
+    - No source maps
+    - Asset optimization
+    - Cache busting
+  </Tab>
+  
+  <Tab title="Development">
+    Faster builds for testing:
+    
+    ```bash
+    htflow build --mode=development
+    ```
+    
+    Features:
+    - No minification
+    - Source maps included
+    - Faster build time
+    - Better debugging
+  </Tab>
+  
+  <Tab title="Preview">
+    Build for preview/staging:
+    
+    ```bash
+    htflow build --mode=preview
+    ```
+    
+    Features:
+    - Light minification
+    - Source maps included
+    - Asset optimization
+    - Fast builds
+  </Tab>
+</Tabs>
+
+## After Building
+
+Once your build is complete, you're ready to convert to Webflow:
+
+<Steps>
+  <Step title="Review Build Output">
+    Check the `dist` folder to ensure all files are present and optimized
+  </Step>
+  
+  <Step title="Test Locally">
+    Open `dist/index.html` in a browser to verify the production build works
+  </Step>
+  
+  <Step title="Convert to Webflow">
+    Use one of these methods to convert to Webflow:
+    
+    <CardGroup cols={2}>
+      <Card title="Webflow App" icon="window">
+        Upload your dist folder through the HTFlow Webflow app
+      </Card>
+      <Card title="Chrome Extension" icon="chrome">
+        Use the HTFlow Chrome extension for conversion
+      </Card>
+    </CardGroup>
+  </Step>
+  
+  <Step title="Deploy">
+    Publish your site on Webflow!
+  </Step>
+</Steps>
+
+## Build Performance
+
+Optimize your build times:
+
+<AccordionGroup>
+  <Accordion title="Reduce File Sizes" icon="compress">
+    - Remove unused code
+    - Optimize images before building
+    - Minimize dependencies
+    - Use code splitting
+  </Accordion>
+  
+  <Accordion title="Parallel Processing" icon="gauge">
+    ```javascript
+    build: {
+      parallel: true,  // Process files in parallel
+      workers: 4       // Number of workers
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="Caching" icon="database">
+    ```javascript
+    build: {
+      cache: true,           // Enable build cache
+      cacheDir: ".htflow-cache"
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="Incremental Builds" icon="rotate">
+    ```javascript
+    build: {
+      incremental: true,  // Only rebuild changed files
+      watch: false
+    }
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Build Validation
+
+HTFlow validates your build for Webflow compatibility:
+
+```text Build Validation
+🔍 Validating build output...
+
+Webflow Compatibility:
+✓ All HTML elements supported
+✓ CSS properties compatible
+✓ JavaScript APIs available
+✓ Responsive breakpoints valid
+
+Performance:
+✓ Bundle size: 1.2 MB (within limits)
+✓ Load time estimate: < 2s
+✓ Images optimized: 12/12
+
+Accessibility:
+✓ Alt text present
+✓ ARIA labels correct
+✓ Semantic HTML used
+
+SEO:
+✓ Meta tags present
+✓ Open Graph tags included
+✓ Structured data valid
+
+Build is Webflow-ready!
+```
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Build Fails" icon="circle-xmark">
+    **Common causes:**
+    - Validation errors
+    - Missing dependencies
+    - Syntax errors
+    
+    **Solutions:**
+    ```bash
+    # Validate first
+    htflow validate
+    
+    # Install dependencies
+    npm install
+    
+    # Clean and rebuild
+    rm -rf dist
+    htflow build
+    ```
+  </Accordion>
+  
+  <Accordion title="Large Bundle Size" icon="weight-hanging">
+    **Reduce size:**
+    
+    ```javascript
+    build: {
+      minify: true,
+      splitting: true,
+      assets: {
+        images: {
+          quality: 75  // Lower quality
+        }
+      }
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="Missing Files in Build" icon="file-circle-xmark">
+    **Check:**
+    - Files are in source directory
+    - Not excluded in `.gitignore`
+    - Not in `ignore` patterns
+    
+    ```javascript
+    build: {
+      ignore: [
+        "**/*.md",
+        "**/node_modules/**"
+      ]
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="Build Takes Too Long" icon="clock">
+    **Speed up builds:**
+    
+    ```javascript
+    build: {
+      parallel: true,
+      cache: true,
+      sourcemap: false,  // Disable source maps
+      assets: {
+        images: {
+          optimize: false  // Skip image optimization
+        }
+      }
+    }
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Build Scripts
+
+Integrate builds into your workflow:
+
+<CodeGroup>
+
+```json package.json
+{
+  "scripts": {
+    "build": "htflow build",
+    "build:dev": "htflow build --mode=development",
+    "build:preview": "htflow build --mode=preview",
+    "prebuild": "htflow validate",
+    "postbuild": "htflow audit"
+  }
+}
+```
+
+```bash npm
+# Run build script
+npm run build
+
+# With validation
+npm run prebuild && npm run build
+```
+
+</CodeGroup>
+
+## Advanced Build Options
+
+<Tabs>
+  <Tab title="Custom Output">
+    ```bash
+    htflow build --outDir=./webflow-dist
+    ```
+  </Tab>
+  
+  <Tab title="No Minification">
+    ```bash
+    htflow build --no-minify
+    ```
+  </Tab>
+  
+  <Tab title="Skip Assets">
+    ```bash
+    htflow build --skip-assets
+    ```
+  </Tab>
+  
+  <Tab title="Watch Mode">
+    ```bash
+    htflow build --watch
+    ```
+    Rebuilds on file changes
+  </Tab>
+</Tabs>
+
+## Next Steps
+
+<Card
+  title="Convert to Webflow"
+  icon="repeat"
+  href="/htflow/webflow-conversion"
+  horizontal
+>
+  Learn how to convert your build to Webflow
+</Card>
+
+<Card
+  title="MCP Integration"
+  icon="plug"
+  href="/htflow/commands/mcp"
+  horizontal
+>
+  Set up AI assistant integration
+</Card>
+
