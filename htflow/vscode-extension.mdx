@@ -235,7 +235,29 @@ After installing the extension, install the HTFlow CLI:
       </Step>
 
       <Step title="Run Build for conversion">
-        In the HTFlow panel, click **"Install HTFlow CLI"** button
+        In the HTFlow panel, click the **"Build"** tab and then click the **"Build"** button.
+
+        This will create a folder in your project root called **htflow-copyable** and organize each HTML file
+        as a separate folder containing the copyable HTML, CSS, and JS files. These files can be used to convert
+        into Webflow or Droip using the HTFlow Webflow app or HTFlow web app:
+
+        - <a href="https://htflow.com/html-to-webflow" target="_blank">HTML to Webflow</a>
+        - <a href="https://htflow.com/html-to-droip" target="_blank">HTML to Droip</a>
+
+        **Example folder structure after build:**
+
+        ```text
+        htflow-copyable/
+        ├── index/
+        │   ├── index.html
+        │   ├── index.css
+        │   └── index.js
+        └── about/
+            ├── about.html
+            ├── about.css
+            └── about.js
+        ```
+
         <Frame>
           <img
             src="/images/image__htflow-extension-open-vs.png"
