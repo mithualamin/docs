@@ -28,29 +28,35 @@ Before installing the HTFlow extension:
 <Steps>
   <Step title="Open VS Code">Launch Visual Studio Code on your computer</Step>
 
-  <Step title="Open Extensions Panel">
-    Press `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (Mac)
-    <Tip>You can also click the Extensions icon in the Activity Bar</Tip>
-  </Step>
+{" "}
 
-  <Step title="Search for HTFlow">
-    In the search bar, type **"Htflow Html to Webflow"**
-    <Frame>
-      <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/MBBAj5EaKSg"
-        title="HTFlow Extension Tutorial"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      ></iframe>
-    </Frame>
-  </Step>
+<Step title="Open Extensions Panel">
+  Press `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (Mac)
+  <Tip>You can also click the Extensions icon in the Activity Bar</Tip>
+</Step>
 
-  <Step title="Install Extension">
-    Click the **Install** button next to the HTFlow extension
-  </Step>
+{" "}
+
+<Step title="Search for HTFlow">
+  In the search bar, type **"Htflow Html to Webflow"**
+  <Frame>
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/MBBAj5EaKSg"
+      title="HTFlow Extension Tutorial"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </Frame>
+</Step>
+
+{" "}
+
+<Step title="Install Extension">
+  Click the **Install** button next to the HTFlow extension
+</Step>
 
   <Step title="Reload VS Code">
     Reload VS Code to activate the extension
@@ -85,6 +91,7 @@ After installing the extension, install the HTFlow CLI:
         <Check>Success message appears when complete</Check>
       </Step>
     </Steps>
+
   </Tab>
 
   <Tab title="Via Terminal">
@@ -125,9 +132,11 @@ After installing the extension, install the HTFlow CLI:
     Press `Ctrl+Shift+H` (Windows/Linux) or `Cmd+Shift+H` (Mac)
   </Tab>
 
-  <Tab title="Activity Bar">
-    Click the HTFlow icon in the Activity Bar (left sidebar)
-  </Tab>
+{" "}
+
+<Tab title="Activity Bar">
+  Click the HTFlow icon in the Activity Bar (left sidebar)
+</Tab>
 
   <Tab title="Command Palette">
     1. Press `Ctrl+Shift+P` / `Cmd+Shift+P` 2. Type "HTFlow" 3. Select "HTFlow:
@@ -146,27 +155,35 @@ The HTFlow panel is organized into sections:
     without terminal ```
   </Accordion>
 
-  <Accordion title="Project Management" icon="folder">
-    **Available Commands:** - Initialize Project - Open Project Settings ```text
-    Project Setup Create new HTFlow projects with templates ```
-  </Accordion>
+{" "}
 
-  <Accordion title="Development" icon="code">
-    **Available Commands:** - Start Development Server - Stop Server - Restart
-    Server ```text Live Development Hot reloading and automatic port management
-    ``` **Running Servers Display:** - Server URL - Port number - Uptime - Stop
-    button
-  </Accordion>
+<Accordion title="Project Management" icon="folder">
+  **Available Commands:** - Initialize Project - Open Project Settings ```text
+  Project Setup Create new HTFlow projects with templates ```
+</Accordion>
 
-  <Accordion title="Validation & Audit" icon="magnifying-glass">
-    **Available Commands:** - Validate Project - Audit Project - Audit HTML
-    ```text Quality Assurance Ensure Webflow compatibility ```
-  </Accordion>
+{" "}
 
-  <Accordion title="Build" icon="hammer">
-    **Available Commands:** - Build Project - Build (Development Mode) - Clean
-    Build ```text Production Ready Optimized builds for Webflow deployment ```
-  </Accordion>
+<Accordion title="Development" icon="code">
+  **Available Commands:** - Start Development Server - Stop Server - Restart
+  Server ```text Live Development Hot reloading and automatic port management
+  ``` **Running Servers Display:** - Server URL - Port number - Uptime - Stop
+  button
+</Accordion>
+
+{" "}
+
+<Accordion title="Validation & Audit" icon="magnifying-glass">
+  **Available Commands:** - Validate Project - Audit Project - Audit HTML
+  ```text Quality Assurance Ensure Webflow compatibility ```
+</Accordion>
+
+{" "}
+
+<Accordion title="Build" icon="hammer">
+  **Available Commands:** - Build Project - Build (Development Mode) - Clean
+  Build ```text Production Ready Optimized builds for Webflow deployment ```
+</Accordion>
 
   <Accordion title="MCP Integration" icon="plug">
     **Available Commands:** - Install MCP - Uninstall MCP - Configure MCP
@@ -240,9 +257,9 @@ Monitor HTFlow operations in the Output panel:
     View → Output or `Ctrl+Shift+U` / `Cmd+Shift+U`
   </Step>
 
-  <Step title="Select HTFlow Channel">
-    In the dropdown, select **"HTFlow"**
-  </Step>
+{" "}
+
+<Step title="Select HTFlow Channel">In the dropdown, select **"HTFlow"**</Step>
 
   <Step title="View Logs">
     See real-time logs of all HTFlow operations: - Command execution - Server
@@ -271,15 +288,19 @@ Access all commands via Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`):
     Show Version ```
   </Tab>
 
-  <Tab title="Project Commands">
-    ```text HTFlow: Initialize Project HTFlow: Open Configuration HTFlow:
-    Validate Project HTFlow: Audit Project ```
-  </Tab>
+{" "}
 
-  <Tab title="Development Commands">
-    ```text HTFlow: Start Dev Server HTFlow: Stop Dev Server HTFlow: Restart Dev
-    Server HTFlow: Build Project ```
-  </Tab>
+<Tab title="Project Commands">
+  ```text HTFlow: Initialize Project HTFlow: Open Configuration HTFlow: Validate
+  Project HTFlow: Audit Project ```
+</Tab>
+
+{" "}
+
+<Tab title="Development Commands">
+  ```text HTFlow: Start Dev Server HTFlow: Stop Dev Server HTFlow: Restart Dev
+  Server HTFlow: Build Project ```
+</Tab>
 
   <Tab title="Utility Commands">
     ```text HTFlow: Open Panel HTFlow: Show Output HTFlow: Open Documentation
@@ -315,16 +336,20 @@ HTFlow integrates seamlessly with VS Code workspace:
     1.99.0+) 4. Reinstall extension
   </Accordion>
 
-  <Accordion title="Commands Not Working" icon="circle-xmark">
-    **Check:** 1. HTFlow CLI is installed: `htflow version` 2. Node.js is
-    installed: `node --version` 3. Check Output panel for errors 4. Restart VS
-    Code
-  </Accordion>
+{" "}
 
-  <Accordion title="Panel Won't Open" icon="window">
-    **Try:** 1. Use Command Palette: `HTFlow: Open Panel` 2. Check keyboard
-    shortcut conflicts 3. Reset panel position in settings 4. Reload window
-  </Accordion>
+<Accordion title="Commands Not Working" icon="circle-xmark">
+  **Check:** 1. HTFlow CLI is installed: `htflow version` 2. Node.js is
+  installed: `node --version` 3. Check Output panel for errors 4. Restart VS
+  Code
+</Accordion>
+
+{" "}
+
+<Accordion title="Panel Won't Open" icon="window">
+  **Try:** 1. Use Command Palette: `HTFlow: Open Panel` 2. Check keyboard
+  shortcut conflicts 3. Reset panel position in settings 4. Reload window
+</Accordion>
 
   <Accordion title="Server Issues" icon="server">
     **Solutions:** 1. Check port availability 2. Stop other servers on same port
@@ -370,9 +395,11 @@ Use HTFlow with multiple projects:
 <Steps>
   <Step title="Add Folders">File → Add Folder to Workspace</Step>
 
-  <Step title="Switch Projects">
-    HTFlow panel shows dropdown to select active project
-  </Step>
+{" "}
+
+<Step title="Switch Projects">
+  HTFlow panel shows dropdown to select active project
+</Step>
 
   <Step title="Manage Separately">
     Each project has independent settings and servers
