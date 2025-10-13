@@ -25,37 +25,41 @@ Before installing the HTFlow extension:
 
 ## Installation
 
-<Steps>
-  <Step title="Open VS Code">Launch Visual Studio Code on your computer</Step>
+### Step 1: Open VS Code
 
-<Step title="Open Extensions Panel">
-  Press `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (Mac)
-  <Tip>You can also click the Extensions icon in the Activity Bar</Tip>
-</Step>
+Launch Visual Studio Code on your computer
 
-<Step title="Search for HTFlow">
-  In the search bar, type **"Htflow Html to Webflow"**
-  <Frame>
-    <iframe
-      width="560"
-      height="315"
-      src="https://www.youtube.com/embed/MBBAj5EaKSg"
-      title="HTFlow Extension Tutorial"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen
-    ></iframe>
-  </Frame>
-</Step>
+### Step 2: Open Extensions Panel
 
-  <Step title="Install Extension">
-    Click the **Install** button next to the HTFlow extension
-  </Step>
-  <Step title="Reload VS Code">
-    Reload VS Code to activate the extension
-    <Check>HTFlow icon should appear in the Activity Bar</Check>
-  </Step>
-</Steps>
+Press `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (Mac)
+
+<Tip>You can also click the Extensions icon in the Activity Bar</Tip>
+
+### Step 3: Search for HTFlow
+
+In the search bar, type **"Htflow Html to Webflow"**
+
+<Frame>
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/MBBAj5EaKSg"
+    title="HTFlow Extension Tutorial"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+  ></iframe>
+</Frame>
+
+### Step 4: Install Extension
+
+Click the **Install** button next to the HTFlow extension
+
+### Step 5: Reload VS Code
+
+Reload VS Code to activate the extension
+
+<Check>HTFlow icon should appear in the Activity Bar</Check>
 
 ## Install HTFlow CLI
 
@@ -63,41 +67,41 @@ After installing the extension, install the HTFlow CLI:
 
 <Tabs>
   <Tab title="Via Extension (Recommended)">
-    <Steps>
-      <Step title="Open HTFlow Panel">
-        Click the HTFlow icon in Activity Bar or press `Ctrl+Shift+H` /
-        `Cmd+Shift+H`
-        <Frame>
-          <img
-            src="/images/image__htflow-extension-open-vs.png"
-            alt="HTFlow Extension Panel"
-          />
-        </Frame>
-      </Step>
+    
+    <Card title="1. Open HTFlow Panel" icon="window">
+      Click the HTFlow icon in Activity Bar or press `Ctrl+Shift+H` / `Cmd+Shift+H`
       
-      <Step title="Click Install CLI">
-        In the HTFlow panel, click **"Install HTFlow CLI"** button
-        <Frame>
-          <img
-            src="/images/image__htflow-extension-open-vs.png"
-            alt="HTFlow Extension Panel"
-          />
-        </Frame>
-      </Step>
+      <Frame>
+        <img
+          src="/images/image__htflow-extension-open-vs.png"
+          alt="HTFlow Extension Panel"
+        />
+      </Frame>
+    </Card>
+    
+    <Card title="2. Install HTFlow CLI" icon="download">
+      In the HTFlow panel, click **"Install HTFlow CLI"** button
+      
+      <Frame>
+        <img
+          src="/images/image__htflow-extension-open-vs.png"
+          alt="HTFlow Extension Panel"
+        />
+      </Frame>
+    </Card>
 
-      <Step title="Initialize Project">
-        In the HTFlow panel, click **"Install HTFlow CLI"** button
-        <Frame>
-          <img
-            src="/images/image__htflow-extension-vs-initialize-project.png"
-            alt="HTFlow Extension Panel"
-          />
-        </Frame>
-      </Step>
+    <Card title="3. Initialize Project" icon="folder-plus">
+      In the HTFlow panel, click **"Initialize Project"** button
 
-## AI Build
+      <Frame>
+        <img
+          src="/images/image__htflow-extension-vs-initialize-project.png"
+          alt="HTFlow Extension Panel"
+        />
+      </Frame>
+    </Card>
 
-      <Step title="AI Build">
+    <Card title="4. AI Build" icon="robot">
         Create your HTML webpage using an AI agent. We've shown the default Copilot Agent for VS Code in this example,
         but you can use any AI agent you prefer, such as Cursor, Claude Code, GPT Code, Gemini CLI, or any other AI coding assistant.
 
@@ -113,11 +117,9 @@ After installing the extension, install the HTFlow CLI:
         - Ask the AI to follow the HTFlow rules from the configuration files
         - Iterate on the design until you're satisfied with the result
         - Save your files before proceeding to the audit step
-      </Step>
+    </Card>
 
-## Audit and Validation
-
-      <Step title="Audit">
+    <Card title="5. Audit and Validation" icon="shield-check">
         Once you're satisfied with your AI-generated design, run the audit to validate your code against HTFlow rules.
 
         In the HTFlow panel, click on the **"Validation"** tab and then click the **"Audit Project"** button.
@@ -145,11 +147,9 @@ After installing the extension, install the HTFlow CLI:
         <Info>
           See the <a href="/htflow/tutorial" target="_blank">complete tutorial</a> to learn how to build a full website with HTFlow from start to finish.
         </Info>
-      </Step>
+    </Card>
 
-## Development Server
-
-      <Step title="Start Dev Server">
+    <Card title="6. Development Server" icon="server">
         In the HTFlow panel, click the **"Server"** tab where you'll see two server options:
 
         - **HTFlow Serve Dev (Development Server)**: For testing and development
@@ -191,11 +191,9 @@ After installing the extension, install the HTFlow CLI:
         <Info>
           The HTFlow development server is strongly recommended for development mode, as the <a href="https://chromewebstore.google.com/detail/htflow-html-to-webflow-cu/nnkbaccknjdofhmijbddaohboaenbpci" target="_blank">HTFlow Chrome extension</a> only functions properly with this server type. This ensures full compatibility and access to all development features.
         </Info>
-      </Step>
+    </Card>
 
-## Production Server
-
-      <Step title="Start Production Server">
+    <Card title="7. Production Server" icon="rocket">
         In the HTFlow panel, click the **"Server"** tab where you'll see two server options:
 
         - **HTFlow Serve Dev (Development Server)**: For testing and development
@@ -240,11 +238,9 @@ After installing the extension, install the HTFlow CLI:
           This ensures compatibility with the <a href="https://chromewebstore.google.com/detail/htflow-html-to-webflow-cu/nnkbaccknjdofhmijbddaohboaenbpci" target="_blank">HTFlow Chrome Extension</a>
           for Webflow and Droip conversion. Please note that in production mode, JavaScript functionality will not work - this is specifically designed for conversion purposes.
         </Info>
-      </Step>
+    </Card>
 
-## Build for Conversion
-
-      <Step title="Run Build for conversion">
+    <Card title="8. Build for Conversion" icon="hammer">
         In the HTFlow panel, click the **"Build"** tab and then click the **"Build Project"** button.
 
         This will create a folder in your project root called **htflow-copyable** and organize each HTML file
@@ -274,11 +270,9 @@ After installing the extension, install the HTFlow CLI:
             alt="HTFlow Extension Panel"
           />
         </Frame>
-      </Step>
+    </Card>
 
-## Conversion Methods
-
-      <Step title="Use Webflow App for conversion">
+    <Card title="9. Use Webflow App for Conversion" icon="puzzle-piece">
         In the HTFlow panel, click **"Install HTFlow CLI"** button
         <Frame>
           <img
@@ -286,9 +280,9 @@ After installing the extension, install the HTFlow CLI:
             alt="HTFlow Extension Panel"
           />
         </Frame>
-      </Step>
+    </Card>
 
-       <Step title="Use chrome extension for conversion">
+    <Card title="10. Use Chrome Extension for Conversion" icon="puzzle-piece">
         In the HTFlow panel, click **"Install HTFlow CLI"** button
         <Frame>
           <img
@@ -296,9 +290,9 @@ After installing the extension, install the HTFlow CLI:
             alt="HTFlow Extension Panel"
           />
         </Frame>
-      </Step>
+    </Card>
 
-      <Step title="Conversion for Droio (Wordpress)">
+    <Card title="11. Conversion for Droip (WordPress)" icon="wordpress">
         In the HTFlow panel, click **"Install HTFlow CLI"** button
         <Frame>
           <img
@@ -306,9 +300,9 @@ After installing the extension, install the HTFlow CLI:
             alt="HTFlow Extension Panel"
           />
         </Frame>
-      </Step>
+    </Card>
 
-    </Steps>
+  </Tab>
 
   </Tab>
   
