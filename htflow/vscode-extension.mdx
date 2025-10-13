@@ -26,19 +26,13 @@ Before installing the HTFlow extension:
 ## Installation
 
 <Steps>
-  <Step title="Open VS Code">
-    Launch Visual Studio Code on your computer
-  </Step>
-  
+  <Step title="Open VS Code">Launch Visual Studio Code on your computer</Step>{" "}
   <Step title="Open Extensions Panel">
     Press `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (Mac)
-    
     <Tip>You can also click the Extensions icon in the Activity Bar</Tip>
-  </Step>
-  
+  </Step>{" "}
   <Step title="Search for HTFlow">
     In the search bar, type **"Htflow Html to Webflow"**
-    
     <Frame>
       <iframe
         width="560"
@@ -50,12 +44,10 @@ Before installing the HTFlow extension:
         allowfullscreen
       ></iframe>
     </Frame>
-  </Step>
-  
+  </Step>{" "}
   <Step title="Install Extension">
     Click the **Install** button next to the HTFlow extension
   </Step>
-
   <Step title="Reload VS Code">
     Reload VS Code to activate the extension
     <Check>HTFlow icon should appear in the Activity Bar</Check>
@@ -79,7 +71,7 @@ After installing the extension, install the HTFlow CLI:
           />
         </Frame>
       </Step>
-
+      
       <Step title="Click Install CLI">
         In the HTFlow panel, click **"Install HTFlow CLI"** button
         <Frame>
@@ -100,22 +92,42 @@ After installing the extension, install the HTFlow CLI:
         </Frame>
       </Step>
 
-      <Step title="Audit and Validate">
-        In the HTFlow panel, click **"Validation"** and then click the **"Audit Project"** button to validate your code against HTFlow rules.
-
-        Before running the audit, you need to create your HTML webpage using an AI agent. We've shown the default Copilot Agent for VS Code in this example,
+      <Step title="AI Build">
+        Create your HTML webpage using an AI agent. We've shown the default Copilot Agent for VS Code in this example,
         but you can use any AI agent you prefer, such as Cursor, Claude Code, GPT Code, Gemini CLI, or any other AI coding assistant.
 
-        The key requirement is to instruct your AI agent to follow the HTFlow rules that were established during the project initialization step.
-        You can provide the `.cursor` folder, `htflowrc.json`, and `AI_prompt.md` files as context to your AI agent (Copilot or others).
-        This ensures the AI agent will generate HTML, CSS, and JavaScript code that is compatible with Webflow and Droip conversion requirements.
+        **Key Requirements:**
 
-        Once you're satisfied with your design, you can run the audit from the HTFlow VS Code extension panel.
-        Click on the **"Validation"** tab and then click the **"Audit Project"** button. HTFlow will execute the `npx htflow audit` command in the terminal.
+        - Instruct your AI agent to follow the HTFlow rules that were established during the project initialization step
+        - Provide the `.cursor` folder, `htflowrc.json`, and `AI_prompt.md` files as context to your AI agent (Copilot or others)
+        - This ensures the AI agent will generate HTML, CSS, and JavaScript code that is compatible with Webflow and Droip conversion requirements
 
-        The audit will display all rule violations that the AI might have introduced. If you encounter any errors, simply copy the entire terminal output
-        and paste it into your AI agent's chat box, asking the AI to fix the issues. The AI will resolve all the errors for you.
-        You can run the audit repeatedly until you achieve zero errors. Once you have error-free code, it's ready for Webflow or Droip conversion.
+        **Best Practices:**
+
+        - Start with a clear description of your website requirements
+        - Ask the AI to follow the HTFlow rules from the configuration files
+        - Iterate on the design until you're satisfied with the result
+        - Save your files before proceeding to the audit step
+      </Step>
+
+      <Step title="Audit">
+        Once you're satisfied with your AI-generated design, run the audit to validate your code against HTFlow rules.
+
+        In the HTFlow panel, click on the **"Validation"** tab and then click the **"Audit Project"** button.
+        HTFlow will execute the `npx htflow audit` command in the terminal.
+
+        **What the Audit Does:**
+
+        - Scans your HTML, CSS, and JavaScript files for rule violations
+        - Displays all compatibility issues that need to be fixed
+        - Provides detailed error messages and suggestions
+
+        **Fixing Errors:**
+
+        If you encounter any errors, simply copy the entire terminal output and paste it into your AI agent's chat box,
+        asking the AI to fix the issues. The AI will resolve all the errors for you.
+        You can run the audit repeatedly until you achieve zero errors.
+
         <Frame>
           <img
             src="/images/image__htflow-extension-vs-audit.png"
@@ -129,13 +141,47 @@ After installing the extension, install the HTFlow CLI:
       </Step>
 
       <Step title="Start Dev Server">
-        In the HTFlow panel, click **"Install HTFlow CLI"** button
+        In the HTFlow panel, click the **"Server"** tab where you'll see two server options:
+
+        - **HTFlow Serve Dev (Development Server)**: For testing and development
+        - **HTFlow Serve Start (Production Server)**: For final deployment and production use
+
+        **Why Use a Development Server?**
+
+        The development server is essential for several reasons:
+
+        1. **Live Preview**: You can see your website changes in real-time as you develop
+        2. **Hot Reloading**: Automatic browser refresh when you save files
+        3. **HTFlow Chrome Extension Integration**: Enables website inspection capabilities
+
+        **How It Works:**
+
+        When you click the **"Start Dev Server"** button, HTFlow launches a local development server that:
+
+        - Serves your website on a local port (typically http://localhost:3050)
+        - Enables real-time file watching and automatic reloading
+        - Provides development-specific features and debugging tools
+        - Integrates with the <a href="https://chromewebstore.google.com/detail/htflow-html-to-webflow-cu/nnkbaccknjdofhmijbddaohboaenbpci" target="_blank">HTFlow Chrome extension</a> for enhanced inspection
+
+        **Chrome Extension Benefits:**
+
+        With the <a href="https://chromewebstore.google.com/detail/htflow-html-to-webflow-cu/nnkbaccknjdofhmijbddaohboaenbpci" target="_blank">HTFlow Chrome extension</a> installed, development mode provides:
+
+        - **Website Inspection**: Analyze your HTML structure and styling
+        - **AI-Prompt Generation**: Generate prompts for AI agents to improve your design
+        - **Design Analysis**: Get suggestions for layout and styling improvements
+        - **Code Optimization**: Identify areas for better performance and compatibility
+
         <Frame>
           <img
             src="/images/image__htflow-extension-open-vs.png"
             alt="HTFlow Extension Panel"
           />
         </Frame>
+
+        <Info>
+          The HTFlow development server is strongly recommended for development mode, as the <a href="https://chromewebstore.google.com/detail/htflow-html-to-webflow-cu/nnkbaccknjdofhmijbddaohboaenbpci" target="_blank">HTFlow Chrome extension</a> only functions properly with this server type. This ensures full compatibility and access to all development features.
+        </Info>
       </Step>
 
       <Step title="Start conversion/production server">
@@ -191,7 +237,7 @@ After installing the extension, install the HTFlow CLI:
     </Steps>
 
   </Tab>
-
+  
   <Tab title="Via Terminal">
     htflow-cli installation:
     ```bash
