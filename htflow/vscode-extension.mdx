@@ -26,37 +26,35 @@ Before installing the HTFlow extension:
 ## Installation
 
 <Steps>
-  <Step title="Open VS Code">Launch Visual Studio Code on your computer</Step>
-
-{" "}
-
-<Step title="Open Extensions Panel">
-  Press `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (Mac)
-  <Tip>You can also click the Extensions icon in the Activity Bar</Tip>
-</Step>
-
-{" "}
-
-<Step title="Search for HTFlow">
-  In the search bar, type **"Htflow Html to Webflow"**
-  <Frame>
-    <iframe
-      width="560"
-      height="315"
-      src="https://www.youtube.com/embed/MBBAj5EaKSg"
-      title="HTFlow Extension Tutorial"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen
-    ></iframe>
-  </Frame>
-</Step>
-
-{" "}
-
-<Step title="Install Extension">
-  Click the **Install** button next to the HTFlow extension
-</Step>
+  <Step title="Open VS Code">
+    Launch Visual Studio Code on your computer
+  </Step>
+  
+  <Step title="Open Extensions Panel">
+    Press `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (Mac)
+    
+    <Tip>You can also click the Extensions icon in the Activity Bar</Tip>
+  </Step>
+  
+  <Step title="Search for HTFlow">
+    In the search bar, type **"Htflow Html to Webflow"**
+    
+    <Frame>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/MBBAj5EaKSg"
+        title="HTFlow Extension Tutorial"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+    </Frame>
+  </Step>
+  
+  <Step title="Install Extension">
+    Click the **Install** button next to the HTFlow extension
+  </Step>
 
   <Step title="Reload VS Code">
     Reload VS Code to activate the extension
@@ -95,8 +93,14 @@ After installing the extension, install the HTFlow CLI:
   </Tab>
 
   <Tab title="Via Terminal">
-    ```bash npm install -g htflow-cli ``` Verify installation: ```bash htflow
-    version ```
+    ```bash
+    npm install -g htflow-cli
+    ```
+    
+    Verify installation:
+    ```bash
+    htflow version
+    ```
   </Tab>
 </Tabs>
 
@@ -150,44 +154,75 @@ The HTFlow panel is organized into sections:
 
 <AccordionGroup>
   <Accordion title="Package Management" icon="box">
-    **Available Commands:** - Install HTFlow CLI - Update HTFlow CLI - Uninstall
-    HTFlow CLI - Show Version ```text Quick Access One-click CLI management
-    without terminal ```
+    **Available Commands:**
+    - Install HTFlow CLI
+    - Update HTFlow CLI
+    - Uninstall HTFlow CLI
+    - Show Version
+    
+    ```text Quick Access
+    One-click CLI management without terminal
+    ```
+  </Accordion>
+  
+  <Accordion title="Project Management" icon="folder">
+    **Available Commands:**
+    - Initialize Project
+    - Open Project Settings
+    
+    ```text Project Setup
+    Create new HTFlow projects with templates
+    ```
+  </Accordion>
+  
+  <Accordion title="Development" icon="code">
+    **Available Commands:**
+    - Start Development Server
+    - Stop Server
+    - Restart Server
+    
+    ```text Live Development
+    Hot reloading and automatic port management
+    ```
+    
+    **Running Servers Display:**
+    - Server URL
+    - Port number
+    - Uptime
+    - Stop button
+  </Accordion>
+  
+  <Accordion title="Validation & Audit" icon="magnifying-glass">
+    **Available Commands:**
+    - Validate Project
+    - Audit Project
+    - Audit HTML
+    
+    ```text Quality Assurance
+    Ensure Webflow compatibility
+    ```
+  </Accordion>
+  
+  <Accordion title="Build" icon="hammer">
+    **Available Commands:**
+    - Build Project
+    - Build (Development Mode)
+    - Clean Build
+    
+    ```text Production Ready
+    Optimized builds for Webflow deployment
+    ```
   </Accordion>
 
-{" "}
-
-<Accordion title="Project Management" icon="folder">
-  **Available Commands:** - Initialize Project - Open Project Settings ```text
-  Project Setup Create new HTFlow projects with templates ```
-</Accordion>
-
-{" "}
-
-<Accordion title="Development" icon="code">
-  **Available Commands:** - Start Development Server - Stop Server - Restart
-  Server ```text Live Development Hot reloading and automatic port management
-  ``` **Running Servers Display:** - Server URL - Port number - Uptime - Stop
-  button
-</Accordion>
-
-{" "}
-
-<Accordion title="Validation & Audit" icon="magnifying-glass">
-  **Available Commands:** - Validate Project - Audit Project - Audit HTML
-  ```text Quality Assurance Ensure Webflow compatibility ```
-</Accordion>
-
-{" "}
-
-<Accordion title="Build" icon="hammer">
-  **Available Commands:** - Build Project - Build (Development Mode) - Clean
-  Build ```text Production Ready Optimized builds for Webflow deployment ```
-</Accordion>
-
   <Accordion title="MCP Integration" icon="plug">
-    **Available Commands:** - Install MCP - Uninstall MCP - Configure MCP
-    ```text AI Integration Connect AI assistants to HTFlow ```
+    **Available Commands:**
+    - Install MCP
+    - Uninstall MCP
+    - Configure MCP
+    
+    ```text AI Integration
+    Connect AI assistants to HTFlow
+    ```
   </Accordion>
 </AccordionGroup>
 
@@ -396,7 +431,6 @@ Use HTFlow with multiple projects:
   <Step title="Add Folders">File → Add Folder to Workspace</Step>
 
 {" "}
-
 <Step title="Switch Projects">
   HTFlow panel shows dropdown to select active project
 </Step>
