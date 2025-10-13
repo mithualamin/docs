@@ -101,13 +101,31 @@ After installing the extension, install the HTFlow CLI:
       </Step>
 
       <Step title="Audit and Validate">
-        In the HTFlow panel, click **"Install HTFlow CLI"** button
+        In the HTFlow panel, click **"Server"** and then click the **"Audit Project"** button to validate your code against HTFlow rules.
+
+        Before running the audit, you need to create your HTML webpage using an AI agent. We've shown the default Copilot Agent for VS Code in this example,
+        but you can use any AI agent you prefer, such as Cursor, Claude Code, GPT Code, Gemini CLI, or any other AI coding assistant.
+
+        The key requirement is to instruct your AI agent to follow the HTFlow rules that were established during the project initialization step.
+        You can provide the `.cursor` folder, `htflowrc.json`, and `AI_prompt.md` files as context to your AI agent (Copilot or others).
+        This ensures the AI agent will generate HTML, CSS, and JavaScript code that is compatible with Webflow and Droip conversion requirements.
+
+        Once you're satisfied with your design, you can run the audit from the HTFlow VS Code extension panel.
+        Click on the **"Server"** tab and then click the **"Audit Project"** button. HTFlow will execute the `npx htflow audit` command in the terminal.
+
+        The audit will display all rule violations that the AI might have introduced. If you encounter any errors, simply copy the entire terminal output
+        and paste it into your AI agent's chat box, asking the AI to fix the issues. The AI will resolve all the errors for you.
+        You can run the audit repeatedly until you achieve zero errors. Once you have error-free code, it's ready for Webflow or Droip conversion.
         <Frame>
           <img
-            src="/images/image__htflow-extension-open-vs.png"
+            src="/images/image__htflow-extension-vs-audit.png"
             alt="HTFlow Extension Panel"
           />
         </Frame>
+
+        <Info>
+          See the <a href="/htflow/tutorial" target="_blank">complete tutorial</a> to learn how to build a full website with HTFlow from start to finish.
+        </Info>
       </Step>
 
       <Step title="Start Dev Server">
