@@ -72,7 +72,7 @@ After installing the extension, install the HTFlow CLI:
     ### Step 1: Open HTFlow Panel
     
     <Card title="1. Open HTFlow Panel" icon="window">
-      Click the HTFlow icon in Activity Bar or press `Ctrl+Shift+H` / `Cmd+Shift+H`
+        Click the HTFlow icon in Activity Bar or press `Ctrl+Shift+H` / `Cmd+Shift+H`
       
       <Frame>
         <img
@@ -292,13 +292,43 @@ After installing the extension, install the HTFlow CLI:
     ### Step 9: Use Webflow App for Conversion
 
     <Card title="9. Use Webflow App for Conversion" icon="puzzle-piece">
-        In the HTFlow panel, click **"Install HTFlow CLI"** button
+        Once you have your HTML and CSS code ready, you can convert them to Webflow using the **HTFlow Webflow App**.
+
+        **How to Use the HTFlow Webflow App:**
+
+        1. **Install the App**: Go to your Webflow design canvas and install the **HTFlow** app
+        2. **Login**: Once you log in to the app, you'll see the **"HTML to WF"** tab
+        3. **Input Your Code**: The tab contains HTML and CSS input areas:
+           - Paste your HTML code in the **HTML** area
+           - Paste your CSS code in the **CSS** area
+        4. **Convert**: Click the **"Convert & Copy"** button
+        5. **Paste in Webflow**: Once converted, simply paste into Webflow using:
+           - **Mac**: `Cmd + V`
+           - **Windows**: `Ctrl + V`
+
+        **Benefits:**
+
+        - Seamless conversion from HTML/CSS to Webflow elements
+        - Preserves styling and layout structure
+        - Direct integration with Webflow's design canvas
+        - Maintains responsive design properties
+
         <Frame>
           <img
             src="/images/image__webflow-app.png"
             alt="HTFlow Webflow App"
           />
         </Frame>
+
+        <Info>
+          **JavaScript Code Integration:** You need to copy and paste the JavaScript code separately into your Webflow page.
+          You can do this by either:
+
+          - **Page Settings**: Go to your page settings and paste the code in the "Custom Code" area
+          - **Embed Element**: Add an Embed element to your page and paste the JavaScript code including the `<script>` tags
+
+          This ensures your interactive features work properly in the final Webflow site.
+        </Info>
     </Card>
 
     ### Step 10: Use Chrome Extension for Conversion
