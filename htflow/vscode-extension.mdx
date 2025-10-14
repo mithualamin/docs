@@ -62,7 +62,7 @@ Before installing the HTFlow extension:
 
     <Check>HTFlow icon should appear in the Activity Bar</Check>
 
-## Install HTFlow CLI
+## How Htflow VS Code Extension Works
 
 After installing the extension, install the HTFlow CLI:
 
@@ -82,7 +82,7 @@ After installing the extension, install the HTFlow CLI:
       </Frame>
     </Card>
     
-    ### Step 2: Install HTFlow CLI
+    ### Step 2: Install HTFlow CLI globally
     
     <Card title="2. Install HTFlow CLI" icon="download">
         In the HTFlow panel, click **"Install HTFlow CLI"** button
@@ -106,6 +106,36 @@ After installing the extension, install the HTFlow CLI:
           alt="HTFlow Extension Panel"
         />
       </Frame>
+
+      **Project Structure Created:**
+
+      After initializing the project, HTFlow will create the following file and folder structure:
+
+      ```text
+      .cursor/
+      └── rules/
+          ├── examples/
+          │   ├── htflow-css-examples.mdc
+          │   ├── htflow-html-examples.mdc
+          │   └── htflow-js-examples.mdc
+          ├── htflow-css-essentials.mdc
+          ├── htflow-html-essentials.mdc
+          ├── htflow-js-essentials.mdc
+          ├── .htflowrc.json
+          └── AI_PROMPTS.md
+      ```
+
+      **What Each File Contains:**
+
+      - **htflow-html-essentials.mdc**: Essential HTML rules and guidelines for HTFlow compatibility
+      - **htflow-css-essentials.mdc**: CSS best practices and HTFlow-specific styling rules
+      - **htflow-js-essentials.mdc**: JavaScript guidelines for HTFlow conversion
+      - **htflow-html-examples.mdc**: HTML code examples and templates
+      - **htflow-css-examples.mdc**: CSS examples and styling patterns
+      - **htflow-js-examples.mdc**: JavaScript code examples
+      - **.htflowrc.json**: HTFlow configuration file
+      - **AI_PROMPTS.md**: Pre-configured prompts for AI agents to generate HTFlow-compatible code
+
     </Card>
 
     ### Step 4: AI Build
@@ -126,7 +156,16 @@ After installing the extension, install the HTFlow CLI:
         - Ask the AI to follow the HTFlow rules from the configuration files
         - Iterate on the design until you're satisfied with the result
         - Save your files before proceeding to the audit step
+
+
+
     </Card>
+
+
+
+
+
+
 
     ### Step 5: Audit and Validation
 
