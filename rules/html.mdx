@@ -1,0 +1,340 @@
+---
+title: "HTML Rules"
+description: "Essential HTML guidelines and requirements for HTFlow-compatible development"
+icon: "code"
+---
+
+## Overview
+
+HTFlow HTML rules ensure your markup is compatible with Webflow and Droip conversion processes. These rules focus on semantic structure, proper class usage, and maintaining clean, accessible HTML.
+
+<Warning>
+  These rules are **CRITICAL** and must be followed for successful conversion.
+  Violating these rules will result in conversion failures.
+</Warning>
+
+## 🚨 Critical Rules (Never Ignore)
+
+### ABSOLUTE PROHIBITIONS
+
+❌ **NEVER skip data-ht-styles** on `<style>` tags  
+❌ **NEVER skip data-ht-main-script** on `<script>` tags  
+❌ **NEVER create HTML elements without class names**  
+❌ **NEVER use IDs for styling or JavaScript**  
+❌ **NEVER use emojis** - use inline SVG only  
+❌ **NEVER skip htflow-wrapper** - wrap ALL content
+
+### MANDATORY REQUIREMENTS
+
+✅ **ALWAYS wrap ALL content** in `<div class="htflow-wrapper">`  
+✅ **ALWAYS use semantic HTML** elements  
+✅ **ALWAYS give every styled element** its own class name  
+✅ **ALWAYS use internal tags** with data attributes  
+✅ **ALWAYS use inline SVG** for icons
+
+## Core Structure
+
+Every HTFlow HTML document must follow this structure:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Page Title</title>
+  </head>
+  <body>
+    <div class="htflow-wrapper">
+      <!-- ALL CONTENT HERE -->
+    </div>
+
+    <!-- REQUIRED ATTRIBUTES -->
+    <style data-ht-styles>
+      /* CSS */
+    </style>
+    <script data-ht-main-script>
+      /* JS */
+    </script>
+  </body>
+</html>
+```
+
+## Semantic HTML Requirements
+
+### Required Elements
+
+Use these semantic HTML5 elements for proper structure:
+
+```html
+<div class="htflow-wrapper">
+  <header class="site-header">
+    <!-- Navigation, logo, etc. -->
+  </header>
+
+  <main class="main-content">
+    <section class="hero-section">
+      <!-- Hero content -->
+    </section>
+
+    <section class="features-section">
+      <!-- Features content -->
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <!-- Footer content -->
+  </footer>
+</div>
+```
+
+### Element Guidelines
+
+<AccordionGroup>
+  <Accordion title="Headings" icon="heading">
+    **Proper Heading Hierarchy:**
+    
+    ```html
+    <h1 class="main-heading">Primary Page Title</h1>
+    <h2 class="section-heading">Section Title</h2>
+    <h3 class="subsection-heading">Subsection Title</h3>
+    <h4 class="content-heading">Content Title</h4>
+    ```
+    
+    - Use only one `<h1>` per page
+    - Maintain logical hierarchy (h1 → h2 → h3 → h4)
+    - Give each heading a descriptive class name
+  </Accordion>
+  
+  <Accordion title="Navigation" icon="navigation">
+    **Navigation Structure:**
+    
+    ```html
+    <nav class="main-navigation">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="/" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="/about" class="nav-link">About</a>
+        </li>
+      </ul>
+    </nav>
+    ```
+    
+    - Use `<nav>` for navigation elements
+    - Include proper list structure
+    - Use descriptive class names
+  </Accordion>
+  
+  <Accordion title="Buttons & Links" icon="link">
+    **Interactive Elements:**
+    
+    ```html
+    <!-- For actions/buttons -->
+    <button class="primary-button" type="button">Click Me</button>
+    
+    <!-- For navigation/links -->
+    <a href="/page" class="primary-link">Go to Page</a>
+    
+    <!-- For external links -->
+    <a href="https://example.com" class="external-link" target="_blank" rel="noopener">
+      External Link
+    </a>
+    ```
+    
+    - Use `<button>` for actions, `<a>` for navigation
+    - Include proper attributes (`type`, `target`, `rel`)
+    - Use descriptive class names
+  </Accordion>
+  
+  <Accordion title="Images" icon="image">
+    **Image Requirements:**
+    
+    ```html
+    <img 
+      src="/images/hero-image.jpg" 
+      alt="Descriptive alt text" 
+      class="hero-image"
+      loading="lazy"
+    />
+    ```
+    
+    - **ALWAYS** include `alt` attribute
+    - Use descriptive alt text
+    - Include `loading="lazy"` for performance
+    - Use descriptive class names
+  </Accordion>
+</AccordionGroup>
+
+## Class Naming Conventions
+
+### BEM Methodology
+
+Use BEM (Block, Element, Modifier) naming convention:
+
+```html
+<!-- Block -->
+<div class="card">
+  <!-- Element -->
+  <h3 class="card__title">Card Title</h3>
+  <p class="card__content">Card content goes here</p>
+
+  <!-- Modifier -->
+  <button class="card__button card__button--primary">Action</button>
+</div>
+```
+
+### Common Patterns
+
+```html
+<!-- Container patterns -->
+<div class="container">
+  <div class="container-large">
+    <div class="container-small">
+      <!-- Layout patterns -->
+      <div class="grid">
+        <div class="flex">
+          <div class="stack">
+            <!-- Component patterns -->
+            <div class="button-group">
+              <div class="form-group">
+                <div class="card-grid"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+## Form Elements
+
+### Proper Form Structure
+
+```html
+<form class="contact-form" action="/submit" method="POST">
+  <div class="form-group">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" id="name" name="name" class="form-input" required />
+  </div>
+
+  <div class="form-group">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" id="email" name="email" class="form-input" required />
+  </div>
+
+  <button type="submit" class="submit-button">Submit</button>
+</form>
+```
+
+### Form Requirements
+
+- Use proper `<label>` elements with `for` attributes
+- Include `name` attributes for form submission
+- Use appropriate `type` attributes
+- Include `required` attribute when needed
+- Use descriptive class names
+
+## Lists and Content
+
+### List Structure
+
+```html
+<!-- Unordered lists -->
+<ul class="feature-list">
+  <li class="feature-item">Feature 1</li>
+  <li class="feature-item">Feature 2</li>
+</ul>
+
+<!-- Ordered lists -->
+<ol class="step-list">
+  <li class="step-item">Step 1</li>
+  <li class="step-item">Step 2</li>
+</ol>
+
+<!-- Definition lists -->
+<dl class="definition-list">
+  <dt class="definition-term">Term</dt>
+  <dd class="definition-description">Description</dd>
+</dl>
+```
+
+## Accessibility Requirements
+
+### ARIA Attributes
+
+```html
+<!-- Navigation -->
+<nav class="main-nav" role="navigation" aria-label="Main navigation">
+  <ul class="nav-list">
+    <li class="nav-item">
+      <a href="/" class="nav-link" aria-current="page">Home</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Buttons -->
+<button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu">
+  Menu
+</button>
+
+<!-- Forms -->
+<div class="form-group">
+  <label for="email" class="form-label">Email Address</label>
+  <input
+    type="email"
+    id="email"
+    class="form-input"
+    aria-describedby="email-help"
+    required
+  />
+  <div id="email-help" class="form-help">We'll never share your email</div>
+</div>
+```
+
+## Common Mistakes to Avoid
+
+<Warning>
+**Never do these things:**
+
+- Use `<div>` for everything instead of semantic elements
+- Skip the `htflow-wrapper` div
+- Use IDs for styling (`#my-element`)
+- Forget `alt` attributes on images
+- Use emojis instead of SVG icons
+- Skip class names on styled elements
+- Use inline styles (`style="color: red"`)
+- Forget proper form labels
+- Use `<br>` for spacing instead of CSS
+- Skip proper heading hierarchy
+  </Warning>
+
+## Validation
+
+Use the HTFlow audit command to validate your HTML:
+
+```bash
+npx htflow audit
+```
+
+This will check your HTML against all HTFlow rules and provide detailed feedback on any violations.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="CSS Rules" icon="palette" href="/rules/css">
+    Learn CSS best practices for HTFlow
+  </Card>
+  <Card title="JavaScript Rules" icon="code-branch" href="/rules/javascript">
+    JavaScript guidelines and requirements
+  </Card>
+  <Card title="Best Practices" icon="star" href="/rules/best-practices">
+    Advanced tips and optimization strategies
+  </Card>
+  <Card title="Examples" icon="book" href="/rules/examples">
+    Real-world HTML examples and templates
+  </Card>
+</CardGroup>

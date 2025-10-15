@@ -1,0 +1,154 @@
+---
+title: "HTFlow Rules Overview"
+description: "Essential rules and guidelines for HTFlow-compatible HTML, CSS, and JavaScript development"
+icon: "shield-check"
+---
+
+## Overview
+
+HTFlow Rules are essential guidelines that ensure your HTML, CSS, and JavaScript code is compatible with Webflow and Droip conversion processes. Following these rules guarantees seamless conversion and maintains the integrity of your design.
+
+<Info>
+  These rules are automatically enforced when you initialize an HTFlow project
+  and are used by AI agents to generate compatible code.
+</Info>
+
+## Core Principles
+
+<CardGroup cols={2}>
+  <Card title="Semantic HTML" icon="code">
+    Use proper HTML5 semantic elements and structure
+  </Card>
+  <Card title="Class-Based Styling" icon="palette">
+    All styling must use CSS classes, never IDs
+  </Card>
+  <Card title="Wrapper Structure" icon="box">
+    All content must be wrapped in htflow-wrapper
+  </Card>
+  <Card title="Data Attributes" icon="tag">
+    Required data attributes for styles and scripts
+  </Card>
+</CardGroup>
+
+## Rule Categories
+
+### 🚨 Critical Rules (Never Ignore)
+
+These rules are **ABSOLUTELY MANDATORY** and must never be violated:
+
+- **NEVER skip data-ht-styles** on `<style>` tags
+- **NEVER skip data-ht-main-script** on `<script>` tags
+- **NEVER create HTML elements without class names**
+- **NEVER use IDs for styling or JavaScript**
+- **NEVER use emojis** - use inline SVG only
+- **NEVER skip htflow-wrapper** - wrap ALL content
+
+### ✅ Required Structure
+
+Every HTFlow project must follow this basic structure:
+
+```html
+<body>
+  <div class="htflow-wrapper">
+    <!-- ALL CONTENT HERE -->
+  </div>
+</body>
+```
+
+```html
+<!-- REQUIRED ATTRIBUTES -->
+<style data-ht-styles>
+  /* CSS */
+</style>
+<script data-ht-main-script>
+  /* JS */
+</script>
+```
+
+## Rule Categories
+
+<AccordionGroup>
+  <Accordion title="HTML Rules" icon="code">
+    Essential HTML guidelines for Webflow compatibility
+    
+    - Use semantic HTML5 elements (`<header>`, `<main>`, `<section>`, `<footer>`)
+    - Every element MUST have a class name
+    - Use proper heading hierarchy (`h1`, `h2`, `h3`, etc.)
+    - Include alt attributes for all images
+    - Use `<button>` for clicks, `<a>` for links
+  </Accordion>
+  
+  <Accordion title="CSS Rules" icon="palette">
+    CSS best practices for HTFlow conversion
+    
+    - Use consistent container classes across sections
+    - Maintain consistent heading sizes throughout the website
+    - Use modern CSS Grid and Flexbox layouts
+    - Implement responsive design (mobile-first)
+    - Avoid inline styles
+  </Accordion>
+  
+  <Accordion title="JavaScript Rules" icon="code-branch">
+    JavaScript guidelines for interactive features
+    
+    - Use descriptive class names for JavaScript selectors
+    - Avoid ID-based selectors
+    - Implement proper event handling
+    - Use modern ES6+ features
+    - Ensure accessibility compliance
+  </Accordion>
+</AccordionGroup>
+
+## Getting Started
+
+<Steps>
+  <Step title="Initialize Project">
+    Run `npx htflow init` to create the `.cursor/rules/` folder with all rule
+    files
+  </Step>
+  <Step title="Review Rules">
+    Check the generated rule files in `.cursor/rules/` directory
+  </Step>
+  <Step title="Use with AI">
+    Provide the rule files to your AI agent for HTFlow-compatible code
+    generation
+  </Step>
+  <Step title="Run Audit">
+    Use `npx htflow audit` to validate your code against HTFlow rules
+  </Step>
+</Steps>
+
+## Rule Files Generated
+
+When you initialize an HTFlow project, the following rule files are created:
+
+```text
+.cursor/
+└── rules/
+    ├── examples/
+    │   ├── htflow-css-examples.mdc
+    │   ├── htflow-html-examples.mdc
+    │   └── htflow-js-examples.mdc
+    ├── htflow-css-essentials.mdc
+    ├── htflow-html-essentials.mdc
+    ├── htflow-js-essentials.mdc
+    ├── .htflowrc.json
+    └── AI_PROMPTS.md
+```
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="HTML Rules" icon="code" href="/rules/html">
+    Detailed HTML guidelines and requirements
+  </Card>
+  <Card title="CSS Rules" icon="palette" href="/rules/css">
+    CSS best practices and styling rules
+  </Card>
+  <Card title="JavaScript Rules" icon="code-branch" href="/rules/javascript">
+    JavaScript guidelines and requirements
+  </Card>
+  <Card title="Best Practices" icon="star" href="/rules/best-practices">
+    Advanced tips and optimization strategies
+  </Card>
+</CardGroup>
