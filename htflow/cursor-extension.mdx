@@ -1,587 +1,528 @@
 ---
 title: "Cursor Extension"
-description: "Install and use HTFlow extension in Cursor AI Editor"
-icon: "sparkles"
+description: "Install and use HTFlow extension in Cursor"
+icon: "code"
 ---
 
 ## Overview
 
-Cursor is an AI-powered code editor built on VS Code that supercharges your development with built-in AI assistance. The HTFlow extension works seamlessly with Cursor, combining AI code generation with HTFlow's Webflow conversion capabilities.
+The HTFlow Cursor extension provides a visual interface for all HTFlow CLI commands, making it easy to manage HTFlow projects without touching the terminal.
 
-<Info>
-Cursor is a fork of VS Code with native AI integration - perfect for AI-powered HTFlow development
-</Info>
-
-## Why Cursor + HTFlow?
-
-The combination is powerful:
-
-<CardGroup cols={2}>
-  <Card title="AI Code Generation" icon="wand-magic-sparkles">
-    Let Cursor AI write HTML/CSS/JS following HTFlow standards
-  </Card>
-  <Card title="Instant Validation" icon="shield-check">
-    HTFlow validates AI-generated code for Webflow compatibility
-  </Card>
-  <Card title="Natural Language" icon="message">
-    Describe what you want, AI builds it, HTFlow converts it
-  </Card>
-  <Card title="Seamless Workflow" icon="diagram-project">
-    From prompt to production Webflow site
-  </Card>
-</CardGroup>
+<Info>Works with both **Cursor** and compatible forks</Info>
 
 ## Prerequisites
 
+Before installing the HTFlow extension:
+
 <CardGroup cols={2}>
-  <Card title="Cursor IDE" icon="window">
+  <Card title="Cursor 1.99.0+" icon="window">
     Download from [cursor.sh](https://cursor.sh/)
-    
-    Free to start, Pro for unlimited AI
   </Card>
   <Card title="Node.js 16+" icon="node-js">
-    Required for HTFlow CLI
-    
-    Download from [nodejs.org](https://nodejs.org/)
+    Required for HTFlow CLI Download from [nodejs.org](https://nodejs.org/)
   </Card>
 </CardGroup>
 
 ## Installation
 
-<Steps>
-  <Step title="Install Cursor">
-    Download and install Cursor from [cursor.sh](https://cursor.sh/)
-    
-    <Tip>Cursor automatically imports your VS Code settings and extensions</Tip>
-  </Step>
-  
-  <Step title="Open Extensions">
-    Press `Cmd+Shift+X` (Mac) or `Ctrl+Shift+X` (Windows/Linux)
-  </Step>
-  
-  <Step title="Search for HTFlow">
-    Type **"Htflow Html to Webflow"** in the search bar
-  </Step>
-  
-  <Step title="Install Extension">
-    Click **Install** on the HTFlow extension
-    
-    <Check>Extension is compatible with Cursor out of the box</Check>
-  </Step>
-  
-  <Step title="Reload Cursor">
-    Reload the window to activate HTFlow
-    
-    HTFlow icon appears in the Activity Bar
-  </Step>
-</Steps>
+### Step 1: Open Cursor
 
-## Install HTFlow CLI
+    Launch Cursor on your computer
+
+### Step 2: Open Extensions Panel
+
+    Press `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (Mac)
+
+    <Tip>You can also click the Extensions icon in the Activity Bar</Tip>
+
+### Step 3: Search for HTFlow
+
+    In the search bar, type **"Htflow Html to Webflow"**
+
+    <Frame>
+
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/MBBAj5EaKSg"
+    title="HTFlow Extension Tutorial"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+  ></iframe>
+    </Frame>
+
+### Step 4: Install Extension
+
+    Click the **Install** button next to the HTFlow extension
+
+### Step 5: Reload Cursor
+
+    Reload Cursor to activate the extension
+
+    <Check>HTFlow icon should appear in the Activity Bar</Check>
+
+## How HTFlow Cursor Extension Works
+
+After installing the extension, install the HTFlow CLI:
 
 <Tabs>
   <Tab title="Via Extension (Recommended)">
-    <Steps>
-      <Step title="Open HTFlow Panel">
-        Click HTFlow icon or press `Cmd+Shift+H` / `Ctrl+Shift+H`
-      </Step>
+    
+    ### Step 1: Open HTFlow Panel
+    
+    <Card title="1. Open HTFlow Panel" icon="window">
+        Click the HTFlow icon in Activity Bar or press `Ctrl+Shift+H` / `Cmd+Shift+H`
       
-      <Step title="Install CLI">
-        Click **"Install HTFlow CLI"** in the panel
-      </Step>
+      <Frame>
+        <img
+          src="/images/image__htflow-extension-open-vs.png"
+          alt="HTFlow Extension Panel"
+        />
+      </Frame>
+    </Card>
+    
+    ### Step 2: Install HTFlow CLI globally
+    
+    <Card title="2. Install HTFlow CLI" icon="download">
+        In the HTFlow panel, click **"Install HTFlow CLI"** button
       
-      <Step title="Wait for Completion">
-        Monitor progress in Output panel
-        
-        <Check>CLI ready in 1-2 minutes</Check>
-      </Step>
-    </Steps>
+      <Frame>
+        <img
+          src="/images/image__htflow-extension-open-vs.png"
+          alt="HTFlow Extension Panel"
+        />
+      </Frame>
+    </Card>
+
+    ### Step 3: Initialize Project
+
+    <Card title="3. Initialize Project" icon="folder-plus">
+      In the HTFlow panel, click **"Initialize Project"** button
+
+      <Frame>
+        <img
+          src="/images/image__htflow-extension-vs-initialize-project.png"
+          alt="HTFlow Extension Panel"
+        />
+      </Frame>
+
+      **Project Structure Created:**
+
+      After initializing the project, HTFlow will create the following file and folder structure:
+
+      ```text
+      .cursor/
+      └── rules/
+          ├── examples/
+          │   ├── htflow-css-examples.mdc
+          │   ├── htflow-html-examples.mdc
+          │   └── htflow-js-examples.mdc
+          ├── htflow-css-essentials.mdc
+          ├── htflow-html-essentials.mdc
+          ├── htflow-js-essentials.mdc
+          ├── .htflowrc.json
+          └── AI_PROMPTS.md
+      ```
+
+      **What Each File Contains:**
+
+      - **htflow-html-essentials.mdc**: Essential HTML rules and guidelines for HTFlow compatibility
+      - **htflow-css-essentials.mdc**: CSS best practices and HTFlow-specific styling rules
+      - **htflow-js-essentials.mdc**: JavaScript guidelines for HTFlow conversion
+      - **htflow-html-examples.mdc**: HTML code examples and templates
+      - **htflow-css-examples.mdc**: CSS examples and styling patterns
+      - **htflow-js-examples.mdc**: JavaScript code examples
+      - **.htflowrc.json**: HTFlow configuration file
+      - **AI_PROMPTS.md**: Pre-configured prompts for AI agents to generate HTFlow-compatible code
+
+    </Card>
+
+    ### Step 4: AI Build
+
+    <Card title="4. AI Build" icon="robot">
+        Create your HTML webpage using an AI agent. We've shown the default Cursor AI in this example,
+        but you can use any AI agent you prefer, such as Claude Code, GPT Code, Gemini CLI, or any other AI coding assistant.
+
+        **Key Requirements:**
+
+        - Instruct your AI agent to follow the HTFlow rules that were established during the project initialization step
+        - Provide the `.cursor` folder, `htflowrc.json`, and `AI_prompt.md` files as context to your AI agent (Cursor AI or others)
+        - This ensures the AI agent will generate HTML, CSS, and JavaScript code that is compatible with Webflow and Droip conversion requirements
+
+        **Best Practices:**
+
+        - Start with a clear description of your website requirements
+        - Ask the AI to follow the HTFlow rules from the configuration files
+        - Iterate on the design until you're satisfied with the result
+        - Save your files before proceeding to the audit step
+
+
+         **Example AI Prompts for HTFlow Development**
+
+      ```text
+      "Create a modern SaaS landing page using HTFlow-compatible
+      HTML, CSS, and JavaScript.
+      Follow ALL HTFlow rules strictly and include the following sections:
+
+      **Hero Section:**
+      - Compelling headline with value proposition
+      - Subheading explaining the product benefits
+      - Primary CTA button and secondary button
+      - Hero image or illustration
+      - Trust indicators (logos, badges, or stats)
+
+      **Product Features Section:**
+      - 3-4 key features with icons
+      - Feature titles and descriptions
+      - Visual elements (icons, images, or graphics)
+      - Grid layout for feature cards
+
+      **Testimonials Section:**
+      - 3 customer testimonials
+      - Customer names, titles, and company logos
+      - Star ratings or review scores
+      - Professional headshots or avatars
+
+      **Pricing Section:**
+      - 3 pricing tiers (Basic, Pro, Enterprise)
+      - Clear pricing with currency symbols
+      - Feature lists for each plan
+      - CTA buttons for each pricing tier
+      - Popular plan highlighting
+
+      **Call-to-Action Section:**
+      - Compelling headline
+      - Urgency or benefit-focused copy
+      - Primary CTA button
+      - Supporting text or trust signals
+
+      **Footer Section:**
+      - Company logo and tagline
+      - Navigation links (About, Features, Pricing, Contact)
+      - Social media icons
+      - Copyright and legal links
+      - Newsletter signup form
+
+      **Technical Requirements:**
+      - Use semantic HTML5 elements
+      - Implement responsive design (mobile-first)
+      - Include smooth scrolling and animations
+      - Add hover effects and micro-interactions
+      - Ensure accessibility compliance
+      - Use modern CSS Grid and Flexbox
+      - Include JavaScript for interactive elements
+
+      **HTFlow Compliance:**
+      - Follow HTFlow HTML, CSS and JavaScript rules inside .cursor folder
+
+      **Style Guides:**
+      -Use a single container acrross the website
+      -Keep all the similar heading size same accross the website
+
+      Make the design modern, professional, and conversion-focused."
+      ```
+
+
+
+    </Card>
+
+
+
+    ### Step 5: Audit and Validation
+
+    <Card title="5. Audit and Validation" icon="shield-check">
+        Once you're satisfied with your AI-generated design, run the audit to validate your code against HTFlow rules.
+
+        In the HTFlow panel, click on the **"Validation"** tab and then click the **"Audit Project"** button.
+        HTFlow will execute the `npx htflow audit` command in the terminal.
+
+        **What the Audit Does:**
+
+        - Scans your HTML, CSS, and JavaScript files for rule violations
+        - Displays all compatibility issues that need to be fixed
+        - Provides detailed error messages and suggestions
+
+        **Fixing Errors:**
+
+        If you encounter any errors, simply copy the entire terminal output and paste it into your AI agent's chat box,
+        asking the AI to fix the issues. The AI will resolve all the errors for you.
+        You can run the audit repeatedly until you achieve zero errors.
+
+        <Frame>
+          <img
+            src="/images/image__htflow-extension-vs-audit.png"
+            alt="HTFlow Extension Panel"
+          />
+        </Frame>
+
+        <Info>
+          See the <a href="/htflow/tutorial" target="_blank">complete tutorial</a> to learn how to build a full website with HTFlow from start to finish.
+        </Info>
+    </Card>
+
+    ### Step 6: Development Server
+
+    <Card title="6. Development Server" icon="server">
+        In the HTFlow panel, click the **"Server"** tab where you'll see two server options:
+
+        - **HTFlow Serve Dev (Development Server)**: For testing and development
+        - **HTFlow Serve Start (Production Server)**: For final deployment and production use
+
+        **Why Use a Development Server?**
+
+        The development server is essential for several reasons:
+
+        1. **Live Preview**: You can see your website changes in real-time as you develop
+        2. **Hot Reloading**: Automatic browser refresh when you save files
+        3. **HTFlow Chrome Extension Integration**: Enables website inspection capabilities
+
+        **How It Works:**
+
+        When you click the **"Start Dev Server"** button, HTFlow launches a local development server that:
+
+        - Serves your website on a local port (typically http://localhost:3050)
+        - Enables real-time file watching and automatic reloading
+        - Provides development-specific features and debugging tools
+        - Integrates with the <a href="https://chromewebstore.google.com/detail/htflow-html-to-webflow-cu/nnkbaccknjdofhmijbddaohboaenbpci" target="_blank">HTFlow Chrome extension</a> for enhanced inspection
+
+        **Chrome Extension Benefits:**
+
+        With the <a href="https://chromewebstore.google.com/detail/htflow-html-to-webflow-cu/nnkbaccknjdofhmijbddaohboaenbpci" target="_blank">HTFlow Chrome extension</a> installed, development mode provides:
+
+        - **Website Inspection**: Analyze your HTML structure and styling
+        - **AI-Prompt Generation**: Generate prompts for AI agents to improve your design
+        - **Design Analysis**: Get suggestions for layout and styling improvements
+        - **Code Optimization**: Identify areas for better performance and compatibility
+
+        <Frame>
+          <img
+            src="/images/image__htflow-extension-open-vs.png"
+            alt="HTFlow Extension Panel"
+          />
+        </Frame>
+
+        <Info>
+          The HTFlow development server is strongly recommended for development mode, as the <a href="https://chromewebstore.google.com/detail/htflow-html-to-webflow-cu/nnkbaccknjdofhmijbddaohboaenbpci" target="_blank">HTFlow Chrome extension</a> only functions properly with this server type. This ensures full compatibility and access to all development features.
+        </Info>
+    </Card>
+
+    ### Step 7: Production Server
+
+    <Card title="7. Production Server" icon="rocket">
+        In the HTFlow panel, click the **"Server"** tab where you'll see two server options:
+
+        - **HTFlow Serve Dev (Development Server)**: For testing and development
+        - **HTFlow Serve Start (Production Server)**: For final deployment and production use
+
+        **When to Use the Production Server:**
+
+        The production server is essential for several reasons:
+
+        1. **Final Testing**: Test your website in production-like conditions
+        2. **Performance Optimization**: See how your site performs with optimized settings
+        3. **Deployment Preparation**: Ensure your site is ready for live deployment
+        4. **Conversion Ready**: Prepare for Webflow or Droip conversion processes
+
+        **How It Works:**
+
+        When you click the **"Start Production Server"** button, HTFlow launches a production server that:
+
+        - Serves your website with production-optimized settings
+        - Enables minification and compression for better performance
+        - Provides production-specific configurations
+        - Prepares your site for deployment and conversion
+
+        **Production Server Benefits:**
+
+        With the production server running, you get:
+
+        - **Optimized Performance**: Faster loading times and better resource management
+        - **Conversion Compatibility**: Ensures compatibility with Webflow and Droip conversion tools
+        - **Deployment Ready**: Your site is prepared for live deployment
+        - **Production Testing**: Test your site as it will appear to end users
+
+        <Frame>
+          <img
+            src="/images/image__htflow-extension-open-vs.png"
+            alt="HTFlow Extension Panel"
+          />
+        </Frame>
+
+        <Info>
+          The production server intentionally disables JavaScript to preserve the original HTML structure.
+          This ensures compatibility with the <a href="https://chromewebstore.google.com/detail/htflow-html-to-webflow-cu/nnkbaccknjdofhmijbddaohboaenbpci" target="_blank">HTFlow Chrome Extension</a>
+          for Webflow and Droip conversion. Please note that in production mode, JavaScript functionality will not work - this is specifically designed for conversion purposes.
+        </Info>
+    </Card>
+
+    ### Step 8: Build for Conversion
+
+    <Card title="8. Build for Conversion" icon="hammer">
+        In the HTFlow panel, click the **"Build"** tab and then click the **"Build Project"** button.
+
+        This will create a folder in your project root called **htflow-copyable** and organize each HTML file
+        as a separate folder containing the copyable HTML, CSS, and JS codes. These files can be used to convert
+        into Webflow or Droip using the HTFlow Webflow app or HTFlow web app:
+
+        - <a href="https://htflow.com/html-to-webflow" target="_blank">HTML to Webflow</a>
+        - <a href="https://htflow.com/html-to-droip" target="_blank">HTML to Droip</a>
+
+        **Example folder structure after build:**
+
+        ```text
+        htflow-copyable/
+        ├── index/
+        │   ├── index.html
+        │   ├── index.css
+        │   └── index.js
+        └── about/
+            ├── about.html
+            ├── about.css
+            └── about.js
+        ```
+
+        <Frame>
+          <img
+            src="/images/image__htflow-extension-open-vs.png"
+            alt="HTFlow Extension Panel"
+          />
+        </Frame>
+    </Card>
+
+    ### Step 9: Use Webflow App for Conversion
+
+    <Card title="9. Use Webflow App for Conversion" icon="puzzle-piece">
+        Once you have your HTML and CSS code ready, you can convert them to Webflow using the **HTFlow Webflow App**.
+
+        **How to Use the HTFlow Webflow App:**
+
+        1. **Install the App**: Go to your Webflow design canvas and install the **HTFlow** app
+        2. **Login**: Once you log in to the app, you'll see the **"HTML to WF"** tab
+        3. **Input Your Code**: The tab contains HTML and CSS input areas:
+           - Paste your HTML code in the **HTML** area
+           - Paste your CSS code in the **CSS** area
+        4. **Convert**: Click the **"Convert & Copy"** button
+        5. **Paste in Webflow**: Once converted, simply paste into Webflow using:
+           - **Mac**: `Cmd + V`
+           - **Windows**: `Ctrl + V`
+
+        **Benefits:**
+
+        - Seamless conversion from HTML/CSS to Webflow elements
+        - Preserves styling and layout structure
+        - Direct integration with Webflow's design canvas
+        - Maintains responsive design properties
+
+        <Frame>
+          <img
+            src="/images/image__webflow-app.png"
+            alt="HTFlow Webflow App"
+          />
+        </Frame>
+
+        <Info>
+          **JavaScript Code Integration:** You need to copy and paste the JavaScript code separately into your Webflow page.
+          You can do this by either:
+
+          - **Page Settings**: Go to your page settings and paste the code in the "Custom Code" area
+          - **Embed Element**: Add an Embed element to your page and paste the JavaScript code including the `<script>` tags
+
+          This ensures your interactive features work properly in the final Webflow site.
+        </Info>
+    </Card>
+
+    ### Step 10: Use Chrome Extension for Conversion
+
+    <Card title="10. Use Chrome Extension for Conversion" icon="puzzle-piece">
+        Convert your HTML website to Webflow using the **HTFlow Chrome Extension** for seamless integration.
+
+        **Prerequisites:**
+
+        - Ensure you have the production server running (as described in **Step 7**)
+        - Have the <a href="https://chromewebstore.google.com/detail/htflow-html-to-webflow-cu/nnkbaccknjdofhmijbddaohboaenbpci" target="_blank">HTFlow Chrome Extension</a> installed
+
+        **How to Use the Chrome Extension:**
+
+        1. **Start Production Server**: Run the production server as described in Step 7
+        2. **Open Website**: Your local website will open in Chrome browser with the production server
+        3. **Activate Extension**: Click on the **HTFlow Chrome Extension** icon in your browser toolbar
+        4. **Extract Code**: Click the **"Extract for Webflow"** button in the extension side panel
+        5. **Convert**: The extension will extract all HTML, CSS, and JavaScript code
+        6. **Final Conversion**: Click the **"Convert for Webflow"** button
+        7. **Paste in Webflow**: Go to your Webflow project's design canvas and paste using:
+           - **Mac**: `Cmd + V`
+           - **Windows**: `Ctrl + V`
+
+        **Benefits:**
+
+        - Direct browser integration for seamless conversion
+        - One-click conversion process
+
+
+    </Card>
+
+    ### Step 11: Conversion for Droip (WordPress)
+
+    <Card title="11. Conversion for Droip (WordPress)" icon="wordpress">
+        Convert your HTML website to Droip (Wordpress) using the **HTFlow Chrome Extension** for seamless integration.
+
+        **Prerequisites:**
+
+        - Ensure you have the production server running (as described in **Step 7**)
+        - Have the <a href="https://chromewebstore.google.com/detail/htflow-html-to-webflow-cu/nnkbaccknjdofhmijbddaohboaenbpci" target="_blank">HTFlow Chrome Extension</a> installed
+
+        **How to Use the Chrome Extension:**
+
+        1. **Start Production Server**: Run the production server as described in Step 7
+        2. **Open Website**: Your local website will open in Chrome browser with the production server
+        3. **Activate Extension**: Click on the **HTFlow Chrome Extension** icon in your browser toolbar
+        4. **Extract Code**: Click the **"Extract for Droip"** button in the extension side panel
+        5. **Convert**: The extension will extract all HTML, CSS, and JavaScript code
+        6. **Final Conversion**: Click the **"Convert for Webflow"** button
+        7. **Paste in Droip**: Go to your Droip project's design canvas and paste using:
+           - **Mac**: `Cmd + V`
+           - **Windows**: `Ctrl + V`
+
+        **Benefits:**
+
+        - Direct browser integration for seamless conversion
+        - One-click conversion process
+
+
+    </Card>
+
   </Tab>
   
   <Tab title="Via Terminal">
+    htflow-cli installation:
     ```bash
     npm install -g htflow-cli
     ```
     
-    Verify:
+    Verify installation:
     ```bash
-    htflow version
+    npx htflow version
     ```
+    Project Initialization:
+    ```bash
+    npx htflow init
+    ```
+    
   </Tab>
 </Tabs>
-
-## Cursor AI Configuration
-
-Optimize Cursor AI for HTFlow development:
-
-### AI Rules for HTFlow
-
-Create `.cursorrules` file in your project root:
-
-```text .cursorrules
-# HTFlow Development Rules
-
-## Goal
-Generate HTML, CSS, and JavaScript that is Webflow-compatible and follows HTFlow standards.
-
-## HTML Guidelines
-- Use semantic HTML5 elements
-- Proper document structure with doctype, html, head, and body
-- Include viewport meta tag for responsiveness
-- Use descriptive class names (BEM style preferred)
-- Add alt text to all images
-- Ensure accessibility (ARIA labels where needed)
-
-## CSS Guidelines
-- Mobile-first responsive design
-- Use flexbox and CSS Grid for layouts
-- Avoid fixed positioning where possible
-- Use CSS custom properties for theming
-- Browser-compatible properties only
-- Include vendor prefixes when needed
-- Webflow-friendly class naming conventions
-
-## JavaScript Guidelines
-- Use vanilla JavaScript (ES5/ES6)
-- Avoid external dependencies
-- Keep code simple and readable
-- Use event delegation
-- Ensure browser compatibility
-- Comment complex logic
-
-## Webflow Compatibility
-- No external frameworks (React, Vue, etc.)
-- No build tools required in final output
-- All styles in CSS files (no CSS-in-JS)
-- Standard HTML form elements
-- Webflow-compatible interactions
-
-## Testing
-- Validate with HTFlow before converting
-- Test on mobile, tablet, and desktop
-- Check all interactive elements
-- Ensure fast load times
-
-## After Generation
-- Run `htflow validate` to check compliance
-- Use `htflow dev` to preview
-- Run `htflow audit` before building
-- Build with `htflow build` for production
-```
-
-### Cursor Settings for HTFlow
-
-Configure Cursor for optimal HTFlow development:
-
-```json settings.json
-{
-  // Cursor AI Settings
-  "cursor.ai.model": "claude-3.5-sonnet",
-  "cursor.ai.followCursorRules": true,
-  
-  // HTFlow Extension Settings
-  "htflow.validation.validateOnSave": true,
-  "htflow.dev.openBrowser": true,
-  "htflow.build.showNotifications": true,
-  
-  // Editor Settings
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  
-  // File Associations
-  "files.associations": {
-    "*.html": "html",
-    "*.css": "css",
-    "htflow.config.js": "javascript"
-  }
-}
-```
-
-## AI-Powered HTFlow Workflow
-
-### Step 1: Describe Your Vision
-
-Use Cursor's AI chat or inline editing:
-
-<Tabs>
-  <Tab title="AI Chat">
-    Open Chat with `Cmd+L` / `Ctrl+L`
-    
-    ```text Example Prompts
-    "Create a hero section for a SaaS landing page with:
-    - Gradient background (blue to purple)
-    - Centered headline and subheading
-    - Two CTA buttons
-    - Fully responsive
-    - Webflow compatible"
-    ```
-    
-    Cursor AI generates the code following `.cursorrules`
-  </Tab>
-  
-  <Tab title="Inline Editing">
-    Press `Cmd+K` / `Ctrl+K` for inline AI
-    
-    ```text Example
-    Type a comment:
-    <!-- Create a responsive navigation bar with logo and menu -->
-    
-    Press Cmd+K and ask AI to generate it
-    AI creates Webflow-compatible navigation
-    ```
-  </Tab>
-  
-  <Tab title="Composer">
-    Open Composer with `Cmd+I` / `Ctrl+I`
-    
-    ```text Multi-file Generation
-    "Build a complete landing page with:
-    - index.html
-    - styles/main.css
-    - scripts/main.js
-    
-    Include: hero, features, testimonials, CTA, footer
-    Make it Webflow-compatible and mobile-first"
-    ```
-    
-    AI creates all files at once
-  </Tab>
-</Tabs>
-
-### Step 2: Validate Instantly
-
-After AI generates code:
-
-<Steps>
-  <Step title="Auto-Validate">
-    HTFlow automatically validates on save (if enabled)
-    
-    ```json Enable Auto-Validation
-    {
-      "htflow.validation.validateOnSave": true
-    }
-    ```
-  </Step>
-  
-  <Step title="Manual Validation">
-    Click **"Validate Project"** in HTFlow panel
-    
-    Or press `Cmd+Shift+Alt+V` / `Ctrl+Shift+Alt+V`
-  </Step>
-  
-  <Step title="Fix Issues with AI">
-    If validation shows errors:
-    
-    ```text AI Prompt
-    "Fix these HTFlow validation errors:
-    [paste errors from Output panel]
-    
-    Make the code Webflow-compatible"
-    ```
-    
-    AI fixes issues automatically
-  </Step>
-</Steps>
-
-### Step 3: Iterate with AI
-
-Refine your design:
-
-```text Example Iteration
-You: "Make the hero section taller and add a background pattern"
-AI: [Updates code]
-
-You: "Add smooth scroll animations to the buttons"
-AI: [Adds Webflow-compatible animations]
-
-You: "Ensure it works perfectly on mobile"
-AI: [Enhances responsive design]
-
-After each change, HTFlow validates automatically ✓
-```
-
-## Cursor AI + HTFlow Features
-
-### AI Understands HTFlow Commands
-
-With MCP integration, Cursor AI can run HTFlow commands:
-
-```text Natural Language Commands
-You: "Initialize a new HTFlow project"
-AI: Runs `htflow init` and sets up project
-
-You: "Start the development server"
-AI: Runs `htflow dev` and opens browser
-
-You: "Validate my code"
-AI: Runs `htflow validate` and shows results
-
-You: "Build for production"
-AI: Runs `htflow build` and reports status
-```
-
-### AI Code Review
-
-Ask Cursor AI to review for Webflow compatibility:
-
-```text Prompt
-"Review this HTML and ensure it's Webflow-compatible.
-Check for:
-- Semantic structure
-- Responsive design
-- Accessibility
-- HTFlow standards"
-```
-
-### AI Debugging
-
-When issues arise:
-
-```text Debugging with AI
-"My HTFlow build is failing with this error:
-[paste error]
-
-Help me fix it while maintaining Webflow compatibility"
-```
-
-## Cursor-Specific Shortcuts
-
-Combine Cursor AI shortcuts with HTFlow:
-
-| Action | Shortcut |
-|--------|----------|
-| AI Chat | `Cmd/Ctrl+L` |
-| Inline Edit | `Cmd/Ctrl+K` |
-| Composer | `Cmd/Ctrl+I` |
-| Accept AI Suggestion | `Tab` |
-| HTFlow Panel | `Cmd/Ctrl+Shift+H` |
-| Validate | `Cmd/Ctrl+Shift+Alt+V` |
-| Dev Server | `Cmd/Ctrl+Shift+Alt+D` |
-| Build | `Cmd/Ctrl+Shift+Alt+B` |
-
-## MCP Integration (Advanced)
-
-Enable deeper AI integration:
-
-<Steps>
-  <Step title="Install MCP">
-    In HTFlow panel, click **"Install MCP Integration"**
-  </Step>
-  
-  <Step title="Configure Cursor">
-    MCP automatically configures Cursor to understand HTFlow
-  </Step>
-  
-  <Step title="Use Natural Language">
-    ```text Now you can say:
-    "Initialize HTFlow project and start dev server"
-    "Validate my code and fix any issues"
-    "Build this project for Webflow deployment"
-    ```
-    
-    Cursor AI executes HTFlow commands directly
-  </Step>
-</Steps>
-
-## Example: Complete Workflow
-
-Watch how Cursor + HTFlow works together:
-
-<Steps>
-  <Step title="Start with AI">
-    ```text Chat with Cursor AI
-    You: "Create a modern SaaS landing page with:
-    - Hero with gradient background
-    - 3-column features section
-    - Testimonials carousel
-    - Pricing table
-    - Contact form
-    - Footer
-    
-    Make it Webflow-compatible and mobile-responsive"
-    ```
-    
-    AI generates all HTML, CSS, and JavaScript
-  </Step>
-  
-  <Step title="Auto-Validate">
-    HTFlow validates as you save files
-    
-    ```text Validation Results
-    ✓ HTML: Valid
-    ⚠ CSS: Add vendor prefix for backdrop-filter
-    ✓ JavaScript: Compliant
-    ```
-  </Step>
-  
-  <Step title="Fix with AI">
-    ```text You to AI
-    "Add the vendor prefix for backdrop-filter"
-    ```
-    
-    AI fixes immediately ✓
-  </Step>
-  
-  <Step title="Preview">
-    Click **"Start Dev Server"** in HTFlow panel
-    
-    Preview at localhost:3000 with hot reloading
-  </Step>
-  
-  <Step title="Refine Design">
-    ```text Iterate with AI
-    "Make the hero section more impactful"
-    "Improve the spacing on mobile"
-    "Add hover effects to buttons"
-    ```
-    
-    See changes live in browser
-  </Step>
-  
-  <Step title="Build & Deploy">
-    Click **"Build Project"** in HTFlow panel
-    
-    Convert to Webflow and deploy
-  </Step>
-</Steps>
-
-<Check>
-From prompt to production Webflow site in under an hour!
-</Check>
-
-## Troubleshooting
-
-<AccordionGroup>
-  <Accordion title="Cursor Not Using .cursorrules" icon="file">
-    **Solution:**
-    1. Ensure file is named `.cursorrules` (with dot)
-    2. Place in project root directory
-    3. Enable in Cursor settings: `cursor.ai.followCursorRules: true`
-    4. Reload window
-  </Accordion>
-  
-  <Accordion title="AI Generates Non-Compatible Code" icon="code">
-    **Fix:**
-    1. Update `.cursorrules` with more specific guidelines
-    2. Always mention "Webflow-compatible" in prompts
-    3. Use validation after generation
-    4. Ask AI to fix issues found by HTFlow
-  </Accordion>
-  
-  <Accordion title="Extension Conflicts" icon="triangle-exclamation">
-    **Check:**
-    - Disable conflicting extensions
-    - HTFlow works best as primary HTML/CSS tool
-    - Keep Cursor AI extensions enabled
-  </Accordion>
-  
-  <Accordion title="MCP Not Working" icon="plug">
-    **Solutions:**
-    1. Reinstall MCP: `htflow mcp-uninstall && htflow mcp-install`
-    2. Check Cursor settings for MCP configuration
-    3. Restart Cursor after installation
-    4. Verify Node.js and HTFlow CLI are installed
-  </Accordion>
-</AccordionGroup>
-
-## Best Practices
-
-<CardGroup cols={2}>
-  <Card title="Clear Prompts" icon="message">
-    Always mention "Webflow-compatible" and "mobile-responsive" in AI prompts
-  </Card>
-  <Card title="Validate Often" icon="shield-check">
-    Enable auto-validation to catch issues immediately
-  </Card>
-  <Card title="Use .cursorrules" icon="file">
-    Set up project rules for consistent AI output
-  </Card>
-  <Card title="Iterate Quickly" icon="rotate">
-    Use AI to refine, HTFlow to validate, preview to verify
-  </Card>
-</CardGroup>
-
-## Cursor Pro Tips
-
-<Tabs>
-  <Tab title="Custom Snippets">
-    Create Cursor snippets for HTFlow patterns:
-    
-    ```json snippets.json
-    {
-      "HTFlow Section": {
-        "prefix": "htf-section",
-        "body": [
-          "<section class=\"$1\">",
-          "  <div class=\"container\">",
-          "    $2",
-          "  </div>",
-          "</section>"
-        ]
-      }
-    }
-    ```
-  </Tab>
-  
-  <Tab title="AI Codebase Chat">
-    Ask AI about your entire HTFlow project:
-    
-    ```text Prompts
-    "@codebase What's the structure of this HTFlow project?"
-    "@codebase Where should I add the new section?"
-    "@codebase Review all files for Webflow compatibility"
-    ```
-  </Tab>
-  
-  <Tab title="Multi-file Editing">
-    Use Composer to edit multiple files:
-    
-    ```text Example
-    "Update the color scheme across all files:
-    - Change primary color to #16A34A
-    - Update all buttons
-    - Fix mobile styles
-    
-    Maintain Webflow compatibility"
-    ```
-    
-    AI updates HTML, CSS, and JS files together
-  </Tab>
-</Tabs>
-
-## Resources
-
-<CardGroup cols={2}>
-  <Card title="Cursor Documentation" icon="book" href="https://docs.cursor.com/">
-    Learn more about Cursor AI features
-  </Card>
-  <Card title="HTFlow CLI Reference" icon="terminal" href="/htflow/commands/package-management">
-    Explore all HTFlow commands
-  </Card>
-  <Card title="Example .cursorrules" icon="github" href="https://github.com/">
-    Download sample rule files
-  </Card>
-  <Card title="Cursor Community" icon="users" href="https://cursor.sh/community">
-    Join the Cursor community
-  </Card>
-</CardGroup>
 
 ## Next Steps
 
 <Card
-  title="Quick Start Guide"
-  icon="bolt"
-  href="/htflow/quick-start"
+  title="Cursor Extension"
+  icon="sparkles"
+  href="/htflow/cursor-extension"
   horizontal
 >
-  Create your first AI-powered HTFlow project
+  Learn about HTFlow with Cursor AI
 </Card>
 
-<Card
-  title="HTFlow Workflow"
-  icon="diagram-project"
-  href="/htflow/workflow"
-  horizontal
->
-  Learn the complete development workflow
+<Card title="Quick Start" icon="bolt" href="/htflow/quick-start" horizontal>
+  Create your first HTFlow project
 </Card>
-

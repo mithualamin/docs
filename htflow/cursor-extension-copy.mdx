@@ -1,0 +1,587 @@
+---
+title: "Cursor Extension"
+description: "Install and use HTFlow extension in Cursor AI Editor"
+icon: "sparkles"
+---
+
+## Overview
+
+Cursor is an AI-powered code editor built on VS Code that supercharges your development with built-in AI assistance. The HTFlow extension works seamlessly with Cursor, combining AI code generation with HTFlow's Webflow conversion capabilities.
+
+<Info>
+Cursor is a fork of VS Code with native AI integration - perfect for AI-powered HTFlow development
+</Info>
+
+## Why Cursor + HTFlow?
+
+The combination is powerful:
+
+<CardGroup cols={2}>
+  <Card title="AI Code Generation" icon="wand-magic-sparkles">
+    Let Cursor AI write HTML/CSS/JS following HTFlow standards
+  </Card>
+  <Card title="Instant Validation" icon="shield-check">
+    HTFlow validates AI-generated code for Webflow compatibility
+  </Card>
+  <Card title="Natural Language" icon="message">
+    Describe what you want, AI builds it, HTFlow converts it
+  </Card>
+  <Card title="Seamless Workflow" icon="diagram-project">
+    From prompt to production Webflow site
+  </Card>
+</CardGroup>
+
+## Prerequisites
+
+<CardGroup cols={2}>
+  <Card title="Cursor IDE" icon="window">
+    Download from [cursor.sh](https://cursor.sh/)
+    
+    Free to start, Pro for unlimited AI
+  </Card>
+  <Card title="Node.js 16+" icon="node-js">
+    Required for HTFlow CLI
+    
+    Download from [nodejs.org](https://nodejs.org/)
+  </Card>
+</CardGroup>
+
+## Installation
+
+<Steps>
+  <Step title="Install Cursor">
+    Download and install Cursor from [cursor.sh](https://cursor.sh/)
+    
+    <Tip>Cursor automatically imports your VS Code settings and extensions</Tip>
+  </Step>
+  
+  <Step title="Open Extensions">
+    Press `Cmd+Shift+X` (Mac) or `Ctrl+Shift+X` (Windows/Linux)
+  </Step>
+  
+  <Step title="Search for HTFlow">
+    Type **"Htflow Html to Webflow"** in the search bar
+  </Step>
+  
+  <Step title="Install Extension">
+    Click **Install** on the HTFlow extension
+    
+    <Check>Extension is compatible with Cursor out of the box</Check>
+  </Step>
+  
+  <Step title="Reload Cursor">
+    Reload the window to activate HTFlow
+    
+    HTFlow icon appears in the Activity Bar
+  </Step>
+</Steps>
+
+## Install HTFlow CLI
+
+<Tabs>
+  <Tab title="Via Extension (Recommended)">
+    <Steps>
+      <Step title="Open HTFlow Panel">
+        Click HTFlow icon or press `Cmd+Shift+H` / `Ctrl+Shift+H`
+      </Step>
+      
+      <Step title="Install CLI">
+        Click **"Install HTFlow CLI"** in the panel
+      </Step>
+      
+      <Step title="Wait for Completion">
+        Monitor progress in Output panel
+        
+        <Check>CLI ready in 1-2 minutes</Check>
+      </Step>
+    </Steps>
+  </Tab>
+  
+  <Tab title="Via Terminal">
+    ```bash
+    npm install -g htflow-cli
+    ```
+    
+    Verify:
+    ```bash
+    htflow version
+    ```
+  </Tab>
+</Tabs>
+
+## Cursor AI Configuration
+
+Optimize Cursor AI for HTFlow development:
+
+### AI Rules for HTFlow
+
+Create `.cursorrules` file in your project root:
+
+```text .cursorrules
+# HTFlow Development Rules
+
+## Goal
+Generate HTML, CSS, and JavaScript that is Webflow-compatible and follows HTFlow standards.
+
+## HTML Guidelines
+- Use semantic HTML5 elements
+- Proper document structure with doctype, html, head, and body
+- Include viewport meta tag for responsiveness
+- Use descriptive class names (BEM style preferred)
+- Add alt text to all images
+- Ensure accessibility (ARIA labels where needed)
+
+## CSS Guidelines
+- Mobile-first responsive design
+- Use flexbox and CSS Grid for layouts
+- Avoid fixed positioning where possible
+- Use CSS custom properties for theming
+- Browser-compatible properties only
+- Include vendor prefixes when needed
+- Webflow-friendly class naming conventions
+
+## JavaScript Guidelines
+- Use vanilla JavaScript (ES5/ES6)
+- Avoid external dependencies
+- Keep code simple and readable
+- Use event delegation
+- Ensure browser compatibility
+- Comment complex logic
+
+## Webflow Compatibility
+- No external frameworks (React, Vue, etc.)
+- No build tools required in final output
+- All styles in CSS files (no CSS-in-JS)
+- Standard HTML form elements
+- Webflow-compatible interactions
+
+## Testing
+- Validate with HTFlow before converting
+- Test on mobile, tablet, and desktop
+- Check all interactive elements
+- Ensure fast load times
+
+## After Generation
+- Run `htflow validate` to check compliance
+- Use `htflow dev` to preview
+- Run `htflow audit` before building
+- Build with `htflow build` for production
+```
+
+### Cursor Settings for HTFlow
+
+Configure Cursor for optimal HTFlow development:
+
+```json settings.json
+{
+  // Cursor AI Settings
+  "cursor.ai.model": "claude-3.5-sonnet",
+  "cursor.ai.followCursorRules": true,
+  
+  // HTFlow Extension Settings
+  "htflow.validation.validateOnSave": true,
+  "htflow.dev.openBrowser": true,
+  "htflow.build.showNotifications": true,
+  
+  // Editor Settings
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  
+  // File Associations
+  "files.associations": {
+    "*.html": "html",
+    "*.css": "css",
+    "htflow.config.js": "javascript"
+  }
+}
+```
+
+## AI-Powered HTFlow Workflow
+
+### Step 1: Describe Your Vision
+
+Use Cursor's AI chat or inline editing:
+
+<Tabs>
+  <Tab title="AI Chat">
+    Open Chat with `Cmd+L` / `Ctrl+L`
+    
+    ```text Example Prompts
+    "Create a hero section for a SaaS landing page with:
+    - Gradient background (blue to purple)
+    - Centered headline and subheading
+    - Two CTA buttons
+    - Fully responsive
+    - Webflow compatible"
+    ```
+    
+    Cursor AI generates the code following `.cursorrules`
+  </Tab>
+  
+  <Tab title="Inline Editing">
+    Press `Cmd+K` / `Ctrl+K` for inline AI
+    
+    ```text Example
+    Type a comment:
+    <!-- Create a responsive navigation bar with logo and menu -->
+    
+    Press Cmd+K and ask AI to generate it
+    AI creates Webflow-compatible navigation
+    ```
+  </Tab>
+  
+  <Tab title="Composer">
+    Open Composer with `Cmd+I` / `Ctrl+I`
+    
+    ```text Multi-file Generation
+    "Build a complete landing page with:
+    - index.html
+    - styles/main.css
+    - scripts/main.js
+    
+    Include: hero, features, testimonials, CTA, footer
+    Make it Webflow-compatible and mobile-first"
+    ```
+    
+    AI creates all files at once
+  </Tab>
+</Tabs>
+
+### Step 2: Validate Instantly
+
+After AI generates code:
+
+<Steps>
+  <Step title="Auto-Validate">
+    HTFlow automatically validates on save (if enabled)
+    
+    ```json Enable Auto-Validation
+    {
+      "htflow.validation.validateOnSave": true
+    }
+    ```
+  </Step>
+  
+  <Step title="Manual Validation">
+    Click **"Validate Project"** in HTFlow panel
+    
+    Or press `Cmd+Shift+Alt+V` / `Ctrl+Shift+Alt+V`
+  </Step>
+  
+  <Step title="Fix Issues with AI">
+    If validation shows errors:
+    
+    ```text AI Prompt
+    "Fix these HTFlow validation errors:
+    [paste errors from Output panel]
+    
+    Make the code Webflow-compatible"
+    ```
+    
+    AI fixes issues automatically
+  </Step>
+</Steps>
+
+### Step 3: Iterate with AI
+
+Refine your design:
+
+```text Example Iteration
+You: "Make the hero section taller and add a background pattern"
+AI: [Updates code]
+
+You: "Add smooth scroll animations to the buttons"
+AI: [Adds Webflow-compatible animations]
+
+You: "Ensure it works perfectly on mobile"
+AI: [Enhances responsive design]
+
+After each change, HTFlow validates automatically ✓
+```
+
+## Cursor AI + HTFlow Features
+
+### AI Understands HTFlow Commands
+
+With MCP integration, Cursor AI can run HTFlow commands:
+
+```text Natural Language Commands
+You: "Initialize a new HTFlow project"
+AI: Runs `htflow init` and sets up project
+
+You: "Start the development server"
+AI: Runs `htflow dev` and opens browser
+
+You: "Validate my code"
+AI: Runs `htflow validate` and shows results
+
+You: "Build for production"
+AI: Runs `htflow build` and reports status
+```
+
+### AI Code Review
+
+Ask Cursor AI to review for Webflow compatibility:
+
+```text Prompt
+"Review this HTML and ensure it's Webflow-compatible.
+Check for:
+- Semantic structure
+- Responsive design
+- Accessibility
+- HTFlow standards"
+```
+
+### AI Debugging
+
+When issues arise:
+
+```text Debugging with AI
+"My HTFlow build is failing with this error:
+[paste error]
+
+Help me fix it while maintaining Webflow compatibility"
+```
+
+## Cursor-Specific Shortcuts
+
+Combine Cursor AI shortcuts with HTFlow:
+
+| Action | Shortcut |
+|--------|----------|
+| AI Chat | `Cmd/Ctrl+L` |
+| Inline Edit | `Cmd/Ctrl+K` |
+| Composer | `Cmd/Ctrl+I` |
+| Accept AI Suggestion | `Tab` |
+| HTFlow Panel | `Cmd/Ctrl+Shift+H` |
+| Validate | `Cmd/Ctrl+Shift+Alt+V` |
+| Dev Server | `Cmd/Ctrl+Shift+Alt+D` |
+| Build | `Cmd/Ctrl+Shift+Alt+B` |
+
+## MCP Integration (Advanced)
+
+Enable deeper AI integration:
+
+<Steps>
+  <Step title="Install MCP">
+    In HTFlow panel, click **"Install MCP Integration"**
+  </Step>
+  
+  <Step title="Configure Cursor">
+    MCP automatically configures Cursor to understand HTFlow
+  </Step>
+  
+  <Step title="Use Natural Language">
+    ```text Now you can say:
+    "Initialize HTFlow project and start dev server"
+    "Validate my code and fix any issues"
+    "Build this project for Webflow deployment"
+    ```
+    
+    Cursor AI executes HTFlow commands directly
+  </Step>
+</Steps>
+
+## Example: Complete Workflow
+
+Watch how Cursor + HTFlow works together:
+
+<Steps>
+  <Step title="Start with AI">
+    ```text Chat with Cursor AI
+    You: "Create a modern SaaS landing page with:
+    - Hero with gradient background
+    - 3-column features section
+    - Testimonials carousel
+    - Pricing table
+    - Contact form
+    - Footer
+    
+    Make it Webflow-compatible and mobile-responsive"
+    ```
+    
+    AI generates all HTML, CSS, and JavaScript
+  </Step>
+  
+  <Step title="Auto-Validate">
+    HTFlow validates as you save files
+    
+    ```text Validation Results
+    ✓ HTML: Valid
+    ⚠ CSS: Add vendor prefix for backdrop-filter
+    ✓ JavaScript: Compliant
+    ```
+  </Step>
+  
+  <Step title="Fix with AI">
+    ```text You to AI
+    "Add the vendor prefix for backdrop-filter"
+    ```
+    
+    AI fixes immediately ✓
+  </Step>
+  
+  <Step title="Preview">
+    Click **"Start Dev Server"** in HTFlow panel
+    
+    Preview at localhost:3000 with hot reloading
+  </Step>
+  
+  <Step title="Refine Design">
+    ```text Iterate with AI
+    "Make the hero section more impactful"
+    "Improve the spacing on mobile"
+    "Add hover effects to buttons"
+    ```
+    
+    See changes live in browser
+  </Step>
+  
+  <Step title="Build & Deploy">
+    Click **"Build Project"** in HTFlow panel
+    
+    Convert to Webflow and deploy
+  </Step>
+</Steps>
+
+<Check>
+From prompt to production Webflow site in under an hour!
+</Check>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Cursor Not Using .cursorrules" icon="file">
+    **Solution:**
+    1. Ensure file is named `.cursorrules` (with dot)
+    2. Place in project root directory
+    3. Enable in Cursor settings: `cursor.ai.followCursorRules: true`
+    4. Reload window
+  </Accordion>
+  
+  <Accordion title="AI Generates Non-Compatible Code" icon="code">
+    **Fix:**
+    1. Update `.cursorrules` with more specific guidelines
+    2. Always mention "Webflow-compatible" in prompts
+    3. Use validation after generation
+    4. Ask AI to fix issues found by HTFlow
+  </Accordion>
+  
+  <Accordion title="Extension Conflicts" icon="triangle-exclamation">
+    **Check:**
+    - Disable conflicting extensions
+    - HTFlow works best as primary HTML/CSS tool
+    - Keep Cursor AI extensions enabled
+  </Accordion>
+  
+  <Accordion title="MCP Not Working" icon="plug">
+    **Solutions:**
+    1. Reinstall MCP: `htflow mcp-uninstall && htflow mcp-install`
+    2. Check Cursor settings for MCP configuration
+    3. Restart Cursor after installation
+    4. Verify Node.js and HTFlow CLI are installed
+  </Accordion>
+</AccordionGroup>
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Clear Prompts" icon="message">
+    Always mention "Webflow-compatible" and "mobile-responsive" in AI prompts
+  </Card>
+  <Card title="Validate Often" icon="shield-check">
+    Enable auto-validation to catch issues immediately
+  </Card>
+  <Card title="Use .cursorrules" icon="file">
+    Set up project rules for consistent AI output
+  </Card>
+  <Card title="Iterate Quickly" icon="rotate">
+    Use AI to refine, HTFlow to validate, preview to verify
+  </Card>
+</CardGroup>
+
+## Cursor Pro Tips
+
+<Tabs>
+  <Tab title="Custom Snippets">
+    Create Cursor snippets for HTFlow patterns:
+    
+    ```json snippets.json
+    {
+      "HTFlow Section": {
+        "prefix": "htf-section",
+        "body": [
+          "<section class=\"$1\">",
+          "  <div class=\"container\">",
+          "    $2",
+          "  </div>",
+          "</section>"
+        ]
+      }
+    }
+    ```
+  </Tab>
+  
+  <Tab title="AI Codebase Chat">
+    Ask AI about your entire HTFlow project:
+    
+    ```text Prompts
+    "@codebase What's the structure of this HTFlow project?"
+    "@codebase Where should I add the new section?"
+    "@codebase Review all files for Webflow compatibility"
+    ```
+  </Tab>
+  
+  <Tab title="Multi-file Editing">
+    Use Composer to edit multiple files:
+    
+    ```text Example
+    "Update the color scheme across all files:
+    - Change primary color to #16A34A
+    - Update all buttons
+    - Fix mobile styles
+    
+    Maintain Webflow compatibility"
+    ```
+    
+    AI updates HTML, CSS, and JS files together
+  </Tab>
+</Tabs>
+
+## Resources
+
+<CardGroup cols={2}>
+  <Card title="Cursor Documentation" icon="book" href="https://docs.cursor.com/">
+    Learn more about Cursor AI features
+  </Card>
+  <Card title="HTFlow CLI Reference" icon="terminal" href="/htflow/commands/package-management">
+    Explore all HTFlow commands
+  </Card>
+  <Card title="Example .cursorrules" icon="github" href="https://github.com/">
+    Download sample rule files
+  </Card>
+  <Card title="Cursor Community" icon="users" href="https://cursor.sh/community">
+    Join the Cursor community
+  </Card>
+</CardGroup>
+
+## Next Steps
+
+<Card
+  title="Quick Start Guide"
+  icon="bolt"
+  href="/htflow/quick-start"
+  horizontal
+>
+  Create your first AI-powered HTFlow project
+</Card>
+
+<Card
+  title="HTFlow Workflow"
+  icon="diagram-project"
+  href="/htflow/workflow"
+  horizontal
+>
+  Learn the complete development workflow
+</Card>
+
