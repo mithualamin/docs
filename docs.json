@@ -27,29 +27,17 @@
         "tab": "Rules",
         "groups": [
           {
-            "group": "Getting started",
-            "pages": ["index", "quickstart", "development"]
-          },
-          {
-            "group": "Customization",
-            "pages": ["essentials/settings", "essentials/navigation"]
-          },
-          {
-            "group": "Writing content",
+            "group": "Getting Started",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "rules/index",
+              "rules/html",
+              "rules/css",
+              "rules/javascript"
             ]
           },
           {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
+            "group": "Best Practices",
+            "pages": ["rules/best-practices", "rules/examples"]
           }
         ]
       }
@@ -84,16 +72,10 @@
     "dark": "/logo/dark.svg"
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Start Converting",
-        "href": "https://htflow.com"
-      }
-    ],
     "primary": {
       "type": "button",
-      "label": "Install Extension",
-      "href": "https://marketplace.visualstudio.com/"
+      "label": "Start Converting",
+      "href": "https:/htflow.com"
     }
   },
   "contextual": {

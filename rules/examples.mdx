@@ -1,0 +1,844 @@
+---
+title: "Examples"
+description: "Real-world examples, templates, and code snippets for HTFlow development"
+icon: "book"
+---
+
+## Overview
+
+This page provides real-world examples, templates, and code snippets that demonstrate HTFlow-compatible development patterns. Use these examples as starting points for your own projects.
+
+<Info>
+  All examples follow HTFlow rules and are ready for conversion to Webflow and
+  Droip.
+</Info>
+
+## Complete Page Templates
+
+### Landing Page Template
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SaaS Landing Page | Company Name</title>
+    <meta
+      name="description"
+      content="Transform your business with our innovative SaaS solution"
+    />
+  </head>
+  <body>
+    <div class="htflow-wrapper">
+      <!-- Header -->
+      <header class="site-header">
+        <div class="container">
+          <nav
+            class="main-navigation"
+            role="navigation"
+            aria-label="Main navigation"
+          >
+            <div class="nav-brand">
+              <a href="/" class="brand-link">
+                <svg
+                  class="brand-logo"
+                  aria-hidden="true"
+                  width="32"
+                  height="32"
+                >
+                  <use href="#logo-icon"></use>
+                </svg>
+                <span class="brand-text">Company</span>
+              </a>
+            </div>
+
+            <ul class="nav-list">
+              <li class="nav-item">
+                <a href="#features" class="nav-link">Features</a>
+              </li>
+              <li class="nav-item">
+                <a href="#pricing" class="nav-link">Pricing</a>
+              </li>
+              <li class="nav-item">
+                <a href="#contact" class="nav-link">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a href="/login" class="nav-link nav-link--button">Login</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Hero Section -->
+      <section class="hero-section" aria-labelledby="hero-heading">
+        <div class="container">
+          <div class="hero-content">
+            <h1 id="hero-heading" class="hero-title">
+              Transform Your Business with Our SaaS Solution
+            </h1>
+            <p class="hero-description">
+              Streamline your workflow, boost productivity, and scale your
+              business with our innovative platform designed for modern teams.
+            </p>
+            <div class="hero-actions">
+              <button class="button button--primary button--large">
+                <span class="button__text">Start Free Trial</span>
+                <svg class="button__icon" aria-hidden="true">
+                  <use href="#icon-arrow-right"></use>
+                </svg>
+              </button>
+              <button class="button button--secondary button--large">
+                <span class="button__text">Watch Demo</span>
+                <svg class="button__icon" aria-hidden="true">
+                  <use href="#icon-play"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img
+              src="/images/hero-dashboard.jpg"
+              alt="SaaS dashboard interface showing analytics and metrics"
+              class="hero-image__img"
+              loading="eager"
+              width="800"
+              height="600"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section
+        id="features"
+        class="features-section"
+        aria-labelledby="features-heading"
+      >
+        <div class="container">
+          <div class="section-header">
+            <h2 id="features-heading" class="section-title">
+              Powerful Features
+            </h2>
+            <p class="section-description">
+              Everything you need to manage and grow your business efficiently
+            </p>
+          </div>
+
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-card__icon">
+                <svg class="icon icon--feature" aria-hidden="true">
+                  <use href="#icon-analytics"></use>
+                </svg>
+              </div>
+              <h3 class="feature-card__title">Advanced Analytics</h3>
+              <p class="feature-card__description">
+                Get detailed insights into your business performance with
+                real-time analytics and reporting.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-card__icon">
+                <svg class="icon icon--feature" aria-hidden="true">
+                  <use href="#icon-automation"></use>
+                </svg>
+              </div>
+              <h3 class="feature-card__title">Workflow Automation</h3>
+              <p class="feature-card__description">
+                Automate repetitive tasks and streamline your processes with our
+                powerful automation tools.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-card__icon">
+                <svg class="icon icon--feature" aria-hidden="true">
+                  <use href="#icon-collaboration"></use>
+                </svg>
+              </div>
+              <h3 class="feature-card__title">Team Collaboration</h3>
+              <p class="feature-card__description">
+                Work together seamlessly with built-in collaboration tools and
+                real-time communication.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing Section -->
+      <section
+        id="pricing"
+        class="pricing-section"
+        aria-labelledby="pricing-heading"
+      >
+        <div class="container">
+          <div class="section-header">
+            <h2 id="pricing-heading" class="section-title">Simple Pricing</h2>
+            <p class="section-description">
+              Choose the plan that's right for your business
+            </p>
+          </div>
+
+          <div class="pricing-grid">
+            <div class="pricing-card">
+              <div class="pricing-card__header">
+                <h3 class="pricing-card__title">Starter</h3>
+                <div class="pricing-card__price">
+                  <span class="pricing-card__amount">$29</span>
+                  <span class="pricing-card__period">/month</span>
+                </div>
+              </div>
+              <ul class="pricing-card__features">
+                <li class="pricing-feature">Up to 5 team members</li>
+                <li class="pricing-feature">Basic analytics</li>
+                <li class="pricing-feature">Email support</li>
+                <li class="pricing-feature">5GB storage</li>
+              </ul>
+              <button class="pricing-card__button button button--secondary">
+                <span class="button__text">Get Started</span>
+              </button>
+            </div>
+
+            <div class="pricing-card pricing-card--featured">
+              <div class="pricing-card__badge">Most Popular</div>
+              <div class="pricing-card__header">
+                <h3 class="pricing-card__title">Professional</h3>
+                <div class="pricing-card__price">
+                  <span class="pricing-card__amount">$79</span>
+                  <span class="pricing-card__period">/month</span>
+                </div>
+              </div>
+              <ul class="pricing-card__features">
+                <li class="pricing-feature">Up to 25 team members</li>
+                <li class="pricing-feature">Advanced analytics</li>
+                <li class="pricing-feature">Priority support</li>
+                <li class="pricing-feature">100GB storage</li>
+                <li class="pricing-feature">Workflow automation</li>
+              </ul>
+              <button class="pricing-card__button button button--primary">
+                <span class="button__text">Get Started</span>
+              </button>
+            </div>
+
+            <div class="pricing-card">
+              <div class="pricing-card__header">
+                <h3 class="pricing-card__title">Enterprise</h3>
+                <div class="pricing-card__price">
+                  <span class="pricing-card__amount">$199</span>
+                  <span class="pricing-card__period">/month</span>
+                </div>
+              </div>
+              <ul class="pricing-card__features">
+                <li class="pricing-feature">Unlimited team members</li>
+                <li class="pricing-feature">Custom analytics</li>
+                <li class="pricing-feature">24/7 support</li>
+                <li class="pricing-feature">Unlimited storage</li>
+                <li class="pricing-feature">Custom integrations</li>
+              </ul>
+              <button class="pricing-card__button button button--secondary">
+                <span class="button__text">Contact Sales</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div class="container">
+          <div class="footer-content">
+            <div class="footer-brand">
+              <a href="/" class="brand-link">
+                <svg
+                  class="brand-logo"
+                  aria-hidden="true"
+                  width="32"
+                  height="32"
+                >
+                  <use href="#logo-icon"></use>
+                </svg>
+                <span class="brand-text">Company</span>
+              </a>
+              <p class="footer-description">
+                Empowering businesses with innovative SaaS solutions.
+              </p>
+            </div>
+
+            <div class="footer-links">
+              <div class="footer-column">
+                <h4 class="footer-title">Product</h4>
+                <ul class="footer-list">
+                  <li class="footer-item">
+                    <a href="#features" class="footer-link">Features</a>
+                  </li>
+                  <li class="footer-item">
+                    <a href="#pricing" class="footer-link">Pricing</a>
+                  </li>
+                  <li class="footer-item">
+                    <a href="/integrations" class="footer-link">Integrations</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="footer-column">
+                <h4 class="footer-title">Company</h4>
+                <ul class="footer-list">
+                  <li class="footer-item">
+                    <a href="/about" class="footer-link">About</a>
+                  </li>
+                  <li class="footer-item">
+                    <a href="/careers" class="footer-link">Careers</a>
+                  </li>
+                  <li class="footer-item">
+                    <a href="/contact" class="footer-link">Contact</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <p class="footer-copyright">
+              © 2024 Company Name. All rights reserved.
+            </p>
+            <div class="footer-social">
+              <a href="#" class="social-link" aria-label="Twitter">
+                <svg class="social-icon" aria-hidden="true">
+                  <use href="#icon-twitter"></use>
+                </svg>
+              </a>
+              <a href="#" class="social-link" aria-label="LinkedIn">
+                <svg class="social-icon" aria-hidden="true">
+                  <use href="#icon-linkedin"></use>
+                </svg>
+              </a>
+              <a href="#" class="social-link" aria-label="GitHub">
+                <svg class="social-icon" aria-hidden="true">
+                  <use href="#icon-github"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Required HTFlow attributes -->
+    <style data-ht-styles>
+      /* CSS styles go here */
+    </style>
+    <script data-ht-main-script>
+      /* JavaScript goes here */
+    </script>
+  </body>
+</html>
+```
+
+## Component Examples
+
+### Button Components
+
+```html
+<!-- Primary Button -->
+<button class="button button--primary">
+  <span class="button__text">Primary Action</span>
+  <svg class="button__icon" aria-hidden="true">
+    <use href="#icon-arrow-right"></use>
+  </svg>
+</button>
+
+<!-- Secondary Button -->
+<button class="button button--secondary">
+  <span class="button__text">Secondary Action</span>
+</button>
+
+<!-- Large Button -->
+<button class="button button--primary button--large">
+  <span class="button__text">Large Button</span>
+</button>
+
+<!-- Small Button -->
+<button class="button button--secondary button--small">
+  <span class="button__text">Small</span>
+</button>
+
+<!-- Loading Button -->
+<button class="button button--primary button--loading" disabled>
+  <svg class="button__spinner" aria-hidden="true">
+    <use href="#icon-spinner"></use>
+  </svg>
+  <span class="button__text">Loading...</span>
+</button>
+```
+
+### Card Components
+
+```html
+<!-- Basic Card -->
+<div class="card">
+  <div class="card__header">
+    <h3 class="card__title">Card Title</h3>
+  </div>
+  <div class="card__content">
+    <p class="card__description">Card content goes here.</p>
+  </div>
+  <div class="card__footer">
+    <button class="card__button button button--primary">
+      <span class="button__text">Action</span>
+    </button>
+  </div>
+</div>
+
+<!-- Feature Card -->
+<div class="feature-card">
+  <div class="feature-card__icon">
+    <svg class="icon icon--feature" aria-hidden="true">
+      <use href="#icon-feature"></use>
+    </svg>
+  </div>
+  <h3 class="feature-card__title">Feature Title</h3>
+  <p class="feature-card__description">
+    Feature description with detailed information about the capability.
+  </p>
+  <a href="#" class="feature-card__link">
+    Learn More
+    <svg class="link-icon" aria-hidden="true">
+      <use href="#icon-arrow-right"></use>
+    </svg>
+  </a>
+</div>
+
+<!-- Pricing Card -->
+<div class="pricing-card">
+  <div class="pricing-card__badge">Popular</div>
+  <div class="pricing-card__header">
+    <h3 class="pricing-card__title">Professional</h3>
+    <div class="pricing-card__price">
+      <span class="pricing-card__amount">$79</span>
+      <span class="pricing-card__period">/month</span>
+    </div>
+  </div>
+  <ul class="pricing-card__features">
+    <li class="pricing-feature">Feature 1</li>
+    <li class="pricing-feature">Feature 2</li>
+    <li class="pricing-feature">Feature 3</li>
+  </ul>
+  <button class="pricing-card__button button button--primary">
+    <span class="button__text">Get Started</span>
+  </button>
+</div>
+```
+
+### Form Components
+
+```html
+<!-- Contact Form -->
+<form class="contact-form" action="/submit" method="POST">
+  <div class="form-group">
+    <label for="name" class="form-label">Full Name</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      class="form-input"
+      required
+      aria-describedby="name-help"
+    />
+    <div id="name-help" class="form-help">
+      Enter your full name as it appears on official documents.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email" class="form-label">Email Address</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      class="form-input"
+      required
+      aria-describedby="email-help"
+    />
+    <div id="email-help" class="form-help">
+      We'll use this to send you updates about your account.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="company" class="form-label">Company</label>
+    <input type="text" id="company" name="company" class="form-input" />
+  </div>
+
+  <div class="form-group">
+    <label for="message" class="form-label">Message</label>
+    <textarea
+      id="message"
+      name="message"
+      class="form-textarea"
+      rows="5"
+      required
+      aria-describedby="message-help"
+    ></textarea>
+    <div id="message-help" class="form-help">
+      Tell us about your project or how we can help you.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="checkbox-label">
+      <input type="checkbox" name="newsletter" class="checkbox-input" />
+      <span class="checkbox-text">
+        I'd like to receive updates about new features and products.
+      </span>
+    </label>
+  </div>
+
+  <button
+    type="submit"
+    class="submit-button button button--primary button--large"
+  >
+    <span class="button__text">Send Message</span>
+  </button>
+</form>
+```
+
+### Navigation Components
+
+```html
+<!-- Main Navigation -->
+<nav class="main-navigation" role="navigation" aria-label="Main navigation">
+  <div class="nav-brand">
+    <a href="/" class="brand-link">
+      <svg class="brand-logo" aria-hidden="true">
+        <use href="#logo-icon"></use>
+      </svg>
+      <span class="brand-text">Company</span>
+    </a>
+  </div>
+
+  <ul class="nav-list">
+    <li class="nav-item">
+      <a href="/" class="nav-link nav-link--active" aria-current="page">Home</a>
+    </li>
+    <li class="nav-item">
+      <a href="/about" class="nav-link">About</a>
+    </li>
+    <li class="nav-item">
+      <a href="/services" class="nav-link">Services</a>
+    </li>
+    <li class="nav-item">
+      <a href="/contact" class="nav-link">Contact</a>
+    </li>
+    <li class="nav-item">
+      <a href="/login" class="nav-link nav-link--button">Login</a>
+    </li>
+  </ul>
+
+  <button
+    class="mobile-menu-toggle"
+    aria-expanded="false"
+    aria-controls="mobile-menu"
+  >
+    <span class="menu-toggle__text">Menu</span>
+    <svg class="menu-toggle__icon" aria-hidden="true">
+      <use href="#icon-menu"></use>
+    </svg>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<nav id="mobile-menu" class="mobile-menu" aria-hidden="true">
+  <ul class="mobile-menu__list">
+    <li class="mobile-menu__item">
+      <a
+        href="/"
+        class="mobile-menu__link mobile-menu__link--active"
+        aria-current="page"
+        >Home</a
+      >
+    </li>
+    <li class="mobile-menu__item">
+      <a href="/about" class="mobile-menu__link">About</a>
+    </li>
+    <li class="mobile-menu__item">
+      <a href="/services" class="mobile-menu__link">Services</a>
+    </li>
+    <li class="mobile-menu__item">
+      <a href="/contact" class="mobile-menu__link">Contact</a>
+    </li>
+    <li class="mobile-menu__item">
+      <a href="/login" class="mobile-menu__link mobile-menu__link--button"
+        >Login</a
+      >
+    </li>
+  </ul>
+</nav>
+```
+
+## CSS Examples
+
+### Layout Systems
+
+```css
+/* Container System */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.container-large {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.container-small {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Grid Layouts */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.grid-responsive {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Responsive Grid */
+@media (max-width: 768px) {
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+```
+
+### Component Styles
+
+```css
+/* Button Styles */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.button--primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.button--primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.button--secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.button--secondary:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.button--large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+.button--small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+```
+
+## JavaScript Examples
+
+### Component Classes
+
+```javascript
+// Modal Component
+class Modal {
+  constructor(selector) {
+    this.modal = document.querySelector(selector);
+    this.closeButton = this.modal.querySelector(".modal-close");
+    this.overlay = this.modal.querySelector(".modal-overlay");
+
+    this.init();
+  }
+
+  init() {
+    this.closeButton.addEventListener("click", () => this.close());
+    this.overlay.addEventListener("click", () => this.close());
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && this.isOpen()) {
+        this.close();
+      }
+    });
+  }
+
+  open() {
+    this.modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+
+    const focusableElement = this.modal.querySelector(
+      "[tabindex], button, input"
+    );
+    if (focusableElement) {
+      focusableElement.focus();
+    }
+  }
+
+  close() {
+    this.modal.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+  isOpen() {
+    return this.modal.classList.contains("active");
+  }
+}
+
+// Usage
+const contactModal = new Modal(".contact-modal");
+document.querySelector(".open-modal").addEventListener("click", () => {
+  contactModal.open();
+});
+```
+
+### Form Validation
+
+```javascript
+// Form Validator
+class FormValidator {
+  constructor(form) {
+    this.form = form;
+    this.inputs = this.form.querySelectorAll(".form-input");
+    this.submitButton = this.form.querySelector(".submit-button");
+
+    this.init();
+  }
+
+  init() {
+    this.inputs.forEach((input) => {
+      input.addEventListener("blur", () => this.validateField(input));
+      input.addEventListener("input", () => this.clearError(input));
+    });
+
+    this.form.addEventListener("submit", (event) => {
+      if (!this.validateForm()) {
+        event.preventDefault();
+      }
+    });
+  }
+
+  validateField(input) {
+    const value = input.value.trim();
+    const type = input.type;
+    const required = input.hasAttribute("required");
+
+    this.clearError(input);
+
+    if (required && !value) {
+      this.showError(input, "This field is required");
+      return false;
+    }
+
+    if (type === "email" && value) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        this.showError(input, "Please enter a valid email address");
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  validateForm() {
+    let isValid = true;
+    this.inputs.forEach((input) => {
+      if (!this.validateField(input)) {
+        isValid = false;
+      }
+    });
+    return isValid;
+  }
+
+  showError(input, message) {
+    input.classList.add("error");
+
+    let errorElement = input.parentNode.querySelector(".error-message");
+    if (!errorElement) {
+      errorElement = document.createElement("div");
+      errorElement.className = "error-message";
+      input.parentNode.appendChild(errorElement);
+    }
+
+    errorElement.textContent = message;
+  }
+
+  clearError(input) {
+    input.classList.remove("error");
+    const errorElement = input.parentNode.querySelector(".error-message");
+    if (errorElement) {
+      errorElement.remove();
+    }
+  }
+}
+
+// Usage
+document.addEventListener("DOMContentLoaded", () => {
+  const forms = document.querySelectorAll(".form");
+  forms.forEach((form) => {
+    new FormValidator(form);
+  });
+});
+```
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="HTML Rules" icon="code" href="/rules/html">
+    Review HTML requirements and guidelines
+  </Card>
+  <Card title="CSS Rules" icon="palette" href="/rules/css">
+    Learn CSS best practices for HTFlow
+  </Card>
+  <Card title="JavaScript Rules" icon="code-branch" href="/rules/javascript">
+    JavaScript guidelines and requirements
+  </Card>
+  <Card title="Best Practices" icon="star" href="/rules/best-practices">
+    Advanced tips and optimization strategies
+  </Card>
+</CardGroup>

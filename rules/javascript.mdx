@@ -1,0 +1,748 @@
+---
+title: "JavaScript Rules"
+description: "JavaScript guidelines and requirements for HTFlow-compatible development"
+icon: "code-branch"
+---
+
+## Overview
+
+HTFlow JavaScript rules ensure your interactive features work seamlessly with Webflow and Droip conversion processes. These rules focus on modern JavaScript practices, accessibility, and maintaining clean, maintainable code.
+
+<Info>
+  Follow these JavaScript rules to ensure your interactive features work
+  properly after conversion to Webflow or Droip.
+</Info>
+
+## Core Principles
+
+<CardGroup cols={2}>
+  <Card title="Class-Based Selectors" icon="tag">
+    Use CSS classes, never IDs for JavaScript
+  </Card>
+  <Card title="Modern ES6+" icon="code">
+    Use modern JavaScript features and syntax
+  </Card>
+  <Card title="Accessibility First" icon="universal-access">
+    Ensure all interactions are accessible
+  </Card>
+  <Card title="Event Handling" icon="mouse-pointer">
+    Proper event delegation and handling
+  </Card>
+</CardGroup>
+
+## 🚨 Critical JavaScript Rules
+
+### ABSOLUTE PROHIBITIONS
+
+❌ **NEVER use IDs for JavaScript selectors** (`document.getElementById()`)  
+❌ **NEVER skip data-ht-main-script** attribute on `<script>` tags  
+❌ **NEVER use inline JavaScript** (`onclick="..."`)  
+❌ **NEVER use deprecated JavaScript features**  
+❌ **NEVER skip error handling** in critical functions
+
+### MANDATORY REQUIREMENTS
+
+✅ **ALWAYS use CSS classes** for JavaScript selectors  
+✅ **ALWAYS use data-ht-main-script** attribute on `<script>` tags  
+✅ **ALWAYS use modern ES6+ features**  
+✅ **ALWAYS include proper error handling**  
+✅ **ALWAYS ensure accessibility compliance**
+
+## Required JavaScript Structure
+
+Every HTFlow project must include the `data-ht-main-script` attribute:
+
+```html
+<script data-ht-main-script>
+  // All JavaScript goes here
+</script>
+```
+
+## Modern JavaScript Features
+
+### ES6+ Syntax
+
+```javascript
+// Use const and let instead of var
+const element = document.querySelector(".my-element");
+let isActive = false;
+
+// Use arrow functions
+const handleClick = (event) => {
+  event.preventDefault();
+  // Handle click
+};
+
+// Use template literals
+const message = `Hello ${name}, welcome to our site!`;
+
+// Use destructuring
+const { title, content, author } = article;
+
+// Use spread operator
+const newArray = [...oldArray, newItem];
+
+// Use async/await
+const fetchData = async () => {
+  try {
+    const response = await fetch("/api/data");
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
+```
+
+## DOM Manipulation
+
+### Class-Based Selectors
+
+```javascript
+// ✅ CORRECT - Use class selectors
+const button = document.querySelector(".primary-button");
+const buttons = document.querySelectorAll(".button-group .button");
+const form = document.querySelector(".contact-form");
+
+// ❌ WRONG - Don't use ID selectors
+// const button = document.getElementById('my-button');
+// const form = document.getElementById('contact-form');
+```
+
+### Element Selection Patterns
+
+```javascript
+// Single element selection
+const heroSection = document.querySelector(".hero-section");
+const submitButton = document.querySelector(".submit-button");
+
+// Multiple elements selection
+const allButtons = document.querySelectorAll(".button");
+const formInputs = document.querySelectorAll(".form-input");
+
+// Element within context
+const container = document.querySelector(".container");
+const buttonsInContainer = container.querySelectorAll(".button");
+```
+
+## Event Handling
+
+### Event Delegation
+
+```javascript
+// Use event delegation for dynamic content
+document.addEventListener("click", (event) => {
+  // Handle button clicks
+  if (event.target.matches(".button")) {
+    handleButtonClick(event);
+  }
+
+  // Handle form submissions
+  if (event.target.matches(".submit-button")) {
+    handleFormSubmit(event);
+  }
+
+  // Handle navigation links
+  if (event.target.matches(".nav-link")) {
+    handleNavigation(event);
+  }
+});
+```
+
+### Specific Event Handlers
+
+```javascript
+// Button interactions
+const handleButtonClick = (event) => {
+  event.preventDefault();
+  const button = event.target;
+
+  // Toggle active state
+  button.classList.toggle("active");
+
+  // Add loading state
+  button.classList.add("loading");
+  button.disabled = true;
+
+  // Simulate async operation
+  setTimeout(() => {
+    button.classList.remove("loading");
+    button.disabled = false;
+  }, 1000);
+};
+
+// Form handling
+const handleFormSubmit = async (event) => {
+  event.preventDefault();
+  const form = event.target.closest("form");
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch("/api/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (response.ok) {
+      showSuccessMessage("Form submitted successfully!");
+      form.reset();
+    } else {
+      throw new Error("Submission failed");
+    }
+  } catch (error) {
+    showErrorMessage("Failed to submit form. Please try again.");
+  }
+};
+```
+
+## Component Patterns
+
+### Modal Component
+
+```javascript
+class Modal {
+  constructor(selector) {
+    this.modal = document.querySelector(selector);
+    this.closeButton = this.modal.querySelector(".modal-close");
+    this.overlay = this.modal.querySelector(".modal-overlay");
+
+    this.init();
+  }
+
+  init() {
+    // Close modal events
+    this.closeButton.addEventListener("click", () => this.close());
+    this.overlay.addEventListener("click", () => this.close());
+
+    // Escape key to close
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && this.isOpen()) {
+        this.close();
+      }
+    });
+  }
+
+  open() {
+    this.modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+
+    // Focus management for accessibility
+    const focusableElement = this.modal.querySelector(
+      "[tabindex], button, input, textarea, select"
+    );
+    if (focusableElement) {
+      focusableElement.focus();
+    }
+  }
+
+  close() {
+    this.modal.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+  isOpen() {
+    return this.modal.classList.contains("active");
+  }
+}
+
+// Usage
+const contactModal = new Modal(".contact-modal");
+document.querySelector(".open-modal").addEventListener("click", () => {
+  contactModal.open();
+});
+```
+
+### Accordion Component
+
+```javascript
+class Accordion {
+  constructor(container) {
+    this.container = container;
+    this.items = this.container.querySelectorAll(".accordion-item");
+    this.init();
+  }
+
+  init() {
+    this.items.forEach((item) => {
+      const trigger = item.querySelector(".accordion-trigger");
+      const content = item.querySelector(".accordion-content");
+
+      trigger.addEventListener("click", () => {
+        this.toggleItem(item, content);
+      });
+
+      // Set initial ARIA attributes
+      trigger.setAttribute("aria-expanded", "false");
+      content.setAttribute("aria-hidden", "true");
+    });
+  }
+
+  toggleItem(item, content) {
+    const isOpen = item.classList.contains("active");
+
+    if (isOpen) {
+      this.closeItem(item, content);
+    } else {
+      this.openItem(item, content);
+    }
+  }
+
+  openItem(item, content) {
+    item.classList.add("active");
+    content.style.maxHeight = content.scrollHeight + "px";
+
+    // Update ARIA attributes
+    item
+      .querySelector(".accordion-trigger")
+      .setAttribute("aria-expanded", "true");
+    content.setAttribute("aria-hidden", "false");
+  }
+
+  closeItem(item, content) {
+    item.classList.remove("active");
+    content.style.maxHeight = "0";
+
+    // Update ARIA attributes
+    item
+      .querySelector(".accordion-trigger")
+      .setAttribute("aria-expanded", "false");
+    content.setAttribute("aria-hidden", "true");
+  }
+}
+
+// Usage
+document.addEventListener("DOMContentLoaded", () => {
+  const accordionContainers = document.querySelectorAll(".accordion");
+  accordionContainers.forEach((container) => {
+    new Accordion(container);
+  });
+});
+```
+
+## Form Validation
+
+### Client-Side Validation
+
+```javascript
+class FormValidator {
+  constructor(form) {
+    this.form = form;
+    this.inputs = this.form.querySelectorAll(".form-input");
+    this.submitButton = this.form.querySelector(".submit-button");
+
+    this.init();
+  }
+
+  init() {
+    // Real-time validation
+    this.inputs.forEach((input) => {
+      input.addEventListener("blur", () => this.validateField(input));
+      input.addEventListener("input", () => this.clearError(input));
+    });
+
+    // Form submission
+    this.form.addEventListener("submit", (event) => {
+      if (!this.validateForm()) {
+        event.preventDefault();
+      }
+    });
+  }
+
+  validateField(input) {
+    const value = input.value.trim();
+    const type = input.type;
+    const required = input.hasAttribute("required");
+
+    // Clear previous errors
+    this.clearError(input);
+
+    // Required field validation
+    if (required && !value) {
+      this.showError(input, "This field is required");
+      return false;
+    }
+
+    // Email validation
+    if (type === "email" && value) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        this.showError(input, "Please enter a valid email address");
+        return false;
+      }
+    }
+
+    // Phone validation
+    if (type === "tel" && value) {
+      const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+      if (!phoneRegex.test(value.replace(/\s/g, ""))) {
+        this.showError(input, "Please enter a valid phone number");
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  validateForm() {
+    let isValid = true;
+
+    this.inputs.forEach((input) => {
+      if (!this.validateField(input)) {
+        isValid = false;
+      }
+    });
+
+    this.submitButton.disabled = !isValid;
+    return isValid;
+  }
+
+  showError(input, message) {
+    input.classList.add("error");
+
+    // Create or update error message
+    let errorElement = input.parentNode.querySelector(".error-message");
+    if (!errorElement) {
+      errorElement = document.createElement("div");
+      errorElement.className = "error-message";
+      input.parentNode.appendChild(errorElement);
+    }
+
+    errorElement.textContent = message;
+  }
+
+  clearError(input) {
+    input.classList.remove("error");
+    const errorElement = input.parentNode.querySelector(".error-message");
+    if (errorElement) {
+      errorElement.remove();
+    }
+  }
+}
+
+// Usage
+document.addEventListener("DOMContentLoaded", () => {
+  const forms = document.querySelectorAll(".form");
+  forms.forEach((form) => {
+    new FormValidator(form);
+  });
+});
+```
+
+## Animation and Interactions
+
+### Smooth Scrolling
+
+```javascript
+// Smooth scroll to sections
+const smoothScrollTo = (target) => {
+  const element = document.querySelector(target);
+  if (element) {
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+};
+
+// Usage with navigation links
+document.addEventListener("click", (event) => {
+  if (event.target.matches('.nav-link[href^="#"]')) {
+    event.preventDefault();
+    const target = event.target.getAttribute("href");
+    smoothScrollTo(target);
+  }
+});
+```
+
+### Intersection Observer for Animations
+
+```javascript
+// Animate elements on scroll
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: "0px 0px -50px 0px",
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("animate-in");
+    }
+  });
+}, observerOptions);
+
+// Observe elements with animation class
+document.addEventListener("DOMContentLoaded", () => {
+  const animatedElements = document.querySelectorAll(".animate-on-scroll");
+  animatedElements.forEach((element) => {
+    observer.observe(element);
+  });
+});
+```
+
+## Error Handling
+
+### Global Error Handling
+
+```javascript
+// Global error handler
+window.addEventListener("error", (event) => {
+  console.error("Global error:", event.error);
+
+  // Send error to logging service
+  if (typeof gtag !== "undefined") {
+    gtag("event", "exception", {
+      description: event.error.message,
+      fatal: false,
+    });
+  }
+});
+
+// Promise rejection handler
+window.addEventListener("unhandledrejection", (event) => {
+  console.error("Unhandled promise rejection:", event.reason);
+  event.preventDefault();
+});
+```
+
+### Try-Catch Patterns
+
+```javascript
+// Safe function execution
+const safeExecute = async (fn, fallback = null) => {
+  try {
+    return await fn();
+  } catch (error) {
+    console.error("Function execution failed:", error);
+    return fallback;
+  }
+};
+
+// Usage
+const loadUserData = async () => {
+  return await safeExecute(
+    async () => {
+      const response = await fetch("/api/user");
+      return await response.json();
+    },
+    { name: "Guest", email: "" }
+  );
+};
+```
+
+## Performance Optimization
+
+### Debouncing and Throttling
+
+```javascript
+// Debounce function
+const debounce = (func, wait) => {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+};
+
+// Throttle function
+const throttle = (func, limit) => {
+  let inThrottle;
+  return function () {
+    const args = arguments;
+    const context = this;
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(() => (inThrottle = false), limit);
+    }
+  };
+};
+
+// Usage examples
+const handleSearch = debounce((query) => {
+  // Perform search
+  console.log("Searching for:", query);
+}, 300);
+
+const handleScroll = throttle(() => {
+  // Handle scroll events
+  console.log("Scrolling...");
+}, 100);
+```
+
+## Accessibility Features
+
+### Keyboard Navigation
+
+```javascript
+// Keyboard navigation support
+const handleKeyboardNavigation = (event) => {
+  const { key, target } = event;
+
+  // Tab navigation
+  if (key === "Tab") {
+    // Ensure focus is visible
+    target.classList.add("keyboard-focus");
+  }
+
+  // Enter and Space for buttons
+  if ((key === "Enter" || key === " ") && target.matches(".button")) {
+    event.preventDefault();
+    target.click();
+  }
+
+  // Arrow keys for custom components
+  if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(key)) {
+    handleArrowNavigation(event);
+  }
+};
+
+document.addEventListener("keydown", handleKeyboardNavigation);
+
+// Remove keyboard focus class on mouse interaction
+document.addEventListener("mousedown", () => {
+  document.querySelectorAll(".keyboard-focus").forEach((element) => {
+    element.classList.remove("keyboard-focus");
+  });
+});
+```
+
+### ARIA Attributes Management
+
+```javascript
+// Update ARIA attributes dynamically
+const updateAriaAttributes = (element, attributes) => {
+  Object.entries(attributes).forEach(([key, value]) => {
+    element.setAttribute(`aria-${key}`, value);
+  });
+};
+
+// Usage
+const toggleButton = document.querySelector(".menu-toggle");
+const menu = document.querySelector(".mobile-menu");
+
+toggleButton.addEventListener("click", () => {
+  const isOpen = menu.classList.contains("active");
+
+  updateAriaAttributes(toggleButton, {
+    expanded: !isOpen,
+    controls: "mobile-menu",
+  });
+
+  updateAriaAttributes(menu, {
+    hidden: isOpen,
+  });
+});
+```
+
+## Common Mistakes to Avoid
+
+<Warning>
+**Never do these things:**
+
+- Use IDs for JavaScript selectors (`getElementById`)
+- Skip the `data-ht-main-script` attribute
+- Use inline JavaScript (`onclick="..."`)
+- Use `var` instead of `const`/`let`
+- Skip error handling in async functions
+- Forget accessibility features (ARIA, keyboard navigation)
+- Use deprecated JavaScript features
+- Forget to clean up event listeners
+- Use global variables unnecessarily
+- Skip form validation
+- Use synchronous operations for network requests
+- Forget to handle loading states
+  </Warning>
+
+## Code Organization
+
+### Module Pattern
+
+```javascript
+// Organize code in modules
+const HTFlowApp = {
+  // Configuration
+  config: {
+    apiUrl: "/api",
+    animationDuration: 300,
+  },
+
+  // Initialize the app
+  init() {
+    this.bindEvents();
+    this.initializeComponents();
+  },
+
+  // Bind global events
+  bindEvents() {
+    document.addEventListener("DOMContentLoaded", () => {
+      this.onDOMReady();
+    });
+  },
+
+  // DOM ready handler
+  onDOMReady() {
+    this.initializeForms();
+    this.initializeModals();
+    this.initializeAccordions();
+  },
+
+  // Initialize form components
+  initializeForms() {
+    const forms = document.querySelectorAll(".form");
+    forms.forEach((form) => {
+      new FormValidator(form);
+    });
+  },
+
+  // Initialize modal components
+  initializeModals() {
+    const modals = document.querySelectorAll(".modal");
+    modals.forEach((modal) => {
+      new Modal(modal);
+    });
+  },
+
+  // Initialize accordion components
+  initializeAccordions() {
+    const accordions = document.querySelectorAll(".accordion");
+    accordions.forEach((accordion) => {
+      new Accordion(accordion);
+    });
+  },
+};
+
+// Start the application
+HTFlowApp.init();
+```
+
+## Validation
+
+Use the HTFlow audit command to validate your JavaScript:
+
+```bash
+npx htflow audit
+```
+
+This will check your JavaScript against all HTFlow rules and provide detailed feedback on any violations.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Best Practices" icon="star" href="/rules/best-practices">
+    Advanced tips and optimization strategies
+  </Card>
+  <Card title="Examples" icon="book" href="/rules/examples">
+    Real-world JavaScript examples and templates
+  </Card>
+  <Card title="HTML Rules" icon="code" href="/rules/html">
+    Review HTML requirements and guidelines
+  </Card>
+  <Card title="CSS Rules" icon="palette" href="/rules/css">
+    Learn CSS best practices for HTFlow
+  </Card>
+</CardGroup>

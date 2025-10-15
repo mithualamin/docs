@@ -1,0 +1,637 @@
+---
+title: "Best Practices"
+description: "Advanced tips, optimization strategies, and best practices for HTFlow development"
+icon: "star"
+---
+
+## Overview
+
+This guide covers advanced best practices, optimization strategies, and professional development techniques for creating high-quality HTFlow-compatible websites that convert seamlessly to Webflow and Droip.
+
+<Info>
+  These best practices build upon the core HTFlow rules and help you create
+  professional, maintainable, and conversion-ready websites.
+</Info>
+
+## Development Workflow
+
+### Project Structure
+
+Organize your HTFlow project with a clear, scalable structure:
+
+```text
+project/
+├── .cursor/
+│   └── rules/
+│       ├── htflow-html-essentials.mdc
+│       ├── htflow-css-essentials.mdc
+│       ├── htflow-js-essentials.mdc
+│       └── AI_PROMPTS.md
+├── assets/
+│   ├── images/
+│   ├── icons/
+│   └── fonts/
+├── css/
+│   ├── base/
+│   ├── components/
+│   ├── layouts/
+│   └── utilities/
+├── js/
+│   ├── components/
+│   ├── utils/
+│   └── app.js
+├── pages/
+│   ├── index.html
+│   ├── about.html
+│   └── contact.html
+└── htflow-copyable/
+    └── (generated after build)
+```
+
+### File Naming Conventions
+
+```text
+# HTML files
+index.html
+about.html
+contact.html
+pricing.html
+
+# CSS files
+styles.css
+components.css
+utilities.css
+
+# JavaScript files
+app.js
+components.js
+utils.js
+
+# Image files
+hero-image.jpg
+logo-light.svg
+logo-dark.svg
+icon-arrow-right.svg
+```
+
+## Design System Approach
+
+### Component-Based Architecture
+
+Create reusable components that follow HTFlow rules:
+
+```html
+<!-- Button Component -->
+<button class="button button--primary button--large">
+  <span class="button__text">Get Started</span>
+  <svg class="button__icon" aria-hidden="true">
+    <use href="#icon-arrow-right"></use>
+  </svg>
+</button>
+
+<!-- Card Component -->
+<div class="card card--feature">
+  <div class="card__header">
+    <svg class="card__icon" aria-hidden="true">
+      <use href="#icon-feature"></use>
+    </svg>
+    <h3 class="card__title">Feature Title</h3>
+  </div>
+  <div class="card__content">
+    <p class="card__description">Feature description goes here.</p>
+  </div>
+  <div class="card__footer">
+    <a href="#" class="card__link">Learn More</a>
+  </div>
+</div>
+```
+
+### Design Tokens
+
+Use CSS custom properties for consistent design:
+
+```css
+:root {
+  /* Colors */
+  --color-primary: #16a34a;
+  --color-primary-light: #07c983;
+  --color-primary-dark: #15803d;
+
+  /* Typography */
+  --font-family-primary: "Inter", system-ui, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  /* Border radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+}
+```
+
+## Performance Optimization
+
+### Image Optimization
+
+```html
+<!-- Responsive images with proper sizing -->
+<img
+  src="/images/hero-mobile.jpg"
+  srcset="
+    /images/hero-mobile.jpg   768w,
+    /images/hero-tablet.jpg  1024w,
+    /images/hero-desktop.jpg 1920w
+  "
+  sizes="(max-width: 768px) 100vw, 
+         (max-width: 1024px) 100vw, 
+         1920px"
+  alt="Hero image description"
+  class="hero-image"
+  loading="eager"
+  width="1920"
+  height="1080"
+/>
+
+<!-- SVG icons with proper optimization -->
+<svg class="icon icon--arrow" aria-hidden="true" width="24" height="24">
+  <use href="#icon-arrow-right"></use>
+</svg>
+```
+
+### CSS Optimization
+
+```css
+/* Use efficient selectors */
+.button {
+  /* ✅ Good - single class */
+}
+.card__title {
+  /* ✅ Good - BEM methodology */
+}
+
+/* Avoid inefficient selectors */
+div.container .button {
+  /* ❌ Avoid - too specific */
+}
+* {
+  /* ❌ Avoid - universal selector */
+}
+
+/* Use CSS containment for performance */
+.card {
+  contain: layout style paint;
+}
+
+/* Optimize animations */
+.smooth-transition {
+  will-change: transform;
+  transform: translateZ(0); /* Force hardware acceleration */
+}
+```
+
+### JavaScript Optimization
+
+```javascript
+// Use efficient DOM queries
+const elements = document.querySelectorAll(".button");
+const singleElement = document.querySelector(".hero-section");
+
+// Cache DOM elements
+class Component {
+  constructor(selector) {
+    this.element = document.querySelector(selector);
+    this.buttons = this.element?.querySelectorAll(".button") || [];
+    this.isActive = false;
+  }
+
+  // Use requestAnimationFrame for smooth animations
+  animate() {
+    requestAnimationFrame(() => {
+      this.element.style.transform = "translateY(0)";
+    });
+  }
+}
+
+// Lazy load non-critical JavaScript
+const loadNonCriticalJS = () => {
+  const script = document.createElement("script");
+  script.src = "/js/analytics.js";
+  script.async = true;
+  document.head.appendChild(script);
+};
+
+// Load after page is interactive
+if (document.readyState === "interactive") {
+  loadNonCriticalJS();
+} else {
+  document.addEventListener("DOMContentLoaded", loadNonCriticalJS);
+}
+```
+
+## Accessibility Best Practices
+
+### Semantic HTML Structure
+
+```html
+<!-- Proper heading hierarchy -->
+<main class="main-content">
+  <h1 class="page-title">Page Title</h1>
+
+  <section class="hero-section" aria-labelledby="hero-heading">
+    <h2 id="hero-heading" class="visually-hidden">Hero Section</h2>
+    <p class="hero-description">Hero content</p>
+  </section>
+
+  <section class="features-section" aria-labelledby="features-heading">
+    <h2 id="features-heading" class="section-heading">Features</h2>
+    <div class="features-grid">
+      <!-- Feature items -->
+    </div>
+  </section>
+</main>
+```
+
+### ARIA Implementation
+
+```html
+<!-- Interactive elements with proper ARIA -->
+<button
+  class="menu-toggle"
+  aria-expanded="false"
+  aria-controls="mobile-menu"
+  aria-label="Toggle mobile menu"
+>
+  <span class="menu-toggle__text">Menu</span>
+  <svg class="menu-toggle__icon" aria-hidden="true">
+    <use href="#icon-menu"></use>
+  </svg>
+</button>
+
+<nav
+  id="mobile-menu"
+  class="mobile-menu"
+  aria-hidden="true"
+  aria-labelledby="mobile-menu-heading"
+>
+  <h3 id="mobile-menu-heading" class="visually-hidden">Mobile Navigation</h3>
+  <ul class="mobile-menu__list">
+    <li class="mobile-menu__item">
+      <a href="/" class="mobile-menu__link" aria-current="page">Home</a>
+    </li>
+  </ul>
+</nav>
+```
+
+### Focus Management
+
+```css
+/* Focus styles */
+.focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Skip links */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--color-primary);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+```
+
+```javascript
+// Focus management
+class FocusManager {
+  constructor() {
+    this.focusableElements =
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+  }
+
+  trapFocus(element) {
+    const focusableElements = element.querySelectorAll(this.focusableElements);
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+
+    element.addEventListener("keydown", (event) => {
+      if (event.key === "Tab") {
+        if (event.shiftKey) {
+          if (document.activeElement === firstElement) {
+            lastElement.focus();
+            event.preventDefault();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            firstElement.focus();
+            event.preventDefault();
+          }
+        }
+      }
+    });
+  }
+}
+```
+
+## SEO Optimization
+
+### Meta Tags and Structure
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Title | Company Name</title>
+    <meta name="description" content="Page description for search engines" />
+    <meta name="keywords" content="relevant, keywords, for, seo" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Page Title" />
+    <meta property="og:description" content="Page description" />
+    <meta property="og:image" content="/images/og-image.jpg" />
+    <meta property="og:url" content="https://example.com/page" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Page Title" />
+    <meta name="twitter:description" content="Page description" />
+    <meta name="twitter:image" content="/images/twitter-image.jpg" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://example.com/page" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  </head>
+</html>
+```
+
+### Structured Data
+
+```html
+<!-- JSON-LD structured data -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Company Name",
+    "url": "https://example.com",
+    "logo": "https://example.com/logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-555-123-4567",
+      "contactType": "customer service"
+    }
+  }
+</script>
+```
+
+## Testing and Quality Assurance
+
+### Cross-Browser Testing
+
+```css
+/* Progressive enhancement approach */
+.button {
+  /* Base styles */
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--color-primary);
+  color: white;
+
+  /* Modern browsers */
+  @supports (display: grid) {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Fallback for older browsers */
+  @supports not (display: grid) {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+```
+
+### Performance Testing
+
+```javascript
+// Performance monitoring
+const performanceObserver = new PerformanceObserver((list) => {
+  list.getEntries().forEach((entry) => {
+    if (entry.entryType === "navigation") {
+      console.log("Page load time:", entry.loadEventEnd - entry.loadEventStart);
+    }
+
+    if (entry.entryType === "paint") {
+      console.log(`${entry.name}:`, entry.startTime);
+    }
+  });
+});
+
+performanceObserver.observe({ entryTypes: ["navigation", "paint"] });
+```
+
+## Code Quality and Maintenance
+
+### CSS Architecture
+
+```css
+/* Use CSS layers for better organization */
+@layer reset, base, components, utilities;
+
+@layer reset {
+  /* Reset styles */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}
+
+@layer base {
+  /* Base styles */
+  body {
+    font-family: var(--font-family-primary);
+    line-height: 1.6;
+  }
+}
+
+@layer components {
+  /* Component styles */
+  .button {
+    /* Button styles */
+  }
+}
+
+@layer utilities {
+  /* Utility classes */
+  .text-center {
+    text-align: center;
+  }
+  .hidden {
+    display: none;
+  }
+}
+```
+
+### JavaScript Architecture
+
+```javascript
+// Use ES6 modules for better organization
+// utils/dom.js
+export const $ = (selector) => document.querySelector(selector);
+export const $$ = (selector) => document.querySelectorAll(selector);
+
+// utils/events.js
+export const on = (element, event, handler) => {
+  element.addEventListener(event, handler);
+};
+
+export const off = (element, event, handler) => {
+  element.removeEventListener(event, handler);
+};
+
+// components/Modal.js
+export class Modal {
+  constructor(element) {
+    this.element = element;
+    this.init();
+  }
+
+  init() {
+    // Modal initialization
+  }
+}
+
+// app.js
+import { $, $$ } from "./utils/dom.js";
+import { Modal } from "./components/Modal.js";
+
+// App initialization
+document.addEventListener("DOMContentLoaded", () => {
+  const modals = $$(".modal");
+  modals.forEach((modal) => new Modal(modal));
+});
+```
+
+## Deployment and Build Process
+
+### Pre-Build Checklist
+
+<Checklist>
+  <Check>All HTFlow rules are followed</Check>
+  <Check>Images are optimized and have proper alt text</Check>
+  <Check>CSS is minified and optimized</Check>
+  <Check>JavaScript is minified and error-free</Check>
+  <Check>All forms have proper validation</Check>
+  <Check>Accessibility requirements are met</Check>
+  <Check>SEO meta tags are complete</Check>
+  <Check>Cross-browser compatibility is verified</Check>
+  <Check>Performance is optimized</Check>
+  <Check>HTFlow audit passes with zero errors</Check>
+</Checklist>
+
+### Build Commands
+
+```bash
+# Run HTFlow audit
+npx htflow audit
+
+# Build for conversion
+npx htflow build
+
+# Start production server for testing
+npx htflow serve start
+```
+
+## Common Pitfalls and Solutions
+
+### Performance Issues
+
+<AccordionGroup>
+  <Accordion title="Large Bundle Sizes" icon="package">
+    **Problem:** JavaScript bundle is too large **Solutions:** - Use dynamic
+    imports for non-critical code - Implement code splitting - Remove unused CSS
+    and JavaScript - Optimize images and use modern formats (WebP, AVIF)
+  </Accordion>
+
+  <Accordion title="Slow Loading" icon="clock">
+    **Problem:** Pages load slowly **Solutions:** - Implement lazy loading for
+    images - Use critical CSS inlining - Minimize render-blocking resources -
+    Enable compression (gzip/brotli)
+  </Accordion>
+
+  <Accordion title="Layout Shifts" icon="move">
+    **Problem:** Content jumps during loading **Solutions:** - Set explicit
+    dimensions for images - Use CSS aspect-ratio for containers - Reserve space
+    for dynamic content - Implement skeleton screens
+  </Accordion>
+</AccordionGroup>
+
+### Conversion Issues
+
+<AccordionGroup>
+  <Accordion title="Styling Problems" icon="palette">
+    **Problem:** Styles don't convert properly **Solutions:** - Ensure all
+    styles use CSS classes - Avoid complex CSS selectors - Use standard CSS
+    properties - Test with HTFlow audit before conversion
+  </Accordion>
+
+  <Accordion title="JavaScript Issues" icon="code-branch">
+    **Problem:** JavaScript doesn't work after conversion **Solutions:** - Use
+    class-based selectors only - Avoid ID-based JavaScript - Test all
+    interactive features - Provide fallbacks for critical functionality
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="HTML Rules" icon="code" href="/rules/html">
+    Review HTML requirements and guidelines
+  </Card>
+  <Card title="CSS Rules" icon="palette" href="/rules/css">
+    Learn CSS best practices for HTFlow
+  </Card>
+  <Card title="JavaScript Rules" icon="code-branch" href="/rules/javascript">
+    JavaScript guidelines and requirements
+  </Card>
+  <Card title="Examples" icon="book" href="/rules/examples">
+    Real-world examples and templates
+  </Card>
+</CardGroup>
