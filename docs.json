@@ -18,30 +18,13 @@
             "pages": [
               "htflow/introduction",
               "htflow/vscode-extension",
-              "htflow/cursor-extension",
-              "htflow/quick-start",
-              "htflow/requirements"
+              "htflow/cursor-extension"
             ]
-          },
-          {
-            "group": "Commands",
-            "pages": [
-              "htflow/commands/package-management",
-              "htflow/commands/project-management",
-              "htflow/commands/development",
-              "htflow/commands/validation",
-              "htflow/commands/build",
-              "htflow/commands/mcp"
-            ]
-          },
-          {
-            "group": "Deployment",
-            "pages": ["htflow/workflow", "htflow/webflow-conversion"]
           }
         ]
       },
       {
-        "tab": "Guides",
+        "tab": "Rules",
         "groups": [
           {
             "group": "Getting started",
@@ -69,24 +52,6 @@
             ]
           }
         ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": ["api-reference/introduction"]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
-          }
-        ]
       }
     ],
     "global": {
@@ -100,11 +65,6 @@
           "anchor": "Chrome Extension",
           "href": "https://chrome.google.com/webstore/",
           "icon": "chrome"
-        },
-        {
-          "anchor": "GitHub",
-          "href": "https://github.com/",
-          "icon": "github"
         }
       ]
     }

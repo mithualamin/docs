@@ -1,0 +1,244 @@
+---
+title: "Quick Start"
+description: "Get started with HTFlow in minutes"
+icon: "bolt"
+---
+
+## Your First HTFlow Project
+
+This guide will walk you through creating your first HTFlow project using the HTFlow extension.
+
+<Info>
+Make sure you've installed the HTFlow extension first:
+- [VS Code Extension](/htflow/vscode-extension)
+- [Cursor Extension](/htflow/cursor-extension)
+</Info>
+
+## Step 1: Open a Project Folder
+
+<Steps>
+  <Step title="Open VS Code">
+    Launch Visual Studio Code
+  </Step>
+  
+  <Step title="Open a Folder">
+    Go to **File → Open Folder** and select an empty folder for your project
+    
+    <Tip>Create a new folder for your HTFlow project to keep things organized</Tip>
+  </Step>
+</Steps>
+
+## Step 2: Open the HTFlow Panel
+
+Access the HTFlow interface:
+
+<CodeGroup>
+
+```text Keyboard Shortcut
+Press Ctrl+Shift+H (Windows/Linux)
+Press Cmd+Shift+H (Mac)
+```
+
+```text Activity Bar
+Click the HTFlow icon in the Activity Bar (left sidebar)
+```
+
+</CodeGroup>
+
+<Frame>
+  <img src="/images/hero-light.png" alt="HTFlow Panel" />
+</Frame>
+
+## Step 3: Initialize Your Project
+
+<Steps>
+  <Step title="Click Initialize Project">
+    In the HTFlow panel, click the **"Initialize Project"** button
+  </Step>
+  
+  <Step title="Follow the Prompts">
+    The extension will guide you through the initialization process:
+    - Project name
+    - Configuration options
+    - Template selection (if available)
+  </Step>
+  
+  <Step title="Wait for Completion">
+    HTFlow will create the necessary project structure and files
+    
+    <Check>You should see success messages in the Output panel</Check>
+  </Step>
+</Steps>
+
+## Step 4: Start Development Server
+
+Now that your project is initialized, start the development server:
+
+<Steps>
+  <Step title="Click Start Dev Server">
+    In the HTFlow panel, click **"Start Development Server"**
+  </Step>
+  
+  <Step title="Automatic Port Management">
+    HTFlow will automatically find an available port and start the server
+    
+    <Info>The extension tracks running servers and displays them in the panel</Info>
+  </Step>
+  
+  <Step title="Open in Browser">
+    Your default browser will open with your development server URL
+    
+    ```text Default URL
+    http://localhost:3000
+    ```
+  </Step>
+</Steps>
+
+## Step 5: Make Changes
+
+Start editing your project files:
+
+<CodeGroup>
+
+```html index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My HTFlow Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to HTFlow</h1>
+        <p>Start building Webflow-compatible sites!</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+```
+
+```css styles.css
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #16A34A;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.25rem;
+    color: #666;
+}
+```
+
+```javascript script.js
+console.log('HTFlow project loaded!');
+
+// Add your JavaScript here
+```
+
+</CodeGroup>
+
+<Tip>
+Changes are automatically reloaded in the browser thanks to HTFlow's hot reloading feature
+</Tip>
+
+## Step 6: Validate Your Code
+
+Ensure your code meets Webflow compatibility standards:
+
+<Steps>
+  <Step title="Click Validate">
+    In the HTFlow panel, click **"Validate Project"**
+  </Step>
+  
+  <Step title="Review Results">
+    The extension will show validation results:
+    - HTML compliance
+    - CSS compatibility
+    - JavaScript standards
+  </Step>
+  
+  <Step title="Fix Issues">
+    Address any reported issues to ensure Webflow compatibility
+    
+    <Warning>Validation errors may prevent proper functioning in Webflow</Warning>
+  </Step>
+</Steps>
+
+## Step 7: Build for Production
+
+When you're ready to deploy:
+
+<Steps>
+  <Step title="Run Project Audit">
+    Click **"Audit Project"** to get a comprehensive analysis
+  </Step>
+  
+  <Step title="Build Production Code">
+    Click **"Build Project"** to create optimized production files
+    
+    ```text Output
+    Build complete!
+    Output directory: ./dist
+    ```
+  </Step>
+  
+  <Step title="Deploy to Webflow">
+    Use the production files in the `dist` folder to deploy to Webflow
+  </Step>
+</Steps>
+
+## Keyboard Shortcuts
+
+Speed up your workflow with keyboard shortcuts:
+
+| Action | Windows/Linux | Mac |
+|--------|--------------|-----|
+| Open HTFlow Panel | `Ctrl+Shift+H` | `Cmd+Shift+H` |
+
+## Useful Commands
+
+<CardGroup cols={2}>
+  <Card title="Package Management" icon="box" href="/htflow/commands/package-management">
+    Install, update, and manage HTFlow CLI
+  </Card>
+  <Card title="Project Management" icon="folder" href="/htflow/commands/project-management">
+    Initialize and manage projects
+  </Card>
+  <Card title="Development" icon="code" href="/htflow/commands/development">
+    Start development servers
+  </Card>
+  <Card title="Validation & Audit" icon="magnifying-glass" href="/htflow/commands/validation">
+    Validate and audit your code
+  </Card>
+</CardGroup>
+
+## Next Steps
+
+<Card
+  title="Explore All Commands"
+  icon="terminal"
+  href="/htflow/commands/package-management"
+  horizontal
+>
+  Learn about all available HTFlow commands and features
+</Card>
+
+<Card
+  title="Check Requirements"
+  icon="list-check"
+  href="/htflow/requirements"
+  horizontal
+>
+  Review system requirements and best practices
+</Card>
+

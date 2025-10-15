@@ -1,0 +1,521 @@
+---
+title: "Requirements"
+description: "System requirements and prerequisites for HTFlow"
+icon: "list-check"
+---
+
+## System Requirements
+
+Ensure your system meets these requirements before installing HTFlow:
+
+### Minimum Requirements
+
+<CardGroup cols={2}>
+  <Card title="VS Code" icon="window">
+    **Version 1.99.0 or higher**
+    
+    Download from [code.visualstudio.com](https://code.visualstudio.com/)
+  </Card>
+  <Card title="Node.js" icon="node-js">
+    **Version 16.x or higher**
+    
+    Recommended: Node.js 18.x LTS
+    
+    Download from [nodejs.org](https://nodejs.org/)
+  </Card>
+  <Card title="npm" icon="box">
+    **Version 8.x or higher**
+    
+    Included with Node.js
+    
+    Or use Yarn, pnpm
+  </Card>
+  <Card title="Storage" icon="hard-drive">
+    **Minimum: 500 MB free**
+    
+    Recommended: 2 GB for projects
+  </Card>
+</CardGroup>
+
+### Recommended Specifications
+
+For optimal performance:
+
+<AccordionGroup>
+  <Accordion title="Operating System" icon="desktop">
+    **Supported:**
+    - macOS 10.15 (Catalina) or later
+    - Windows 10/11 (64-bit)
+    - Linux (Ubuntu 20.04+, Debian 10+, Fedora 34+)
+    
+    <Info>HTFlow works on all platforms that support VS Code and Node.js</Info>
+  </Accordion>
+  
+  <Accordion title="Hardware" icon="microchip">
+    **Recommended:**
+    - **CPU**: Quad-core processor or better
+    - **RAM**: 8 GB minimum, 16 GB recommended
+    - **Disk**: SSD for better performance
+    - **Display**: 1920x1080 or higher
+  </Accordion>
+  
+  <Accordion title="Network" icon="wifi">
+    **Requirements:**
+    - Internet connection for installation
+    - Download speed: 5 Mbps or higher
+    - Required for:
+      - Installing HTFlow CLI
+      - Updating packages
+      - Webflow deployment
+  </Accordion>
+</AccordionGroup>
+
+## Software Dependencies
+
+### Required
+
+<Tabs>
+  <Tab title="Node.js">
+    **Why needed:** HTFlow CLI runs on Node.js
+    
+    **Installation:**
+    
+    <CodeGroup>
+    ```bash macOS (Homebrew)
+    brew install node
+    ```
+    
+    ```bash Windows (Chocolatey)
+    choco install nodejs
+    ```
+    
+    ```bash Linux (apt)
+    curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+    ```
+    </CodeGroup>
+    
+    **Verify installation:**
+    ```bash
+    node --version
+    # Should output: v18.x.x or higher
+    ```
+  </Tab>
+  
+  <Tab title="npm/Package Manager">
+    **Why needed:** Install and manage HTFlow CLI and dependencies
+    
+    **Comes with Node.js**, or install alternatives:
+    
+    ```bash Yarn
+    npm install -g yarn
+    ```
+    
+    ```bash pnpm
+    npm install -g pnpm
+    ```
+    
+    **Verify installation:**
+    ```bash
+    npm --version
+    # Should output: 8.x.x or higher
+    ```
+  </Tab>
+  
+  <Tab title="VS Code / Cursor">
+    **Why needed:** IDE for development and HTFlow extension
+    
+    **Options:**
+    - **VS Code**: [code.visualstudio.com](https://code.visualstudio.com/)
+    - **Cursor**: [cursor.sh](https://cursor.sh/) (AI-powered VS Code fork)
+    
+    Both support HTFlow extension
+    
+    **Verify installation:**
+    ```bash
+    code --version
+    # or
+    cursor --version
+    ```
+  </Tab>
+</Tabs>
+
+### Optional but Recommended
+
+<CardGroup cols={2}>
+  <Card title="Git" icon="git">
+    **For version control**
+    
+    Download: [git-scm.com](https://git-scm.com/)
+    
+    ```bash
+    git --version
+    ```
+  </Card>
+  <Card title="Modern Browser" icon="chrome">
+    **For dev server testing**
+    
+    - Chrome 90+
+    - Firefox 88+
+    - Safari 14+
+    - Edge 90+
+  </Card>
+</CardGroup>
+
+## Browser Requirements
+
+For testing and preview:
+
+<Tabs>
+  <Tab title="Development">
+    **Any modern browser:**
+    - Google Chrome (recommended)
+    - Mozilla Firefox
+    - Safari
+    - Microsoft Edge
+    - Brave
+    
+    <Check>Development server works with all modern browsers</Check>
+  </Tab>
+  
+  <Tab title="Webflow Conversion">
+    **Recommended for conversion:**
+    - Google Chrome (with HTFlow Chrome extension)
+    - Edge (Chromium-based)
+    
+    <Info>Chrome extension provides best conversion experience</Info>
+  </Tab>
+</Tabs>
+
+## HTFlow Components
+
+Different components available for your workflow:
+
+<CardGroup cols={2}>
+  <Card title="HTFlow CLI" icon="terminal">
+    **Core component**
+    
+    Command-line interface for all HTFlow operations
+    
+    ```bash
+    npm install -g htflow-cli
+    ```
+  </Card>
+  <Card title="VS Code Extension" icon="puzzle-piece">
+    **Visual interface**
+    
+    GUI for HTFlow commands in VS Code/Cursor
+    
+    Install from VS Code Marketplace
+  </Card>
+  <Card title="Chrome Extension" icon="chrome">
+    **Conversion tool**
+    
+    Convert HTML to Webflow directly in browser
+    
+    Install from Chrome Web Store
+  </Card>
+  <Card title="MCP Integration" icon="plug">
+    **AI assistant support**
+    
+    Enable AI assistants to work with HTFlow
+    
+    ```bash
+    htflow mcp-install
+    ```
+  </Card>
+</CardGroup>
+
+## AI Tools Integration
+
+HTFlow works with popular AI coding tools:
+
+<Tabs>
+  <Tab title="Cursor AI">
+    **Built-in AI assistant**
+    
+    Requirements:
+    - Cursor IDE
+    - HTFlow extension
+    - MCP integration (optional)
+    
+    Features:
+    - AI-powered code generation
+    - HTFlow standards compliance
+    - Automatic validation
+  </Tab>
+  
+  <Tab title="Claude">
+    **Via CLI or Desktop**
+    
+    Requirements:
+    - Claude Desktop or Claude CLI
+    - HTFlow MCP integration
+    
+    Features:
+    - Natural language commands
+    - Code review and validation
+    - Project analysis
+  </Tab>
+  
+  <Tab title="GitHub Copilot">
+    **VS Code extension**
+    
+    Requirements:
+    - GitHub Copilot subscription
+    - VS Code
+    - HTFlow extension
+    
+    Features:
+    - Code suggestions
+    - HTFlow pattern completion
+  </Tab>
+  
+  <Tab title="Other AI Tools">
+    **Compatible with:**
+    - GPT-4 (via plugins)
+    - Gemini (via CLI)
+    - Any MCP-compatible AI
+    
+    Works through MCP protocol
+  </Tab>
+</Tabs>
+
+## Webflow Requirements
+
+For deployment to Webflow:
+
+<AccordionGroup>
+  <Accordion title="Webflow Account" icon="user">
+    **Required:**
+    - Active Webflow account
+    - Site plan (for custom code)
+    
+    Sign up at [webflow.com](https://webflow.com/)
+  </Accordion>
+  
+  <Accordion title="Plan Requirements" icon="credit-card">
+    **For custom code import:**
+    - **Webflow Site Plan** or higher
+    - **NOT** available on free plan
+    
+    Custom code features require paid plan
+  </Accordion>
+  
+  <Accordion title="Conversion Tools" icon="repeat">
+    **Choose one:**
+    - HTFlow Webflow App
+    - HTFlow Chrome Extension
+    
+    Both available after HTFlow CLI installation
+  </Accordion>
+</AccordionGroup>
+
+## Permissions
+
+Required system permissions:
+
+<CardGroup cols={2}>
+  <Card title="File System" icon="folder">
+    - Read/write in workspace
+    - Create/modify project files
+    - Access temp directories
+  </Card>
+  <Card title="Network" icon="wifi">
+    - npm registry access
+    - Download packages
+    - Connect to dev server
+  </Card>
+  <Card title="Process Execution" icon="gears">
+    - Run Node.js processes
+    - Execute npm commands
+    - Start development servers
+  </Card>
+  <Card title="Port Access" icon="network-wired">
+    - Bind to local ports
+    - Default: 3000-3010
+    - Configurable in settings
+  </Card>
+</CardGroup>
+
+## Firewall Configuration
+
+For development server access:
+
+<Tabs>
+  <Tab title="macOS">
+    ```bash Allow Node.js
+    # System will prompt automatically
+    # Or manually add in System Preferences:
+    # Security & Privacy → Firewall → Firewall Options
+    # Allow incoming connections for Node.js
+    ```
+  </Tab>
+  
+  <Tab title="Windows">
+    ```powershell Windows Firewall
+    # Add firewall rule for Node.js
+    New-NetFirewallRule -DisplayName "HTFlow Dev Server" `
+      -Direction Inbound `
+      -Program "C:\Program Files\nodejs\node.exe" `
+      -Action Allow
+    ```
+  </Tab>
+  
+  <Tab title="Linux">
+    ```bash ufw
+    # Allow Node.js through firewall
+    sudo ufw allow from 192.168.1.0/24 to any port 3000
+    
+    # Or allow all local connections
+    sudo ufw allow in on lo
+    ```
+  </Tab>
+</Tabs>
+
+## Verification Checklist
+
+Use this checklist to verify your setup:
+
+<Steps>
+  <Step title="Check Node.js">
+    ```bash
+    node --version
+    npm --version
+    ```
+    <Check>Both commands should return version numbers</Check>
+  </Step>
+  
+  <Step title="Check VS Code">
+    ```bash
+    code --version
+    ```
+    <Check>Should show VS Code version 1.99.0+</Check>
+  </Step>
+  
+  <Step title="Install HTFlow CLI">
+    ```bash
+    npm install -g htflow-cli
+    htflow version
+    ```
+    <Check>Should display HTFlow version</Check>
+  </Step>
+  
+  <Step title="Install VS Code Extension">
+    - Open VS Code Extensions
+    - Search "Htflow Html to Webflow"
+    - Install extension
+    
+    <Check>HTFlow icon should appear in Activity Bar</Check>
+  </Step>
+  
+  <Step title="Test Installation">
+    - Open HTFlow panel (`Ctrl+Shift+H`)
+    - Click "Show Version"
+    
+    <Check>Should display version information</Check>
+  </Step>
+</Steps>
+
+## Troubleshooting Setup
+
+<AccordionGroup>
+  <Accordion title="Node.js Not Found" icon="circle-xmark">
+    **Issue:** `node` command not recognized
+    
+    **Solutions:**
+    1. Reinstall Node.js
+    2. Add Node.js to PATH:
+       - Windows: Edit System Environment Variables
+       - macOS/Linux: Add to `.bashrc` or `.zshrc`
+    3. Restart terminal/VS Code
+  </Accordion>
+  
+  <Accordion title="Permission Denied" icon="lock">
+    **Issue:** Cannot install global packages
+    
+    **Solutions:**
+    ```bash macOS/Linux
+    # Use sudo (not recommended for regular use)
+    sudo npm install -g htflow-cli
+    
+    # Or fix npm permissions (recommended)
+    mkdir ~/.npm-global
+    npm config set prefix '~/.npm-global'
+    echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc
+    ```
+    
+    ```powershell Windows
+    # Run as Administrator
+    # Right-click terminal → Run as Administrator
+    npm install -g htflow-cli
+    ```
+  </Accordion>
+  
+  <Accordion title="Extension Not Working" icon="puzzle-piece">
+    **Issue:** HTFlow extension doesn't appear or work
+    
+    **Solutions:**
+    1. Verify VS Code version: `code --version`
+    2. Reload window: `Ctrl+Shift+P` → "Reload Window"
+    3. Check extension is enabled in Extensions panel
+    4. Reinstall extension
+    5. Check for conflicting extensions
+  </Accordion>
+  
+  <Accordion title="Port Already in Use" icon="network-wired">
+    **Issue:** Cannot start dev server
+    
+    **Solutions:**
+    ```bash
+    # Find process using port 3000
+    # macOS/Linux
+    lsof -i :3000
+    
+    # Windows
+    netstat -ano | findstr :3000
+    
+    # Kill the process or change port in config
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Performance Optimization
+
+Tips for optimal HTFlow performance:
+
+<CardGroup cols={2}>
+  <Card title="Use SSD" icon="hard-drive">
+    Significant improvement in build and dev server performance
+  </Card>
+  <Card title="Increase RAM" icon="memory">
+    8 GB minimum, 16 GB for large projects
+  </Card>
+  <Card title="Close Unused Apps" icon="x">
+    Free up system resources during builds
+  </Card>
+  <Card title="Update Regularly" icon="arrows-rotate">
+    Keep Node.js, VS Code, and HTFlow updated
+  </Card>
+</CardGroup>
+
+## Next Steps
+
+<Card
+  title="Installation Guide"
+  icon="download"
+  href="/htflow/installation"
+  horizontal
+>
+  Install HTFlow extension and CLI
+</Card>
+
+<Card
+  title="Quick Start"
+  icon="bolt"
+  href="/htflow/quick-start"
+  horizontal
+>
+  Create your first HTFlow project
+</Card>
+
