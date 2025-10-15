@@ -58,13 +58,23 @@
       "anchors": [
         {
           "anchor": "VS Code Extension",
-          "href": "https://marketplace.visualstudio.com/",
+          "href": "https://marketplace.visualstudio.com/items?itemName=htflow.htflow",
+          "icon": "puzzle-piece"
+        },
+        {
+          "anchor": "Cursor Extension",
+          "href": "https://open-vsx.org/extension/mithualamin/htflow",
           "icon": "puzzle-piece"
         },
         {
           "anchor": "Chrome Extension",
-          "href": "https://chrome.google.com/webstore/",
+          "href": "https://chromewebstore.google.com/detail/htflow-html-to-webflow-cu/nnkbaccknjdofhmijbddaohboaenbpci",
           "icon": "chrome"
+        },
+        {
+          "anchor": "Chrome Extension",
+          "href": "https://www.npmjs.com/package/htflow-cli",
+          "icon": "npm"
         }
       ]
     }
