@@ -28,11 +28,7 @@
         "groups": [
           {
             "group": "Getting Started",
-            "pages": [
-              "chatgpt-to-webflow/introduction",
-              "chatgpt-to-webflow/quick-start",
-              "chatgpt-to-webflow/workflow"
-            ]
+            "pages": ["chatgpt-to-webflow/introduction"]
           }
         ]
       },
