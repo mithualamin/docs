@@ -31,24 +31,6 @@
             "pages": ["chatgpt-to-webflow/introduction"]
           }
         ]
-      },
-      {
-        "tab": "Rules",
-        "groups": [
-          {
-            "group": "Getting Started",
-            "pages": [
-              "rules/index",
-              "rules/html",
-              "rules/css",
-              "rules/javascript"
-            ]
-          },
-          {
-            "group": "Best Practices",
-            "pages": ["rules/best-practices", "rules/examples"]
-          }
-        ]
       }
     ],
     "global": {
