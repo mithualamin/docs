@@ -1,0 +1,146 @@
+---
+title: "Quick Start"
+description: "Get up and running with ChatGPT to Webflow in minutes."
+---
+
+## Installation
+
+Choose the method that works best for your workflow:
+
+### VS Code Extension
+
+<Steps>
+  <Step title="Install Extension">
+    Install the HTFlow extension from the VS Code marketplace.
+  </Step>
+  <Step title="Open Command Palette">
+    Press `Ctrl+Shift+P` (Windows/Linux) or `Cmd+Shift+P` (Mac) to open the
+    command palette.
+  </Step>
+  <Step title="Run Conversion">
+    Type "HTFlow: Convert ChatGPT to Webflow" and select the command.
+  </Step>
+</Steps>
+
+### Cursor Extension
+
+<Steps>
+  <Step title="Install Extension">
+    Install the HTFlow extension from the Cursor marketplace.
+  </Step>
+  <Step title="Open AI Chat">
+    Use the AI chat interface in Cursor to start your conversation.
+  </Step>
+  <Step title="Convert Content">
+    Use the built-in conversion commands to transform your content.
+  </Step>
+</Steps>
+
+### Chrome Extension
+
+<Steps>
+  <Step title="Install Extension">
+    Add the HTFlow Chrome extension from the Chrome Web Store.
+  </Step>
+  <Step title="Navigate to ChatGPT">
+    Go to chat.openai.com and start a conversation.
+  </Step>
+  <Step title="Use Conversion Tool">
+    Click the HTFlow extension icon to convert your conversation.
+  </Step>
+</Steps>
+
+## Basic Usage
+
+### 1. Prepare Your Content
+
+Start with a well-structured ChatGPT conversation. For best results:
+
+<Warning>
+  - Use clear, specific prompts - Request structured output (HTML, CSS, etc.) -
+  Include design requirements in your prompts
+</Warning>
+
+### 2. Run the Conversion
+
+Depending on your chosen tool:
+
+- **VS Code**: Use the command palette or right-click context menu
+- **Cursor**: Use the AI chat interface conversion commands
+- **Chrome**: Click the extension icon on ChatGPT pages
+
+### 3. Review and Refine
+
+The conversion tool will generate:
+
+- Clean HTML structure
+- Webflow-optimized CSS
+- Component-ready code blocks
+
+### 4. Import to Webflow
+
+Copy the generated code and paste it into your Webflow project:
+
+<CodeGroup>
+
+```html HTML Output
+<div class="hero-section">
+  <div class="container">
+    <h1 class="hero-title">Your Amazing Title</h1>
+    <p class="hero-description">Compelling description text</p>
+    <button class="cta-button">Get Started</button>
+  </div>
+</div>
+```
+
+```css CSS Output
+.hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 100px 0;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+```
+
+</CodeGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Learn the Workflow"
+    icon="workflow"
+    href="/chatgpt-to-webflow/workflow"
+  >
+    Understand the complete conversion process
+  </Card>
+  <Card
+    title="Explore Commands"
+    icon="terminal"
+    href="/chatgpt-to-webflow/commands/installation"
+  >
+    Master all available commands and features
+  </Card>
+</CardGroup>
+
+## Tips for Better Results
+
+<AccordionGroup>
+  <Accordion title="Structured Prompts">
+    Use specific formatting requests like "Create a landing page with hero
+    section, features grid, and footer" for better structure recognition.
+  </Accordion>
+  <Accordion title="Design Specifications">
+    Include color schemes, typography preferences, and layout requirements in
+    your ChatGPT prompts.
+  </Accordion>
+  <Accordion title="Component Focus">
+    Break down complex designs into smaller components for more accurate
+    conversions.
+  </Accordion>
+</AccordionGroup>

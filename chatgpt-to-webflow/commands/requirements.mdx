@@ -1,0 +1,254 @@
+---
+title: "Requirements"
+description: "System requirements and dependencies for ChatGPT to Webflow tools."
+---
+
+## System Requirements
+
+Before installing ChatGPT to Webflow tools, ensure your system meets the minimum requirements for optimal performance.
+
+## Platform Requirements
+
+### VS Code Extension
+
+<AccordionGroup>
+  <Accordion title="Minimum Requirements">
+    **Editor:** - Visual Studio Code 1.60.0 or higher **Operating System:** -
+    Windows 10 (version 1903) or higher - macOS 10.15 (Catalina) or higher -
+    Linux (Ubuntu 18.04+, CentOS 7+, RHEL 7+) **Hardware:** - 2GB RAM minimum -
+    100MB available disk space - Internet connection for AI processing
+  </Accordion>
+
+  <Accordion title="Recommended Requirements">
+    **Editor:** - Visual Studio Code 1.80.0 or higher **Operating System:** -
+    Windows 11 or latest macOS/Linux **Hardware:** - 8GB RAM or higher - 200MB
+    available disk space - SSD storage for better performance - Stable broadband
+    internet connection
+  </Accordion>
+</AccordionGroup>
+
+### Cursor Extension
+
+<AccordionGroup>
+  <Accordion title="Minimum Requirements">
+    **Editor:** - Cursor 0.20.0 or higher **Operating System:** - Windows 10 or
+    higher - macOS 10.15 or higher - Linux (Ubuntu 18.04+, CentOS 7+)
+    **Hardware:** - 4GB RAM minimum - 100MB available disk space - Internet
+    connection (required for AI features)
+  </Accordion>
+
+  <Accordion title="Recommended Requirements">
+    **Editor:** - Cursor 0.30.0 or higher **Operating System:** - Latest
+    Windows/macOS/Linux versions **Hardware:** - 16GB RAM or higher - 500MB
+    available disk space - Fast SSD storage - High-speed internet connection
+  </Accordion>
+</AccordionGroup>
+
+### Chrome Extension
+
+<AccordionGroup>
+  <Accordion title="Browser Support">
+    **Supported Browsers:** - Google Chrome 88 or higher - Microsoft Edge 88 or
+    higher - Opera 74 or higher - Brave Browser (Chromium-based) **Required
+    Permissions:** - Access to chat.openai.com - Clipboard access - Local
+    storage access
+  </Accordion>
+
+  <Accordion title="System Requirements">
+    **Operating System:** - Windows 10 or higher - macOS 10.15 or higher - Linux
+    (Ubuntu 18.04+, CentOS 7+) **Hardware:** - 4GB RAM minimum - 50MB available
+    disk space - Internet connection
+  </Accordion>
+</AccordionGroup>
+
+## Node.js Requirements (CLI)
+
+### Version Requirements
+
+<CardGroup cols={2}>
+  <Card title="Minimum Node.js" icon="node-js">
+    **Version:** 16.0.0 or higher **Features:** Basic CLI functionality
+    **Performance:** Standard processing speed
+  </Card>
+  <Card title="Recommended Node.js" icon="rocket">
+    **Version:** 18.0.0 or higher **Features:** Full feature set with
+    optimizations **Performance:** Enhanced processing speed
+  </Card>
+</CardGroup>
+
+### Package Manager Support
+
+<CodeGroup>
+
+```bash npm
+npm --version
+# Requires npm 7.0.0 or higher
+```
+
+```bash yarn
+yarn --version
+# Requires yarn 1.22.0 or higher
+```
+
+```bash pnpm
+pnpm --version
+# Requires pnpm 6.0.0 or higher
+```
+
+</CodeGroup>
+
+## Network Requirements
+
+### Internet Connectivity
+
+<AccordionGroup>
+  <Accordion title="Minimum Bandwidth">
+    - **Download:** 5 Mbps
+    - **Upload:** 2 Mbps
+    - **Latency:** < 200ms
+    - **Stability:** 95% uptime
+  </Accordion>
+  
+  <Accordion title="Recommended Bandwidth">
+    - **Download:** 25 Mbps or higher
+    - **Upload:** 10 Mbps or higher
+    - **Latency:** < 50ms
+    - **Stability:** 99% uptime
+  </Accordion>
+</AccordionGroup>
+
+### API Access
+
+<Warning>
+  ChatGPT to Webflow tools require access to external APIs for AI processing.
+  Ensure your network allows connections to: - OpenAI API endpoints - HTFlow
+  processing servers - Webflow API (for direct integration features)
+</Warning>
+
+## Development Environment
+
+### For Developers
+
+<AccordionGroup>
+  <Accordion title="Development Tools">
+    **Required:** - Git 2.20.0 or higher - Node.js 18.0.0 or higher -
+    npm/yarn/pnpm package manager **Recommended:** - VS Code or Cursor IDE -
+    Chrome DevTools - Webflow Designer access
+  </Accordion>
+
+  <Accordion title="API Keys">
+    **Optional but Recommended:** - OpenAI API key (for enhanced features) -
+    Webflow API key (for direct integration) - GitHub personal access token
+  </Accordion>
+</AccordionGroup>
+
+## Security Requirements
+
+### Permissions and Access
+
+<AccordionGroup>
+  <Accordion title="File System Access">
+    - Read access to project directories - Write access for generated files -
+    Temporary file creation permissions
+  </Accordion>
+
+  <Accordion title="Network Access">
+    - HTTPS connections to APIs - WebSocket connections for real-time features -
+    CORS-enabled requests to external services
+  </Accordion>
+
+  <Accordion title="Browser Permissions">
+    - Access to active tab content (Chrome extension) - Clipboard read/write
+    permissions - Local storage access for preferences
+  </Accordion>
+</AccordionGroup>
+
+## Performance Optimization
+
+### Hardware Recommendations
+
+<CardGroup cols={2}>
+  <Card title="CPU" icon="microchip">
+    **Minimum:** Dual-core 2.0GHz **Recommended:** Quad-core 3.0GHz or higher
+    **Best:** 8+ core processor for large projects
+  </Card>
+  <Card title="Memory" icon="memory">
+    **Minimum:** 4GB RAM **Recommended:** 16GB RAM **Best:** 32GB RAM for
+    complex workflows
+  </Card>
+  <Card title="Storage" icon="hard-drive">
+    **Minimum:** 100MB free space **Recommended:** 1GB free space **Best:** SSD
+    with 10GB+ free space
+  </Card>
+  <Card title="Network" icon="wifi">
+    **Minimum:** Stable broadband **Recommended:** High-speed internet **Best:**
+    Fiber or cable connection
+  </Card>
+</CardGroup>
+
+## Troubleshooting Requirements
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion title="Insufficient Memory">
+    **Symptoms:** Slow performance, crashes, timeouts **Solutions:** - Close
+    unnecessary applications - Increase virtual memory - Upgrade RAM if possible
+  </Accordion>
+
+  <Accordion title="Network Connectivity">
+    **Symptoms:** Failed API calls, slow responses **Solutions:** - Check
+    internet connection - Verify firewall settings - Test API endpoint
+    accessibility
+  </Accordion>
+
+  <Accordion title="Browser Compatibility">
+    **Symptoms:** Extension not working, UI issues **Solutions:** - Update
+    browser to latest version - Clear browser cache and cookies - Disable
+    conflicting extensions
+  </Accordion>
+</AccordionGroup>
+
+## Checking Your System
+
+### System Check Commands
+
+<CodeGroup>
+
+```bash check node version
+node --version
+npm --version
+```
+
+```bash check system info
+# Windows
+systeminfo
+
+# macOS
+system_profiler SPHardwareDataType
+
+# Linux
+lscpu && free -h
+```
+
+```bash check network
+ping google.com
+curl -I https://api.openai.com
+```
+
+</CodeGroup>
+
+### Browser Compatibility Check
+
+<Steps>
+  <Step title="Check Browser Version">
+    Navigate to `chrome://version/` (Chrome) or `about:` (Firefox) to see your
+    browser version.
+  </Step>
+  <Step title="Test JavaScript">
+    Open browser console and run `console.log('JavaScript works')`.
+  </Step>
+  <Step title="Check Extensions">
+    Ensure no conflicting extensions are installed.
+  </Step>
+</Steps>

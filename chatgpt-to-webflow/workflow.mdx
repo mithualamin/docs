@@ -1,0 +1,256 @@
+---
+title: "Workflow"
+description: "Understanding the ChatGPT to Webflow conversion workflow and best practices."
+---
+
+## Overview
+
+The ChatGPT to Webflow conversion workflow is designed to streamline the process of transforming AI-generated content into production-ready web components. This guide walks you through each step of the process.
+
+## Complete Workflow
+
+<Steps>
+  <Step title="Content Generation">
+    Create your content using ChatGPT with structured prompts and clear design
+    requirements.
+  </Step>
+  <Step title="Content Analysis">
+    Our AI analyzes the conversation context, structure, and design intent.
+  </Step>
+  <Step title="HTML Generation">
+    Convert the content into semantic HTML structure optimized for Webflow.
+  </Step>
+  <Step title="CSS Styling">
+    Generate responsive CSS that follows Webflow's design patterns.
+  </Step>
+  <Step title="Code Optimization">
+    Optimize the generated code for performance and accessibility.
+  </Step>
+  <Step title="Webflow Integration">
+    Import the code into your Webflow project and customize as needed.
+  </Step>
+</Steps>
+
+## Step-by-Step Process
+
+### 1. Content Generation Phase
+
+<CardGroup cols={2}>
+  <Card title="Structured Prompts" icon="list">
+    Use clear, specific prompts that define the desired output structure and
+    style.
+  </Card>
+  <Card title="Design Context" icon="palette">
+    Include color schemes, typography, and layout requirements in your prompts.
+  </Card>
+</CardGroup>
+
+**Example Prompt:**
+
+```
+Create a modern landing page hero section with:
+- Gradient background (blue to purple)
+- Centered content layout
+- Large headline text
+- Subtitle description
+- Primary CTA button
+- Mobile-responsive design
+```
+
+### 2. Content Analysis Phase
+
+Our AI engine performs several analysis tasks:
+
+<AccordionGroup>
+  <Accordion title="Structure Recognition">
+    Identifies headings, paragraphs, lists, and other content elements in your
+    conversation.
+  </Accordion>
+  <Accordion title="Design Intent">
+    Analyzes visual descriptions and design requirements mentioned in the
+    conversation.
+  </Accordion>
+  <Accordion title="Component Mapping">
+    Maps content blocks to appropriate HTML elements and CSS classes.
+  </Accordion>
+</AccordionGroup>
+
+### 3. Code Generation Phase
+
+The system generates optimized code in two phases:
+
+#### HTML Structure
+
+- Semantic HTML5 elements
+- Proper heading hierarchy
+- Accessible form elements
+- SEO-friendly markup
+
+#### CSS Styling
+
+- Mobile-first responsive design
+- Webflow-compatible class names
+- Modern CSS features (Grid, Flexbox)
+- Consistent spacing and typography
+
+### 4. Quality Assurance
+
+Before output, the generated code undergoes:
+
+<Warning>
+  - **Validation**: HTML and CSS syntax validation - **Accessibility**: WCAG
+  compliance checks - **Performance**: Optimization for loading speed -
+  **Compatibility**: Cross-browser compatibility testing
+</Warning>
+
+## Workflow Examples
+
+### Landing Page Conversion
+
+<CodeGroup>
+
+```markdown ChatGPT Input
+Create a landing page for a SaaS product with:
+
+- Hero section with headline and CTA
+- Features section with 3 columns
+- Pricing section with 3 tiers
+- Footer with links and contact info
+```
+
+```html Generated HTML
+<section class="hero">
+  <div class="container">
+    <h1>Revolutionary SaaS Solution</h1>
+    <p>Transform your workflow with our cutting-edge platform</p>
+    <button class="cta-primary">Start Free Trial</button>
+  </div>
+</section>
+
+<section class="features">
+  <div class="container">
+    <h2>Why Choose Us</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>Fast & Reliable</h3>
+        <p>Lightning-fast performance with 99.9% uptime</p>
+      </div>
+      <!-- More feature cards -->
+    </div>
+  </div>
+</section>
+```
+
+```css Generated CSS
+.hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 120px 0;
+  text-align: center;
+  color: white;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+```
+
+</CodeGroup>
+
+### Component Library Conversion
+
+<CodeGroup>
+
+```markdown ChatGPT Input
+Design a card component with:
+
+- Image at the top
+- Title and description
+- Action button
+- Hover effects
+- Clean, modern styling
+```
+
+```html Generated HTML
+<div class="card">
+  <div class="card-image">
+    <img src="image.jpg" alt="Card image" />
+  </div>
+  <div class="card-content">
+    <h3 class="card-title">Card Title</h3>
+    <p class="card-description">Card description text goes here</p>
+    <button class="card-button">Learn More</button>
+  </div>
+</div>
+```
+
+```css Generated CSS
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+```
+
+</CodeGroup>
+
+## Best Practices
+
+### Content Preparation
+
+<AccordionGroup>
+  <Accordion title="Clear Structure">
+    Use numbered lists or bullet points in your prompts to define clear content
+    hierarchy.
+  </Accordion>
+  <Accordion title="Specific Requirements">
+    Include exact measurements, colors, and spacing requirements in your
+    prompts.
+  </Accordion>
+  <Accordion title="Iterative Approach">
+    Break complex designs into smaller, manageable components for better
+    results.
+  </Accordion>
+</AccordionGroup>
+
+### Post-Conversion Optimization
+
+<Steps>
+  <Step title="Review Generated Code">
+    Check the HTML structure and CSS styling for accuracy and completeness.
+  </Step>
+  <Step title="Test Responsiveness">
+    Verify that the design works across different screen sizes.
+  </Step>
+  <Step title="Customize in Webflow">
+    Make final adjustments using Webflow's visual editor.
+  </Step>
+  <Step title="Optimize Performance">
+    Compress images and optimize CSS for faster loading.
+  </Step>
+</Steps>
+
+## Troubleshooting Common Issues
+
+<AccordionGroup>
+  <Accordion title="Incomplete Structure">
+    If the generated HTML is missing elements, try breaking your prompt into
+    smaller, more specific requests.
+  </Accordion>
+  <Accordion title="Styling Issues">
+    For styling problems, ensure your ChatGPT prompt includes specific design
+    requirements and color schemes.
+  </Accordion>
+  <Accordion title="Responsive Problems">
+    If responsive design isn't working correctly, mention "mobile-first" and
+    specific breakpoints in your prompt.
+  </Accordion>
+</AccordionGroup>

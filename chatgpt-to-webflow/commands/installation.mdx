@@ -1,0 +1,252 @@
+---
+title: "Installation"
+description: "Install ChatGPT to Webflow tools across different platforms and environments."
+---
+
+## Installation Methods
+
+Choose the installation method that best fits your development workflow:
+
+## VS Code Extension
+
+### Installation
+
+<Steps>
+  <Step title="Open VS Code">Launch Visual Studio Code on your machine.</Step>
+  <Step title="Access Extensions">
+    Click the Extensions icon in the sidebar or press `Ctrl+Shift+X`
+    (Windows/Linux) or `Cmd+Shift+X` (Mac).
+  </Step>
+  <Step title="Search for HTFlow">
+    Type "HTFlow" in the search bar and look for the official extension.
+  </Step>
+  <Step title="Install Extension">
+    Click the "Install" button next to the HTFlow extension.
+  </Step>
+  <Step title="Restart VS Code">
+    Restart VS Code to activate the extension.
+  </Step>
+</Steps>
+
+### Marketplace Links
+
+<CardGroup cols={2}>
+  <Card
+    title="VS Code Marketplace"
+    icon="external-link"
+    href="https://marketplace.visualstudio.com/items?itemName=htflow.htflow"
+  >
+    Install from the official VS Code marketplace
+  </Card>
+  <Card
+    title="Open VSX Registry"
+    icon="external-link"
+    href="https://open-vsx.org/extension/htflow/htflow"
+  >
+    Alternative installation source
+  </Card>
+</CardGroup>
+
+## Cursor Extension
+
+### Installation
+
+<Steps>
+  <Step title="Open Cursor">Launch Cursor IDE on your machine.</Step>
+  <Step title="Access Extensions">
+    Go to Extensions in the sidebar or use the command palette.
+  </Step>
+  <Step title="Search for HTFlow">
+    Search for "HTFlow" in the extensions marketplace.
+  </Step>
+  <Step title="Install Extension">
+    Install the HTFlow extension for Cursor.
+  </Step>
+  <Step title="Activate Extension">
+    The extension will be available in your AI chat interface.
+  </Step>
+</Steps>
+
+## Chrome Extension
+
+### Installation
+
+<Steps>
+  <Step title="Open Chrome Web Store">
+    Navigate to the Chrome Web Store and search for "HTFlow".
+  </Step>
+  <Step title="Find Extension">
+    Look for "HTFlow - ChatGPT to Webflow Converter".
+  </Step>
+  <Step title="Add to Chrome">
+    Click "Add to Chrome" and confirm the installation.
+  </Step>
+  <Step title="Pin Extension">
+    Pin the extension to your toolbar for easy access.
+  </Step>
+</Steps>
+
+<Card
+  title="Chrome Web Store"
+  icon="chrome"
+  href="https://chromewebstore.google.com/detail/htflow-html-to-webflow-cu/nnkbaccknjdofhmijbddaohboaenbpci"
+>
+  Install HTFlow Chrome Extension
+</Card>
+
+## NPM Package (CLI)
+
+### Installation
+
+<CodeGroup>
+
+```bash npm install
+npm install -g htflow-cli
+```
+
+```bash yarn install
+yarn global add htflow-cli
+```
+
+```bash pnpm install
+pnpm add -g htflow-cli
+```
+
+</CodeGroup>
+
+### Verify Installation
+
+<CodeGroup>
+
+```bash version check
+htflow --version
+```
+
+```bash help command
+htflow --help
+```
+
+</CodeGroup>
+
+## System Requirements
+
+### VS Code Extension
+
+<AccordionGroup>
+  <Accordion title="Minimum Requirements">
+    - VS Code version 1.60.0 or higher - Node.js 14.0.0 or higher - 100MB
+    available disk space
+  </Accordion>
+  <Accordion title="Recommended">
+    - VS Code version 1.80.0 or higher - Node.js 18.0.0 or higher - 200MB
+    available disk space - 8GB RAM
+  </Accordion>
+</AccordionGroup>
+
+### Cursor Extension
+
+<AccordionGroup>
+  <Accordion title="Minimum Requirements">
+    - Cursor version 0.20.0 or higher - Internet connection for AI features -
+    100MB available disk space
+  </Accordion>
+  <Accordion title="Recommended">
+    - Cursor version 0.30.0 or higher - Stable internet connection - 200MB
+    available disk space
+  </Accordion>
+</AccordionGroup>
+
+### Chrome Extension
+
+<AccordionGroup>
+  <Accordion title="Browser Support">
+    - Chrome 88 or higher - Edge 88 or higher - Opera 74 or higher
+  </Accordion>
+  <Accordion title="Permissions">
+    - Access to chat.openai.com - Clipboard access for copying generated code -
+    Storage for user preferences
+  </Accordion>
+</AccordionGroup>
+
+### CLI Requirements
+
+<AccordionGroup>
+  <Accordion title="Node.js">
+    - Node.js 16.0.0 or higher - npm 7.0.0 or higher (or yarn/pnpm equivalent)
+  </Accordion>
+  <Accordion title="Operating Systems">
+    - Windows 10 or higher - macOS 10.15 or higher - Linux (Ubuntu 18.04+,
+    CentOS 7+, etc.)
+  </Accordion>
+</AccordionGroup>
+
+## Post-Installation Setup
+
+### VS Code Configuration
+
+<Steps>
+  <Step title="Open Settings">
+    Go to File > Preferences > Settings (or `Ctrl+,` / `Cmd+,`).
+  </Step>
+  <Step title="Search HTFlow">
+    Search for "HTFlow" in the settings search bar.
+  </Step>
+  <Step title="Configure Options">
+    Set your preferred conversion options and output formats.
+  </Step>
+  <Step title="Test Installation">
+    Open a file and try using the HTFlow commands.
+  </Step>
+</Steps>
+
+### Chrome Extension Setup
+
+<Steps>
+  <Step title="Access Extension Options">
+    Right-click the HTFlow extension icon and select "Options".
+  </Step>
+  <Step title="Configure Settings">
+    Set your preferred conversion settings and output formats.
+  </Step>
+  <Step title="Test on ChatGPT">
+    Navigate to chat.openai.com and test the conversion functionality.
+  </Step>
+</Steps>
+
+## Troubleshooting Installation
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion title="Extension Not Loading">
+    - Restart your editor/IDE - Check for extension conflicts - Verify system
+    requirements - Reinstall the extension
+  </Accordion>
+  <Accordion title="Permission Errors">
+    - Check file system permissions - Run as administrator (Windows) or with
+    sudo (Linux/Mac) - Verify antivirus software isn't blocking the installation
+  </Accordion>
+  <Accordion title="Network Issues">
+    - Check internet connection - Verify firewall settings - Try using a VPN if
+    in a restricted network
+  </Accordion>
+</AccordionGroup>
+
+### Getting Help
+
+<CardGroup cols={2}>
+  <Card
+    title="GitHub Issues"
+    icon="github"
+    href="https://github.com/htflow/issues"
+  >
+    Report bugs and request features
+  </Card>
+  <Card
+    title="Discord Community"
+    icon="discord"
+    href="https://discord.gg/htflow"
+  >
+    Get help from the community
+  </Card>
+</CardGroup>

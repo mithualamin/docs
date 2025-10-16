@@ -1,0 +1,417 @@
+---
+title: "Webflow Conversion"
+description: "Learn how to convert ChatGPT conversations into Webflow-ready code with our powerful conversion tools."
+---
+
+## Overview
+
+The Webflow conversion feature transforms your ChatGPT conversations into clean, semantic HTML and CSS code that's optimized for Webflow's design system. This guide covers all the conversion options and best practices.
+
+## Conversion Methods
+
+### VS Code Extension
+
+<Steps>
+  <Step title="Open Command Palette">
+    Press `Ctrl+Shift+P` (Windows/Linux) or `Cmd+Shift+P` (Mac).
+  </Step>
+  <Step title="Select Conversion Command">
+    Type "HTFlow: Convert to Webflow" and select the command.
+  </Step>
+  <Step title="Paste ChatGPT Content">
+    Paste your ChatGPT conversation or generated content.
+  </Step>
+  <Step title="Configure Options">
+    Set conversion preferences and output format.
+  </Step>
+  <Step title="Generate Code">
+    Click "Convert" to generate Webflow-ready code.
+  </Step>
+</Steps>
+
+### Cursor Integration
+
+<Steps>
+  <Step title="Open AI Chat">Access the AI chat interface in Cursor.</Step>
+  <Step title="Use Conversion Commands">
+    Type conversion commands like `/convert-webflow` or `/webflow-html`.
+  </Step>
+  <Step title="Provide Content">
+    Share your ChatGPT conversation or content to convert.
+  </Step>
+  <Step title="Review Output">
+    Review and refine the generated Webflow code.
+  </Step>
+</Steps>
+
+### Chrome Extension
+
+<Steps>
+  <Step title="Navigate to ChatGPT">
+    Go to chat.openai.com and open your conversation.
+  </Step>
+  <Step title="Click Extension Icon">
+    Click the HTFlow extension icon in your browser toolbar.
+  </Step>
+  <Step title="Select Content">
+    Choose which parts of the conversation to convert.
+  </Step>
+  <Step title="Convert to Webflow">
+    Click "Convert to Webflow" to generate the code.
+  </Step>
+  <Step title="Copy Code">
+    Copy the generated HTML and CSS to your clipboard.
+  </Step>
+</Steps>
+
+## Conversion Options
+
+### Output Formats
+
+<CardGroup cols={2}>
+  <Card title="HTML + CSS" icon="code">
+    Separate HTML structure and CSS styling files **Best for:** Component
+    libraries and modular designs
+  </Card>
+  <Card title="Inline Styles" icon="paint-brush">
+    HTML with embedded CSS styles **Best for:** Quick prototypes and simple
+    layouts
+  </Card>
+  <Card title="Webflow Classes" icon="webflow">
+    HTML with Webflow-specific class names **Best for:** Direct Webflow Designer
+    integration
+  </Card>
+  <Card title="React Components" icon="react">
+    JSX components with styled-components **Best for:** React-based Webflow
+    projects
+  </Card>
+</CardGroup>
+
+### Conversion Settings
+
+<AccordionGroup>
+  <Accordion title="Code Style">
+    **Indentation:** 2 or 4 spaces, tabs **Line Length:** 80, 100, or 120
+    characters **Formatting:** Prettier, ESLint compatible **Comments:** Include
+    or exclude code comments
+  </Accordion>
+
+  <Accordion title="Webflow Integration">
+    **Class Naming:** BEM, CSS Modules, or custom convention **Responsive:**
+    Mobile-first or desktop-first approach **Components:** Break into reusable
+    components **Assets:** Include placeholder images and icons
+  </Accordion>
+
+  <Accordion title="Optimization">
+    **Minification:** Minify CSS and HTML output **Compression:** Optimize for
+    file size **Performance:** Include performance optimizations
+    **Accessibility:** Ensure WCAG compliance
+  </Accordion>
+</AccordionGroup>
+
+## Content Types
+
+### Landing Pages
+
+<CodeGroup>
+
+```markdown ChatGPT Input
+Create a landing page for a SaaS product with:
+
+- Hero section with headline, subheadline, and CTA
+- Features section with 3 feature cards
+- Pricing section with 3 pricing tiers
+- Footer with links and contact information
+```
+
+```html Generated HTML
+<section class="hero-section">
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="hero-title">Revolutionary SaaS Solution</h1>
+      <p class="hero-subtitle">
+        Transform your workflow with our cutting-edge platform designed for
+        modern teams.
+      </p>
+      <div class="hero-cta">
+        <button class="btn btn-primary">Start Free Trial</button>
+        <button class="btn btn-secondary">Watch Demo</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features-section">
+  <div class="container">
+    <h2 class="section-title">Why Choose Our Platform</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3 class="feature-title">Lightning Fast</h3>
+        <p class="feature-description">
+          Experience blazing-fast performance with our optimized infrastructure.
+        </p>
+      </div>
+      <!-- More feature cards -->
+    </div>
+  </div>
+</section>
+```
+
+```css Generated CSS
+.hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 120px 0;
+  color: white;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+```
+
+</CodeGroup>
+
+### Component Libraries
+
+<CodeGroup>
+
+```markdown ChatGPT Input
+Design a card component with:
+
+- Image at the top
+- Title and description text
+- Action button with hover effect
+- Clean, modern styling with subtle shadows
+```
+
+```html Generated HTML
+<div class="card">
+  <div class="card-image">
+    <img src="placeholder-image.jpg" alt="Card image" class="card-img" />
+  </div>
+  <div class="card-content">
+    <h3 class="card-title">Card Title</h3>
+    <p class="card-description">
+      This is a description of the card content that explains what it's about.
+    </p>
+    <button class="card-button">Learn More</button>
+  </div>
+</div>
+```
+
+```css Generated CSS
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-button {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.card-button:hover {
+  background: #5a67d8;
+}
+```
+
+</CodeGroup>
+
+### Forms and Interactive Elements
+
+<CodeGroup>
+
+```markdown ChatGPT Input
+Create a contact form with:
+
+- Name and email fields
+- Message textarea
+- Submit button
+- Form validation styling
+```
+
+```html Generated HTML
+<form class="contact-form">
+  <div class="form-group">
+    <label for="name" class="form-label">Full Name</label>
+    <input type="text" id="name" name="name" class="form-input" required />
+  </div>
+
+  <div class="form-group">
+    <label for="email" class="form-label">Email Address</label>
+    <input type="email" id="email" name="email" class="form-input" required />
+  </div>
+
+  <div class="form-group">
+    <label for="message" class="form-label">Message</label>
+    <textarea
+      id="message"
+      name="message"
+      class="form-textarea"
+      rows="5"
+      required
+    ></textarea>
+  </div>
+
+  <button type="submit" class="form-submit">Send Message</button>
+</form>
+```
+
+```css Generated CSS
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #667eea;
+}
+```
+
+</CodeGroup>
+
+## Advanced Features
+
+### Responsive Design
+
+<AccordionGroup>
+  <Accordion title="Mobile-First Approach">
+    The conversion tool generates mobile-first CSS with progressive enhancement
+    for larger screens.
+  </Accordion>
+
+  <Accordion title="Breakpoint Management">
+    Uses standard breakpoints (768px, 1024px, 1200px) that align with Webflow's
+    responsive system.
+  </Accordion>
+
+  <Accordion title="Flexible Layouts">
+    Generates flexible grid and flexbox layouts that adapt to different screen
+    sizes.
+  </Accordion>
+</AccordionGroup>
+
+### Webflow-Specific Features
+
+<CardGroup cols={2}>
+  <Card title="CMS Integration" icon="database">
+    Generate code compatible with Webflow CMS collections and dynamic content.
+  </Card>
+  <Card title="Interactions" icon="mouse-pointer">
+    Include Webflow interaction code for animations and micro-interactions.
+  </Card>
+  <Card title="Symbols" icon="clone">
+    Create reusable symbols and components for consistent design patterns.
+  </Card>
+  <Card title="E-commerce" icon="shopping-cart">
+    Generate product layouts and shopping cart interfaces for Webflow
+    E-commerce.
+  </Card>
+</CardGroup>
+
+## Best Practices
+
+### Content Preparation
+
+<Steps>
+  <Step title="Structure Your Prompts">
+    Use clear, hierarchical prompts that define the desired layout structure.
+  </Step>
+  <Step title="Include Design Details">
+    Specify colors, typography, spacing, and visual elements in your ChatGPT
+    prompts.
+  </Step>
+  <Step title="Break Down Complex Designs">
+    Convert large layouts into smaller, manageable components for better
+    results.
+  </Step>
+</Steps>
+
+### Post-Conversion Optimization
+
+<AccordionGroup>
+  <Accordion title="Code Review">
+    - Check HTML semantics and accessibility - Verify CSS specificity and
+    organization - Test responsive behavior across devices - Validate code
+    standards and best practices
+  </Accordion>
+
+  <Accordion title="Webflow Integration">
+    - Import code into Webflow Designer - Apply Webflow-specific styling and
+    interactions - Set up responsive breakpoints - Configure CMS and dynamic
+    content
+  </Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion title="Incomplete Conversion">
+    **Cause:** Ambiguous or incomplete ChatGPT prompts **Solution:** Provide
+    more specific, detailed prompts with clear structure requirements
+  </Accordion>
+
+  <Accordion title="Styling Issues">
+    **Cause:** Missing design specifications in prompts **Solution:** Include
+    specific colors, fonts, spacing, and layout requirements
+  </Accordion>
+
+  <Accordion title="Responsive Problems">
+    **Cause:** No responsive design instructions **Solution:** Explicitly
+    request mobile-first or responsive design in prompts
+  </Accordion>
+</AccordionGroup>
+
+### Getting Help
+
+<CardGroup cols={2}>
+  <Card title="Documentation" icon="book" href="/chatgpt-to-webflow/workflow">
+    Review the complete workflow guide
+  </Card>
+  <Card title="Community Support" icon="users" href="https://discord.gg/htflow">
+    Get help from the community
+  </Card>
+</CardGroup>
