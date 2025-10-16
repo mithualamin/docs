@@ -1,6 +1,6 @@
 ---
 title: "ChatGPT to Webflow"
-description: "Transform your ChatGPT conversations into Webflow-ready HTML with our powerful conversion tools."
+description: "Generate html css and javascript components in chatGpT and convert with htflow.com"
 icon: "brain"
 ---
 
@@ -9,8 +9,28 @@ icon: "brain"
 ChatGPT to Webflow provides a powerful suite of tools designed to seamlessly convert your ChatGPT-generated content into Webflow-ready HTML code. Whether you're building websites, creating landing pages, or developing web applications, our tools bridge the gap between AI-generated content and professional web development.
 
 <Info>
-  Works with **ChatGPT**, **Claude**, **Gemini**, and other AI assistants
+  We created a Custom GPT named **Htflow Html to Webflow** inside ChatGPT. You
+  can use this Custom GPT to generate HTML, CSS, and JavaScript-based components
+  and convert them to Webflow using the **HTFlow Webflow App** or HTFlow web
+  app.
 </Info>
+
+<CardGroup cols={2}>
+  <Card
+    title="HTFlow Custom GPT"
+    icon="brain"
+    href="https://chatgpt.com/g/g-68f0dcfaca7c81918ff288634d24b792-htflow-html-to-webflow"
+  >
+    Generate Webflow-compatible HTML, CSS, and JS components directly in ChatGPT
+  </Card>
+  <Card
+    title="HTFlow Web App"
+    icon="webflow"
+    href="https://htflow.com/html-to-webflow"
+  >
+    Convert your HTML/CSS code into live Webflow components
+  </Card>
+</CardGroup>
 
 ## Prerequisites
 
@@ -152,7 +172,15 @@ After installing the tools, follow this workflow to convert your ChatGPT convers
     ### Step 3: ChatGPT Conversation Setup
 
     <Card title="3. ChatGPT Conversation Setup" icon="message-circle">
-        Set up your ChatGPT conversation with proper structure and formatting for optimal conversion results.
+        Use our Custom GPT **HTFlow Html to Webflow** for the best results, or set up your ChatGPT conversation with proper structure and formatting for optimal conversion results.
+
+        **Option 1: Use HTFlow Custom GPT (Recommended)**
+
+        - Visit [HTFlow Custom GPT](https://chatgpt.com/g/g-68f0dcfaca7c81918ff288634d24b792-htflow-html-to-webflow)
+        - Sign up or log in to ChatGPT
+        - Start generating Webflow-compatible HTML, CSS, and JavaScript components directly
+
+        **Option 2: Standard ChatGPT Setup**
 
         **Key Requirements:**
 
@@ -224,6 +252,14 @@ After installing the tools, follow this workflow to convert your ChatGPT convers
     <Card title="4. Convert ChatGPT Output" icon="refresh-cw">
         Once you have your ChatGPT-generated HTML/CSS, use HTFlow to convert it for Webflow compatibility.
 
+        **Option 1: HTFlow Web App (Recommended)**
+
+        - Visit [HTFlow HTML to Webflow](https://htflow.com/html-to-webflow)
+        - Paste your HTML and CSS code
+        - Click "Convert & Copy" to get Webflow-ready code
+
+        **Option 2: VS Code Extension**
+
         In the HTFlow panel, click on the **"Conversion"** tab and then click the **"Convert ChatGPT to Webflow"** button.
 
         **What the Conversion Does:**
@@ -286,39 +322,72 @@ After installing the tools, follow this workflow to convert your ChatGPT convers
 
   </Tab>
   
-  <Tab title="Chrome Extension">
-    ### Step 1: Install Chrome Extension
+  <Tab title="HTFlow Custom GPT (Easiest)">
     
-    Install the HTFlow Chrome extension from the Chrome Web Store:
+    ### Step 1: Access HTFlow Custom GPT
     
-    <Card title="Chrome Web Store" icon="chrome" href="https://chromewebstore.google.com/detail/htflow-html-to-webflow-cu/nnkbaccknjdofhmijbddaohboaenbpci">
-      Install HTFlow Chrome Extension
+    <Card title="1. Access HTFlow Custom GPT" icon="brain">
+        Visit our Custom GPT directly in ChatGPT for the most streamlined experience.
+      
+      <Card title="HTFlow Custom GPT" icon="external-link" href="https://chatgpt.com/g/g-68f0dcfaca7c81918ff288634d24b792-htflow-html-to-webflow">
+        Generate Webflow-compatible HTML, CSS, and JS components
+      </Card>
     </Card>
     
-    ### Step 2: Navigate to ChatGPT
+    ### Step 2: Generate Components
     
-    Go to chat.openai.com and start your conversation with ChatGPT.
-    
-    ### Step 3: Use Extension
-    
-    Click the HTFlow extension icon to convert your ChatGPT conversation to Webflow-ready code.
-    
+    <Card title="2. Generate Components" icon="code">
+        Use the Custom GPT to generate your HTML, CSS, and JavaScript components.
+
+        **What the Custom GPT Does:**
+
+        - Generates Webflow-compatible HTML structure
+        - Creates responsive CSS with Webflow best practices
+        - Provides JavaScript for interactive elements
+        - Optimizes code for Webflow Designer import
+
+        **Example Prompts:**
+
+        - "Create a modern hero section with gradient background"
+        - "Build a pricing table with 3 tiers"
+        - "Design a contact form with validation"
+        - "Make a testimonial slider component"
+    </Card>
+
+    ### Step 3: Convert with HTFlow Web App
+
+    <Card title="3. Convert with HTFlow Web App" icon="webflow">
+        Use the HTFlow web app to convert your generated code into Webflow components.
+
+        **Conversion Process:**
+
+        1. Copy the HTML and CSS from the Custom GPT
+        2. Visit [HTFlow HTML to Webflow](https://htflow.com/html-to-webflow)
+        3. Paste your code into the input areas
+        4. Click "Convert & Copy" to get Webflow-ready code
+        5. Paste directly into Webflow Designer
+
+        <Card title="HTFlow Web App" icon="external-link" href="https://htflow.com/html-to-webflow">
+          Convert HTML/CSS to Webflow components
+        </Card>
+    </Card>
+
+    ### Step 4: Import to Webflow
+
+    <Card title="4. Import to Webflow" icon="upload">
+        Paste the converted code directly into your Webflow project.
+
+        **Import Steps:**
+
+        - **Mac**: `Cmd + V` to paste into Webflow Designer
+        - **Windows**: `Ctrl + V` to paste into Webflow Designer
+        - Customize styling using Webflow's visual editor
+        - Add interactions and animations as needed
+    </Card>
+
   </Tab>
   
-  <Tab title="CLI Tool">
-    ### Initialize Project
-    
-    ```bash
-    htflow init --chatgpt
-    ```
-    
-    ### Convert Conversation
-    
-    ```bash
-    htflow convert-chatgpt --input conversation.txt --output webflow-ready/
-    ```
-    
-  </Tab>
+ 
 </Tabs>
 
 ## Key Features
