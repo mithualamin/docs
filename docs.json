@@ -33,14 +33,6 @@
               "chatgpt-to-webflow/quick-start",
               "chatgpt-to-webflow/workflow"
             ]
-          },
-          {
-            "group": "Commands",
-            "pages": [
-              "chatgpt-to-webflow/commands/installation",
-              "chatgpt-to-webflow/commands/requirements",
-              "chatgpt-to-webflow/commands/webflow-conversion"
-            ]
           }
         ]
       },
