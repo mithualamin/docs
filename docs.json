@@ -51,7 +51,7 @@
           "icon": "chrome"
         },
         {
-          "anchor": "Chrome Extension",
+          "anchor": "htflow-cli",
           "href": "https://www.npmjs.com/package/htflow-cli",
           "icon": "npm"
         }
