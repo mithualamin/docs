@@ -15,11 +15,7 @@
         "groups": [
           {
             "group": "Getting Started",
-            "pages": [
-              "htflow/introduction",
-              "htflow/vscode-extension",
-              "htflow/cursor-extension"
-            ]
+            "pages": ["htflow/vscode-extension", "htflow/cursor-extension"]
           }
         ]
       },
